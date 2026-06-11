@@ -59,6 +59,31 @@
         </nav>
     </header>
 
+    <main>
+
+        <section class="page-hero">
+            <p class="page-hero__eyebrow">Importando Santa Fe</p>
+            <h1 class="page-hero__titulo">Perfumes Diseñador</h1>
+            <div class="hero__separador"></div>
+            <p class="page-hero__subtitulo">Las firmas más reconocidas del mundo en un solo lugar. Elegancia y estilo en cada frasco.</p>
+        </section>
+
+        <!-- Nav horizontal solo en mobile -->
+        <nav class="catalogo-nav" id="catalogo-nav-mobile">
+            <ul class="catalogo-nav__lista" id="nav-marcas-mobile"></ul>
+        </nav>
+
+        <!-- Layout: sidebar desktop + catálogo -->
+        <div class="catalogo-layout">
+            <aside class="catalogo-sidebar">
+                <p class="catalogo-sidebar__titulo">Marcas</p>
+                <ul class="catalogo-sidebar__lista" id="nav-marcas-desktop"></ul>
+            </aside>
+            <div class="catalogo-main" id="catalogo-contenido"></div>
+        </div>
+
+    </main>
+
     <!-- Cart overlay + drawer -->
     <div class="cart-overlay" id="cart-overlay"></div>
     <div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Carrito de compras">
@@ -81,12 +106,140 @@
         </div>
     </div>
 
+    <footer class="footer animate-on-scroll">
+        <div class="footer__contenido">
+            <p class="footer__marca">Importando Santa Fe</p>
+            <p class="footer__tagline">Perfumes del mundo, en tu ciudad.</p>
+            <div class="footer__social">
+                <a href="https://wa.me/543491411302" target="_blank" rel="noopener"
+                    class="footer__social-link footer__social-link--wa">
+                    <i class="bi bi-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://www.instagram.com/importandosantafe/" target="_blank" rel="noopener"
+                    class="footer__social-link footer__social-link--ig">
+                    <i class="bi bi-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+            <p class="footer__copy">&copy; 2026 Importando Santa Fe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
     <a href="https://wa.me/543491411302" target="_blank" rel="noopener" class="whatsapp-float">
         <i class="bi bi-whatsapp"></i>
     </a>
 
+    <button class="back-to-top" id="back-to-top" aria-label="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/products-disenador.js"></script>
     <script src="../assets/js/cart.js"></script>
+    <script>
+        const navMobileEl = document.getElementById('nav-marcas-mobile');
+        const navDesktopEl = document.getElementById('nav-marcas-desktop');
+        const contenidoEl = document.getElementById('catalogo-contenido');
+
+        Object.entries(catalogoDisenador).forEach(([id, marca]) => {
+            // Mobile nav pill
+            const liM = document.createElement('li');
+            liM.innerHTML = `<a href="#${id}" class="catalogo-nav__item">${marca.nombre}</a>`;
+            navMobileEl.appendChild(liM);
+
+            // Desktop sidebar link
+            const liD = document.createElement('li');
+            liD.innerHTML = `<a href="#${id}" class="catalogo-sidebar__item" data-marca="${id}">${marca.nombre}</a>`;
+            navDesktopEl.appendChild(liD);
+
+            // Sección de marca
+            const section = document.createElement('section');
+            section.id = id;
+            section.className = 'catalogo-seccion animate-on-scroll';
+
+            const cards = marca.productos.map(p => {
+                const nEsc = p.nombre.replace(/"/g, '&quot;');
+                const mEsc = marca.nombre.replace(/"/g, '&quot;');
+                const imgHtml = p.imagen
+                    ? `<img src="../assets/img/${encodeURIComponent(p.imagen)}" alt="${nEsc}" class="producto-card__img-foto" loading="lazy">`
+                    : `<i class="bi bi-bag producto-card__img-placeholder"></i>`;
+                return `
+                <div class="col">
+                    <div class="producto-card">
+                        <div class="producto-card__img">
+                            ${imgHtml}
+                        </div>
+                        <div class="producto-card__info">
+                            <p class="producto-card__nombre">${p.nombre}</p>
+                            <div class="producto-card__footer">
+                                ${p.precio
+                                    ? `<p class="producto-card__precio">${p.precio}</p>`
+                                    : `<p class="producto-card__precio producto-card__precio--consultar">Consultar precio</p>`
+                                }
+                                <button class="btn-agregar"
+                                    data-nombre="${nEsc}"
+                                    data-marca="${mEsc}"
+                                    data-precio="${p.precio || ''}">
+                                    <i class="bi bi-bag-plus"></i>
+                                    <span>Agregar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+
+            section.innerHTML = `
+                <div class="container-fluid px-4">
+                    <div class="catalogo-seccion__encabezado">
+                        <h2 class="catalogo-seccion__titulo">${marca.nombre}</h2>
+                        <div class="catalogo-seccion__linea"></div>
+                    </div>
+                    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                        ${cards}
+                    </div>
+                </div>`;
+
+            contenidoEl.appendChild(section);
+        });
+
+        // Sidebar: marca activa según sección visible
+        const sidebarObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const link = document.querySelector(`.catalogo-sidebar__item[data-marca="${entry.target.id}"]`);
+                if (link) link.classList.toggle('active', entry.isIntersecting);
+            });
+        }, { threshold: 0, rootMargin: '-40px 0px -75% 0px' });
+
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0 });
+
+        // Back to top
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTopBtn.classList.toggle('visible', window.scrollY > 300);
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.querySelectorAll('.catalogo-seccion').forEach(el => {
+            sidebarObserver.observe(el);
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                el.classList.add('visible');
+            } else {
+                revealObserver.observe(el);
+            }
+        });
+    </script>
 </body>
 
 </html>

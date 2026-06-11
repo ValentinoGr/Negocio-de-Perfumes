@@ -88,6 +88,11 @@
   .page-hero {
     padding: 2.5rem 1.25rem 2rem;
 
+    &__titulo {
+      font-size: clamp(2rem, 10vw, 3.5rem);
+      line-height: 1.1;
+    }
+
     &__subtitulo {
       font-size: 0.88rem;
       letter-spacing: 0.02em;

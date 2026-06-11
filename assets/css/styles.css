@@ -1095,6 +1095,10 @@ html {
   .page-hero {
     padding: 2.5rem 1.25rem 2rem;
   }
+  .page-hero__titulo {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+    line-height: 1.1;
+  }
   .page-hero__subtitulo {
     font-size: 0.88rem;
     letter-spacing: 0.02em;
