@@ -1164,6 +1164,10 @@ html {
     bottom: 1.25rem;
     right: 1.25rem;
   }
+  .back-to-top {
+    bottom: 5rem;
+    right: 1.25rem;
+  }
   .footer {
     padding: 2.5rem 1.25rem 1.75rem;
   }
@@ -1258,5 +1262,148 @@ html {
   transform: translateY(-2px);
 }
 .not-found__btn:active { transform: translateY(0); }
+
+/* ── Info cards (informacion.html) ──────────────── */
+.info-grid {
+  padding: 3rem 0 5rem;
+}
+.info-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
+}
+.info-card__header {
+  background-color: #2c2c2c;
+  padding: 2rem 2rem 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+.info-card__deco {
+  position: absolute;
+  right: 1.25rem;
+  bottom: -0.5rem;
+  font-size: 5.5rem;
+  color: rgba(255, 255, 255, 0.06);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.info-card__icono {
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.45);
+  display: block;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+.info-card__titulo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+.info-card__body {
+  padding: 1.75rem 2rem 2rem;
+  flex: 1;
+}
+.info-card__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.info-card__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.info-card__item i {
+  font-size: 1.05rem;
+  color: #2c2c2c;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  opacity: 0.6;
+}
+.info-card__item span {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.75;
+}
+.info-card__item strong {
+  color: #2c2c2c;
+  font-weight: 600;
+}
+
+/* ── CTA info (informacion.html) ─────────────────── */
+.info-cta {
+  background-color: #2c2c2c;
+  padding: 4.5rem 1.5rem;
+  text-align: center;
+}
+.info-cta__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 0.75rem;
+}
+.info-cta__titulo {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+.info-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  background-color: #25d366;
+  color: #ffffff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+.info-cta__btn i { font-size: 1.3rem; }
+.info-cta__btn:hover {
+  background-color: #1ebe5d;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+.info-cta__btn:active { transform: translateY(0); }
+
+/* ── Info cards mobile overrides ─────────────────── */
+@media (max-width: 767.98px) {
+  .info-card__header { padding: 1.5rem 1.5rem 1.25rem; }
+  .info-card__body   { padding: 1.25rem 1.5rem 1.5rem; }
+  .info-cta          { padding: 3rem 1.25rem; }
+}
 
 /*# sourceMappingURL=styles.css.map */

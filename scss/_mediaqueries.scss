@@ -167,6 +167,12 @@
     right: 1.25rem;
   }
 
+  // Back to top: justo arriba del WA
+  .back-to-top {
+    bottom: 5rem;
+    right: 1.25rem;
+  }
+
   // Footer
   .footer {
     padding: 2.5rem 1.25rem 1.75rem;
@@ -176,6 +182,14 @@
       font-size: 0.82rem;
     }
   }
+
+  // Info cards: menos padding en mobile
+  .info-card {
+    &__header { padding: 1.5rem 1.5rem 1.25rem; }
+    &__body   { padding: 1.25rem 1.5rem 1.5rem; }
+  }
+
+  .info-cta { padding: 3rem 1.25rem; }
 }
 
 // ── Mobile pequeño (< 400px) ─────────────────────
