@@ -1,0 +1,17 @@
+{
+  "name": "Importando Santa Fe",
+  "short_name": "Importando SF",
+  "description": "Perfumes árabes, de diseñador y decants. Envíos a todo Argentina.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ededec",
+  "theme_color": "#2c2c2c",
+  "icons": [
+    {
+      "src": "assets/img/655029000_17886994041459763_6476735069026694364_n.jpg",
+      "sizes": "any",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

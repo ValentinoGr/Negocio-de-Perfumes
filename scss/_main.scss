@@ -864,3 +864,61 @@ html { scroll-behavior: smooth; }
   &:active { transform: translateY(0); }
   i { font-size: 1.2rem; }
 }
+
+// ── 404 ───────────────────────────────────────────
+.not-found {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 1.5rem;
+
+  &__codigo {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(6rem, 22vw, 12rem);
+    font-weight: 700;
+    color: $grafito;
+    line-height: 1;
+    margin: 0 0 0.25rem;
+  }
+
+  &__titulo {
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: $grafito;
+    margin-bottom: 0.75rem;
+  }
+
+  &__texto {
+    color: $gris-medio;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    background-color: $grafito;
+    color: $blanco;
+    border-radius: 50px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+
+    &:hover {
+      background-color: $grafito-hover;
+      color: $blanco;
+      transform: translateY(-2px);
+    }
+
+    &:active { transform: translateY(0); }
+  }
+}
