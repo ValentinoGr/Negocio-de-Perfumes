@@ -184,6 +184,46 @@ body {
   }
 }
 
+// ── Volver arriba ────────────────────────────────
+.back-to-top {
+  position: fixed;
+  bottom: 7rem;
+  right: 2rem;
+  width: 42px;
+  height: 42px;
+  background-color: $grafito;
+  color: $blanco;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  z-index: 9998;
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  &:hover {
+    background-color: $grafito-oscuro;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+
+  &:active {
+    transform: scale(0.92);
+  }
+}
+
 // ── Page Hero ─────────────────────────────────────
 .page-hero {
   text-align: center;
@@ -264,6 +304,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding: 1rem;
 
@@ -287,6 +328,14 @@ body {
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: #777;
+  }
+
+  &__flag {
+    height: clamp(1.8rem, 5vw, 3.3rem);
+    width: auto;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
   }
 }
 

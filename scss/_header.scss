@@ -65,3 +65,17 @@
 .navbar-toggler-icon {
   filter: invert(1);
 }
+
+// Separador antes de Productos (solo mobile)
+.navbar-divider-hr {
+  border: none;
+  border-top: 1px solid $grafito-borde;
+  margin: 0.35rem 1rem;
+  opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav .nav-link.active {
+    border-bottom: none;
+  }
+}
