@@ -1,0 +1,218 @@
+@use 'variables' as *;
+
+// ─────────────────────────────────────────────────
+// Breakpoints
+//   xs  < 576px   → teléfonos portrait
+//   sm  < 768px   → teléfonos landscape / phablets
+//   md  < 992px   → tablets (algunos ya manejados en _main.scss)
+// ─────────────────────────────────────────────────
+
+// ── Tablet y mobile (< 992px) ────────────────────
+@media (max-width: 991.98px) {
+
+  // Navbar: logo más chico, menos padding
+  .navbar {
+    padding: 0.85rem 1.25rem;
+    margin: 0.5rem 0.75rem;
+  }
+
+  .navbar-brand img.logo {
+    height: 72px;
+  }
+
+  // Hero: menos padding vertical
+  .hero {
+    padding: 3.5rem 1.5rem 3rem;
+  }
+
+  // Page hero: menos padding
+  .page-hero {
+    padding: 3.5rem 1.5rem 2.5rem;
+  }
+
+  // Categorías: menos espacio inferior
+  .categorias {
+    padding: 1.5rem 0 3rem;
+  }
+
+  // Nosotros secciones: menos padding
+  .nosotros-secciones {
+    padding: 3rem 0 3.5rem;
+  }
+
+  // Stats band: padding ajustado
+  .stats-band {
+    padding: 3rem 1rem;
+  }
+
+  // Footer: menos padding
+  .footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+}
+
+// ── Mobile (< 768px) ─────────────────────────────
+@media (max-width: 767.98px) {
+
+  // Navbar: pill más discreta, logo chico
+  .navbar {
+    padding: 0.65rem 1rem;
+    margin: 0.4rem 0.6rem;
+    border-radius: 16px;
+  }
+
+  .navbar-brand img.logo {
+    height: 58px;
+  }
+
+  // Cuando el menú está abierto, sacar border-radius inferior
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    padding-top: 0.5rem;
+  }
+
+  // Hero: ajuste para pantallas chicas
+  .hero {
+    padding: 2.5rem 1.25rem 2.5rem;
+
+    &__subtitulo {
+      font-size: 0.88rem;
+    }
+  }
+
+  // Page hero
+  .page-hero {
+    padding: 2.5rem 1.25rem 2rem;
+
+    &__subtitulo {
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  // Categorías: tarjetas con menos padding
+  .categorias {
+    padding: 1rem 0 2.5rem;
+  }
+
+  .categoria-card {
+    padding: 1.75rem 1.5rem;
+
+    &__numero { font-size: 2rem; margin-bottom: 0.9rem; }
+    &__titulo { font-size: 1.35rem; }
+    &__texto  { font-size: 0.84rem; margin-bottom: 1.5rem; }
+  }
+
+  // Brand quote
+  .brand-quote {
+    padding: 2rem 1.25rem;
+  }
+
+  // Stats band
+  .stats-band {
+    padding: 2rem 0.5rem;
+    margin: 1.5rem 0;
+
+    &__label {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  // Nosotros bloques: número más chico, menos gap
+  .nosotros-secciones {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .nosotros-bloque {
+    gap: 1.25rem;
+    padding: 2rem 0;
+
+    &__numero {
+      font-size: 2.5rem;
+      width: 48px;
+    }
+
+    &__titulo { font-size: 1.25rem; }
+    &__texto  { font-size: 0.88rem; }
+  }
+
+  // Secciones del catálogo: menos padding
+  .catalogo-seccion {
+    padding: 2.5rem 0 1.5rem;
+
+    &__encabezado { margin-bottom: 1.5rem; }
+  }
+
+  // Drawer carrito: ancho completo en mobile
+  .cart-drawer {
+    width: 100%;
+  }
+
+  // WA flotante: más cerca del borde, un poco más chico
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 1.55rem;
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  // Footer
+  .footer {
+    padding: 2.5rem 1.25rem 1.75rem;
+
+    &__social-link {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.82rem;
+    }
+  }
+}
+
+// ── Mobile pequeño (< 400px) ─────────────────────
+@media (max-width: 399.98px) {
+
+  .navbar {
+    margin: 0.3rem 0.4rem;
+  }
+
+  .navbar-brand img.logo {
+    height: 50px;
+  }
+
+  .hero {
+    padding: 2rem 1rem 2rem;
+  }
+
+  .page-hero {
+    padding: 2rem 1rem 1.75rem;
+  }
+
+  // Stats: apilar ítems en pantallas muy chicas
+  .stats-band__item--border {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid $grafito-borde;
+    border-bottom: 1px solid $grafito-borde;
+  }
+
+  // Bloques nosotros: apilar número arriba
+  .nosotros-bloque {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &__numero {
+      font-size: 2rem;
+      width: auto;
+    }
+  }
+
+  // Categorías: una columna
+  .categorias .row {
+    --bs-gutter-x: 0.75rem;
+  }
+
+  .catalogo-seccion {
+    padding: 2rem 0 1rem;
+  }
+}

@@ -9,7 +9,10 @@
       "PowerShell(Rename-Item -Path \"c:\\\\Users\\\\User\\\\sitioSanti\\\\pages\\\\dise�ador.html\" -NewName \"disenador.html\")",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)"
     ]
   }
 }
