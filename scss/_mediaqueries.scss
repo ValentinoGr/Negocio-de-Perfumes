@@ -75,6 +75,10 @@
   .hero {
     padding: 2.5rem 1.25rem 2.5rem;
 
+    &__titulo {
+      font-size: clamp(2rem, 11vw, 3.5rem);
+    }
+
     &__subtitulo {
       font-size: 0.88rem;
     }
