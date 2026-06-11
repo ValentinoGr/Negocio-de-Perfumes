@@ -48,6 +48,7 @@ body {
   background-color: #ededec;
   margin: 0;
   padding: 0;
+  overflow-x: clip;
 }
 
 .hero {
@@ -989,7 +990,7 @@ html {
 /* ── Tablet y mobile (< 992px) ─────────────────── */
 @media (max-width: 991.98px) {
   .navbar { padding: 0.85rem 1.25rem; margin: 0.5rem 0.75rem; }
-  .navbar-brand img.logo { height: 72px; }
+  .navbar-brand img.logo { height: 82px; }
   .hero { padding: 3.5rem 1.5rem 3rem; }
   .page-hero { padding: 3.5rem 1.5rem 2.5rem; }
   .categorias { padding: 1.5rem 0 3rem; }
@@ -1001,7 +1002,7 @@ html {
 /* ── Mobile (< 768px) ───────────────────────────── */
 @media (max-width: 767.98px) {
   .navbar { padding: 0.65rem 1rem; margin: 0.4rem 0.6rem; border-radius: 16px; }
-  .navbar-brand img.logo { height: 58px; }
+  .navbar-brand img.logo { height: 72px; }
   .navbar-collapse.show,
   .navbar-collapse.collapsing { padding-top: 0.5rem; }
   .hero { padding: 2.5rem 1.25rem 2.5rem; }
@@ -1032,7 +1033,7 @@ html {
 /* ── Mobile pequeño (< 400px) ──────────────────── */
 @media (max-width: 399.98px) {
   .navbar { margin: 0.3rem 0.4rem; }
-  .navbar-brand img.logo { height: 50px; }
+  .navbar-brand img.logo { height: 62px; }
   .hero { padding: 2rem 1rem 2rem; }
   .page-hero { padding: 2rem 1rem 1.75rem; }
   .stats-band__item--border { border-left: none; border-right: none; border-top: 1px solid #3a3a3a; border-bottom: 1px solid #3a3a3a; }
