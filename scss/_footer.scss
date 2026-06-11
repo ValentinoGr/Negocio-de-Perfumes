@@ -1,0 +1,72 @@
+@use 'variables' as *;
+
+.footer {
+  background-color: $grafito;
+  padding: 4rem 1.5rem 2.5rem;
+  border-top: 1px solid #3a3a3a;
+
+  &__contenido {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__marca {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: $blanco;
+    margin-bottom: 0.4rem;
+  }
+
+  &__tagline {
+    font-size: 0.82rem;
+    color: #666;
+    letter-spacing: 0.1em;
+    margin-bottom: 2.5rem;
+  }
+
+  &__social {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.7rem 1.6rem;
+    border: 1px solid #444;
+    color: $gris-claro;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    transition: border-color 0.3s, color 0.3s, transform 0.2s;
+
+    i { font-size: 1rem; }
+
+    &:hover { transform: translateY(-3px); }
+
+    &--wa:hover {
+      border-color: #25d366;
+      color: #25d366;
+    }
+
+    &--ig:hover {
+      border-color: #e1306c;
+      color: #e1306c;
+    }
+  }
+
+  &__copy {
+    font-size: 0.72rem;
+    color: #444;
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
+}

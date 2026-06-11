@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\User\\\\sitioSanti\" -Recurse -Depth 2)",
+      "Bash(Select-Object FullName)",
+      "PowerShell(New-Item -ItemType Directory -Path \"c:\\\\Users\\\\User\\\\sitioSanti\\\\assets\\\\css\")",
+      "PowerShell(New-Item -ItemType Directory -Path \"c:\\\\Users\\\\User\\\\sitioSanti\\\\assets\\\\js\")",
+      "PowerShell(New-Item -ItemType Directory -Path \"c:\\\\Users\\\\User\\\\sitioSanti\\\\assets\\\\img\")",
+      "PowerShell(Rename-Item -Path \"c:\\\\Users\\\\User\\\\sitioSanti\\\\pages\\\\dise�ador.html\" -NewName \"disenador.html\")",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

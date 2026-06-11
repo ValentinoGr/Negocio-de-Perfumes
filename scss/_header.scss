@@ -1,0 +1,67 @@
+@use 'variables' as *;
+
+.navbar {
+  background-color: $grafito;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 2px solid $gris-navbar;
+  border-radius: 30px;
+  margin: 0.75rem 1.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0.5, 0.5);
+}
+
+.navbar-brand img.logo {
+  height: 100px;
+  width: auto;
+}
+
+.navbar-nav .nav-link {
+  color: $gris-claro;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+
+  &:hover,
+  &:focus {
+    color: $blanco;
+  }
+
+  &.active {
+    color: $blanco;
+    font-weight: 600;
+    border-bottom: 2px solid $gris-medio;
+  }
+}
+
+// Dropdown
+.dropdown-menu {
+  background-color: $grafito-oscuro;
+  border: 1px solid $grafito-borde;
+  border-radius: 0;
+  margin-top: 0;
+}
+
+.dropdown-item {
+  color: $gris-claro;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.25rem;
+  transition: background-color 0.15s, color 0.15s;
+
+  &:hover {
+    background-color: $grafito-hover;
+    color: $blanco;
+  }
+}
+
+.dropdown-divider {
+  border-color: $grafito-borde;
+}
+
+// Toggler mobile
+.navbar-toggler {
+  border-color: $gris-medio;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
