@@ -41,7 +41,11 @@
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPrincipal"
           aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="hamburger-icon" aria-hidden="true">
+            <span class="hamburger-icon__line"></span>
+            <span class="hamburger-icon__line"></span>
+            <span class="hamburger-icon__line"></span>
+          </span>
         </button>
         <div class="collapse navbar-collapse" id="navbarPrincipal">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
@@ -231,6 +235,34 @@
       }
     });
   </script>
+
+  <!-- Newsletter popup -->
+  <div class="nl-overlay" id="nl-overlay"></div>
+  <div class="nl-popup" id="nl-popup" role="dialog" aria-labelledby="nl-titulo" aria-modal="true">
+    <button class="nl-cerrar" id="nl-cerrar" aria-label="Cerrar">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <p class="nl-eyebrow">Oferta exclusiva</p>
+    <h2 class="nl-titulo" id="nl-titulo">¡5% OFF en tu primer pedido!</h2>
+    <p class="nl-texto">Dejanos tu email y recibí el cupón al instante.</p>
+    <form class="nl-form" id="nl-form" novalidate>
+      <div class="nl-input-wrap">
+        <input type="email" class="nl-input" id="nl-email"
+          placeholder="tu@email.com" required autocomplete="email">
+        <button type="submit" class="nl-btn">Quiero mi 5%</button>
+      </div>
+      <p class="nl-nota">Sin spam. Podés darte de baja cuando quieras.</p>
+    </form>
+    <div class="nl-cupon" id="nl-cupon" hidden>
+      <p class="nl-cupon__label">Tu cupón de descuento:</p>
+      <div class="nl-cupon__codigo">BIENVENIDO5</div>
+      <button class="nl-cupon__btn" id="nl-copiar">
+        <i class="bi bi-clipboard"></i> Copiar cupón
+      </button>
+      <p class="nl-cupon__nota">Compartilo por WhatsApp al confirmar tu pedido.</p>
+    </div>
+  </div>
+  <script src="../assets/js/newsletter.js"></script>
 </body>
 
 </html>
