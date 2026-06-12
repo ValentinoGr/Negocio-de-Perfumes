@@ -44,6 +44,18 @@
   transition-delay: 0.3s;
 }
 
+/* ── Barra de progreso de scroll ──────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: #c9a06a;
+  z-index: 9999;
+  transition: width 0.08s linear;
+}
+
 body {
   background-color: #ededec;
   margin: 0;
@@ -152,6 +164,38 @@ main {
 .categoria-card:hover .categoria-card__link {
   color: #ffffff;
   border-color: #d6d6d6;
+}
+
+/* ── Decoración cards categoría ───────────────────── */
+.cat-titulo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+.cat-titulo-wrap .categoria-card__titulo {
+  margin-bottom: 0;
+}
+.cat-deco {
+  color: #c9a06a;
+  opacity: 0.8;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  transform: translateY(4px);
+}
+.cat-deco--botanica {
+  height: 16px;
+  width: auto;
+  transform: translateY(3px);
+}
+.cat-deco--gota {
+  height: 20px;
+  width: auto;
+  transform: translateY(3px);
 }
 
 @keyframes waPulse {
@@ -466,7 +510,7 @@ html {
 }
 .producto-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14), 0 0 0 2px #c9a06a;
 }
 .producto-card__img {
   width: 100%;
