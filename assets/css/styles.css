@@ -49,6 +49,13 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: clip;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 .hero {
@@ -1460,6 +1467,56 @@ html {
   .info-card__header { padding: 1.5rem 1.5rem 1.25rem; }
   .info-card__body   { padding: 1.25rem 1.5rem 1.5rem; }
   .info-cta          { padding: 3rem 1.25rem; }
+}
+
+/* ── Decoración hero – Árabes ──────────────────────────────── */
+.hero-deco-arabes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+.hero-deco-arabes span {
+  font-size: 1.5rem;
+  color: #c9a06a;
+  opacity: 0.75;
+}
+.hero-deco-arabes .hero-deco__sep {
+  font-size: 0.6rem;
+  opacity: 0.45;
+  color: #c9a06a;
+}
+
+/* ── Decoración hero – Diseñador ──────────────────────────── */
+.hero-botanica,
+.hero-gotas {
+  display: block;
+  margin: 0 auto 0.7rem;
+  width: clamp(180px, 35vw, 320px);
+  height: auto;
+  color: #c9a06a;
+  opacity: 0.72;
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+/* ── Decants – próximamente ───────────────────────── */
+.decants-proximamente {
+  text-align: center;
+  color: #888;
+  padding: 4rem 0 6rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+}
+
+/* ── Marca debajo del nombre en card ──────────────── */
+.producto-card__marca {
+  font-size: 0.72rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.4rem;
 }
 
 /* ── Newsletter popup ──────────────────────────────── */
