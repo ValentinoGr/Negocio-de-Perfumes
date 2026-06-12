@@ -178,14 +178,17 @@
                             <p class="producto-card__nombre">${p.nombre}</p>
                             ${p.marca ? `<p class="producto-card__marca">${p.marca}</p>` : ''}
                             <div class="producto-card__footer">
-                                ${p.precio
-                                    ? `<p class="producto-card__precio">${p.precio}</p>`
-                                    : `<p class="producto-card__precio producto-card__precio--consultar">Consultar precio</p>`
+                                ${p.sinStock
+                                    ? `<p class="producto-card__precio producto-card__precio--sin-stock">Sin stock</p>`
+                                    : p.precio
+                                        ? `<p class="producto-card__precio">${p.precio}</p>`
+                                        : `<p class="producto-card__precio producto-card__precio--consultar">Consultar precio</p>`
                                 }
                                 <button class="btn-agregar"
                                     data-nombre="${nEsc}"
                                     data-marca="${mEsc}"
-                                    data-precio="${p.precio || ''}">
+                                    data-precio="${p.precio || ''}"
+                                    ${p.sinStock ? 'disabled' : ''}>
                                     <i class="bi bi-bag-plus"></i>
                                     <span>Agregar</span>
                                 </button>
