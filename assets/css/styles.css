@@ -1755,4 +1755,92 @@ html {
   .nl-btn { padding: 0.65rem 0.9rem; font-size: 0.78rem; }
 }
 
+/* ── Barra de anuncio marquee ─────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes anuncio-pulse {
+  0%, 100% { opacity: 0.78; }
+  50%       { opacity: 1; }
+}
+
+.anuncio-bar {
+  background: #111111;
+  overflow: hidden;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(201, 160, 106, 0.2);
+  position: relative;
+  z-index: 1001;
+}
+.anuncio-bar__track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 34s linear infinite;
+  will-change: transform;
+}
+.anuncio-bar:hover .anuncio-bar__track {
+  animation-play-state: paused;
+}
+.anuncio-bar__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.67rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(201, 160, 106, 0.62);
+  padding: 0 2rem;
+}
+.anuncio-bar__item i {
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+.anuncio-bar__item--highlight {
+  color: #c9a06a;
+  font-weight: 600;
+  animation: anuncio-pulse 3s ease-in-out infinite;
+}
+.anuncio-bar__sep {
+  color: rgba(201, 160, 106, 0.22);
+  font-size: 0.4rem;
+  flex-shrink: 0;
+}
+
+/* ── Shipping progress en carrito ─────────────────── */
+.cart-shipping {
+  padding: 0.85rem 1.25rem 0.8rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+.cart-shipping__msg {
+  font-size: 0.77rem;
+  color: #777;
+  margin: 0 0 0.5rem;
+  line-height: 1.4;
+}
+.cart-shipping__msg strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.cart-shipping__bar-wrap {
+  background: #e8e8e8;
+  border-radius: 99px;
+  height: 4px;
+  overflow: hidden;
+}
+.cart-shipping__bar {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #c9a06a, #e8c88a);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 4px;
+}
+.cart-shipping--free .cart-shipping__msg { color: #1a7a3a; font-weight: 500; }
+.cart-shipping--free .cart-shipping__bar {
+  background: linear-gradient(90deg, #25d366, #40e07a);
+}
+
 /*# sourceMappingURL=styles.css.map */

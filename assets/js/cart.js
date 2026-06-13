@@ -1,6 +1,7 @@
 (function () {
   const STORAGE_KEY = 'isf_cart';
   const WA_NUMBER = '543491411302';
+  const ENVIO_GRATIS = 130000;
   let items = [];
 
   function load() {
@@ -43,6 +44,7 @@
           <p>Tu carrito está vacío</p>
         </div>`;
       if (totalWrap) totalWrap.style.display = 'none';
+      renderShipping();
       return;
     }
 
@@ -67,6 +69,38 @@
       totalWrap.style.display = 'flex';
       const el = document.getElementById('cart-total');
       if (el) el.textContent = total > 0 ? `$${total.toLocaleString('es-AR')}` : '';
+    }
+    renderShipping();
+  }
+
+  function renderShipping() {
+    let el = document.getElementById('cart-shipping');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'cart-shipping';
+      const footer = document.querySelector('.cart-drawer__footer');
+      if (footer) footer.insertBefore(el, footer.firstChild);
+      else return;
+    }
+    if (items.length === 0) { el.hidden = true; return; }
+    const total = items.reduce((acc, item) => acc + parsePrice(item.precio), 0);
+    el.hidden = false;
+    const pct = Math.min((total / ENVIO_GRATIS) * 100, 100);
+    if (total >= ENVIO_GRATIS) {
+      el.className = 'cart-shipping cart-shipping--free';
+      el.innerHTML = `
+        <p class="cart-shipping__msg">🚚 <strong>¡Envío gratis en tu pedido!</strong></p>
+        <div class="cart-shipping__bar-wrap">
+          <div class="cart-shipping__bar" style="width:100%"></div>
+        </div>`;
+    } else {
+      const faltan = (ENVIO_GRATIS - total).toLocaleString('es-AR');
+      el.className = 'cart-shipping';
+      el.innerHTML = `
+        <p class="cart-shipping__msg">Te faltan <strong>$${faltan}</strong> para envío gratis</p>
+        <div class="cart-shipping__bar-wrap">
+          <div class="cart-shipping__bar" style="width:${pct.toFixed(1)}%"></div>
+        </div>`;
     }
   }
 
