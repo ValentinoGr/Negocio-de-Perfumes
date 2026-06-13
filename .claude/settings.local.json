@@ -18,7 +18,8 @@
       "Bash(powershell -Command \"Get-Content 'd34b6123-9020-444a-85f1-3eea1246cd0c.jsonl' | Select-String 'hero-deco-arabes|hero-botanica|hero-deco' | Select-Object -First 20\")",
       "Bash(powershell -Command \"Get-Content 'C:\\\\Users\\\\User\\\\.claude\\\\projects\\\\c--Users-User-sitioSanti\\\\d34b6123-9020-444a-85f1-3eea1246cd0c.jsonl' | Select-String 'hero-deco-arabes' | Select-Object -First 5\")",
       "Bash(powershell -Command ' *)",
-      "Bash(git reset *)"
+      "Bash(git reset *)",
+      "PowerShell(\\(Get-Content 'c:\\\\Users\\\\User\\\\sitioSanti\\\\assets\\\\js\\\\cart.js' -Encoding UTF8\\) -replace '¿Podrían confirmarme disponibilidad\\\\? 😊', '¿Podrían confirmarme disponibilidad?' | Set-Content 'c:\\\\Users\\\\User\\\\sitioSanti\\\\assets\\\\js\\\\cart.js' -Encoding UTF8)"
     ]
   }
 }

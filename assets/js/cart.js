@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const STORAGE_KEY = 'isf_cart';
   const WA_NUMBER = '543491411302';
   const ENVIO_GRATIS = 130000;
@@ -89,7 +89,7 @@
     if (total >= ENVIO_GRATIS) {
       el.className = 'cart-shipping cart-shipping--free';
       el.innerHTML = `
-        <p class="cart-shipping__msg">🚚 <strong>¡Envío gratis en tu pedido!</strong></p>
+        <p class="cart-shipping__msg"><i class="bi bi-truck"></i> <strong>¡Envío gratis en tu pedido!</strong></p>
         <div class="cart-shipping__bar-wrap">
           <div class="cart-shipping__bar" style="width:100%"></div>
         </div>`;
@@ -172,7 +172,7 @@
         ? `\n\nTotal estimado: $${total.toLocaleString('es-AR')}`
         : '';
       const msg = encodeURIComponent(
-        `Hola! Me interesan los siguientes productos:\n\n${lista}${totalStr}\n\n¿Podrían confirmarme disponibilidad? 😊`
+        `Hola! Me interesan los siguientes productos:\n\n${lista}${totalStr}\n\n¿Podrían confirmarme disponibilidad?`
       );
       window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
     }
