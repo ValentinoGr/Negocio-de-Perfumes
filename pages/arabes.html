@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfumes Árabes | Arabian Oud, Lattafa, Rasasi y más - Importando Santa Fe</title>
+    <title>Perfumes Árabes | Arabian Oud, Lattafa, Rasasi y más - Essenza</title>
     <!-- SEO -->
     <meta name="description" content="Explorá nuestra colección de perfumes árabes. Arabian Oud, Lattafa, Rasasi, Swiss Arabian y más marcas exclusivas. Envíos a todo Argentina.">
     <meta name="keywords" content="perfumes árabes Argentina, Arabian Oud Argentina, Lattafa Argentina, Rasasi Argentina, Swiss Arabian Argentina, perfumes orientales, comprar perfumes árabes online, oud Argentina">
-    <meta name="author" content="Importando Santa Fe">
+    <meta name="author" content="Essenza">
     <meta name="robots" content="index, follow">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Perfumes Árabes | Arabian Oud, Lattafa, Rasasi y más - Importando Santa Fe">
+    <meta property="og:title" content="Perfumes Árabes | Arabian Oud, Lattafa, Rasasi y más - Essenza">
     <meta property="og:description" content="Arabian Oud, Lattafa, Rasasi, Swiss Arabian y más. Las mejores marcas árabes con envíos a todo Argentina.">
     <meta property="og:locale" content="es_AR">
-    <meta property="og:site_name" content="Importando Santa Fe">
+    <meta property="og:site_name" content="Essenza">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Perfumes Árabes | Importando Santa Fe">
+    <meta name="twitter:title" content="Perfumes Árabes | Essenza">
     <meta name="twitter:description" content="Arabian Oud, Lattafa, Rasasi y más. Envíos a todo Argentina.">
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="../assets/img/655029000_17886994041459763_6476735069026694364_n.jpg">
@@ -38,7 +38,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../index.html">
-                    <img src="../assets/img/b4ba6653-7ab1-45cd-ab7a-65deaa63ef9e.png" alt="Logo del sitio" class="logo">
+                    <img src="../assets/img/Essenza FOTO DE PERFIL.png" alt="Logo del sitio" class="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPrincipal"
                     aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +86,7 @@
     <main>
 
         <section class="page-hero">
-            <p class="page-hero__eyebrow">Importando Santa Fe</p>
+            <p class="page-hero__eyebrow">Essenza</p>
             <div class="hero-deco-arabes" aria-hidden="true">
                 <span>عطر</span><span class="hero-deco__sep">◆</span><span>ورد</span><span class="hero-deco__sep">◆</span><span>مسك</span><span class="hero-deco__sep">◆</span><span>عود</span>
             </div>
@@ -135,7 +135,7 @@
 
     <footer class="footer animate-on-scroll">
         <div class="footer__contenido">
-            <p class="footer__marca">Importando Santa Fe</p>
+            <p class="footer__marca">Essenza</p>
             <p class="footer__tagline">Perfumes del mundo, en tu ciudad.</p>
             <div class="footer__social">
                 <a href="https://wa.me/543491411302" target="_blank" rel="noopener"
@@ -149,7 +149,7 @@
                     <span>Instagram</span>
                 </a>
             </div>
-            <p class="footer__copy">&copy; 2026 Importando Santa Fe. Todos los derechos reservados.</p>
+            <p class="footer__copy">&copy; 2026 Essenza. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -266,6 +266,14 @@
                 revealObserver.observe(el);
             }
         });
+
+        document.querySelectorAll('.animate-on-scroll:not(.catalogo-seccion)').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                el.classList.add('visible');
+            } else {
+                revealObserver.observe(el);
+            }
+        });
     </script>
 
     <!-- Newsletter popup -->
@@ -281,7 +289,7 @@
             <div class="nl-input-wrap">
                 <input type="email" class="nl-input" id="nl-email"
                     placeholder="tu@email.com" required autocomplete="email">
-                <button type="submit" class="nl-btn">Quiero mi 5%</button>
+                <button type="submit" class="nl-btn">Quiero mi descuento</button>
             </div>
             <p class="nl-nota">Sin spam. Podés darte de baja cuando quieras.</p>
         </form>
