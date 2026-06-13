@@ -378,7 +378,7 @@ main {
   color: #777;
 }
 .stats-band__flag {
-  height: clamp(1.8rem, 5vw, 3.3rem);
+  height: clamp(2rem, 5vw, 3.5rem);
   width: auto;
   border-radius: 4px;
   display: block;
