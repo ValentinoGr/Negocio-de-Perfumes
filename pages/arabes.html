@@ -120,6 +120,19 @@
             <p class="page-hero__subtitulo">Fragancias orientales auténticas de las mejores casas del mundo árabe.</p>
         </section>
 
+        <!-- Buscador -->
+        <div class="buscador-wrap">
+            <div class="buscador">
+                <i class="bi bi-search buscador__icono" aria-hidden="true"></i>
+                <input type="search" class="buscador__input" id="buscador-input"
+                       placeholder="Buscá por perfume o marca..." autocomplete="off" spellcheck="false">
+                <button class="buscador__limpiar" id="buscador-limpiar" aria-label="Limpiar búsqueda" tabindex="-1">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <p class="buscador__resultados" id="buscador-resultados" aria-live="polite"></p>
+        </div>
+
         <!-- Nav horizontal solo en mobile -->
         <nav class="catalogo-nav" id="catalogo-nav-mobile">
             <ul class="catalogo-nav__lista" id="nav-marcas-mobile"></ul>
@@ -299,6 +312,59 @@
                 revealObserver.observe(el);
             }
         });
+    </script>
+
+    <script>
+        // ── Buscador ─────────────────────────────────
+        (function () {
+            const input = document.getElementById('buscador-input');
+            const limpiar = document.getElementById('buscador-limpiar');
+            const resultadosEl = document.getElementById('buscador-resultados');
+
+            const vacio = document.createElement('div');
+            vacio.className = 'buscador__vacio';
+            vacio.hidden = true;
+            vacio.innerHTML = '<i class="bi bi-search" aria-hidden="true"></i><p>No encontramos resultados para tu búsqueda.</p>';
+            document.getElementById('catalogo-contenido').appendChild(vacio);
+
+            function filtrar() {
+                const q = input.value.trim().toLowerCase();
+                limpiar.classList.toggle('visible', q.length > 0);
+
+                if (!q) {
+                    document.querySelectorAll('.catalogo-seccion').forEach(sec => {
+                        sec.hidden = false;
+                        sec.querySelectorAll('.col').forEach(col => col.hidden = false);
+                    });
+                    document.querySelectorAll('.catalogo-sidebar__item').forEach(a => a.style.opacity = '');
+                    resultadosEl.textContent = '';
+                    vacio.hidden = true;
+                    return;
+                }
+
+                let total = 0;
+                document.querySelectorAll('.catalogo-seccion').forEach(sec => {
+                    const marca = sec.querySelector('.catalogo-seccion__titulo').textContent.toLowerCase();
+                    let visibles = 0;
+                    sec.querySelectorAll('.col').forEach(col => {
+                        const nombre = col.querySelector('.producto-card__nombre').textContent.toLowerCase();
+                        const coincide = nombre.includes(q) || marca.includes(q);
+                        col.hidden = !coincide;
+                        if (coincide) visibles++;
+                    });
+                    sec.hidden = visibles === 0;
+                    total += visibles;
+                    const link = document.querySelector(`.catalogo-sidebar__item[data-marca="${sec.id}"]`);
+                    if (link) link.style.opacity = visibles > 0 ? '' : '0.25';
+                });
+
+                resultadosEl.textContent = total === 1 ? '1 resultado' : `${total} resultados`;
+                vacio.hidden = total > 0;
+            }
+
+            input.addEventListener('input', filtrar);
+            limpiar.addEventListener('click', () => { input.value = ''; input.focus(); filtrar(); });
+        })();
     </script>
 
     <!-- Newsletter popup -->

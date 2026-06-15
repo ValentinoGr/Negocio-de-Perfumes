@@ -124,6 +124,19 @@
             <p class="page-hero__subtitulo">Probá las mejores fragancias en pequeñas muestras antes de decidirte.</p>
         </section>
 
+        <!-- Buscador -->
+        <div class="buscador-wrap">
+            <div class="buscador">
+                <i class="bi bi-search buscador__icono" aria-hidden="true"></i>
+                <input type="search" class="buscador__input" id="buscador-input"
+                       placeholder="Buscá por perfume..." autocomplete="off" spellcheck="false">
+                <button class="buscador__limpiar" id="buscador-limpiar" aria-label="Limpiar búsqueda" tabindex="-1">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <p class="buscador__resultados" id="buscador-resultados" aria-live="polite"></p>
+        </div>
+
         <div class="container-fluid px-4 py-4" id="catalogo-contenido"></div>
 
     </main>
@@ -252,6 +265,48 @@
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+    </script>
+
+    <script>
+        // ── Buscador ─────────────────────────────────
+        (function () {
+            const input = document.getElementById('buscador-input');
+            const limpiar = document.getElementById('buscador-limpiar');
+            const resultadosEl = document.getElementById('buscador-resultados');
+            const contenidoEl = document.getElementById('catalogo-contenido');
+
+            const vacio = document.createElement('div');
+            vacio.className = 'buscador__vacio';
+            vacio.hidden = true;
+            vacio.innerHTML = '<i class="bi bi-search" aria-hidden="true"></i><p>No encontramos resultados para tu búsqueda.</p>';
+            contenidoEl.appendChild(vacio);
+
+            function filtrar() {
+                const q = input.value.trim().toLowerCase();
+                limpiar.classList.toggle('visible', q.length > 0);
+
+                if (!q) {
+                    contenidoEl.querySelectorAll('.col').forEach(col => col.hidden = false);
+                    resultadosEl.textContent = '';
+                    vacio.hidden = true;
+                    return;
+                }
+
+                let total = 0;
+                contenidoEl.querySelectorAll('.col').forEach(col => {
+                    const nombre = col.querySelector('.producto-card__nombre').textContent.toLowerCase();
+                    const coincide = nombre.includes(q);
+                    col.hidden = !coincide;
+                    if (coincide) total++;
+                });
+
+                resultadosEl.textContent = total === 1 ? '1 resultado' : `${total} resultados`;
+                vacio.hidden = total > 0;
+            }
+
+            input.addEventListener('input', filtrar);
+            limpiar.addEventListener('click', () => { input.value = ''; input.focus(); filtrar(); });
+        })();
     </script>
 
     <!-- Newsletter popup -->
