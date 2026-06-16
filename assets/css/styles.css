@@ -534,6 +534,20 @@ html {
   -o-object-fit: contain;
      object-fit: contain;
   padding: 0.75rem;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+.producto-card__img img.img-cargando {
+  opacity: 0;
+}
+@keyframes img-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.producto-card__img:has(img.img-cargando) {
+  background: linear-gradient(90deg, #1e1e1e 25%, #2c2c2c 50%, #1e1e1e 75%);
+  background-size: 200% 100%;
+  animation: img-shimmer 1.4s ease-in-out infinite;
 }
 .producto-card__img-placeholder {
   color: #3a3a3a;
