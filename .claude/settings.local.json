@@ -21,7 +21,21 @@
       "Bash(git reset *)",
       "PowerShell(\\(Get-Content 'c:\\\\Users\\\\User\\\\sitioSanti\\\\assets\\\\js\\\\cart.js' -Encoding UTF8\\) -replace '¿Podrían confirmarme disponibilidad\\\\? 😊', '¿Podrían confirmarme disponibilidad?' | Set-Content 'c:\\\\Users\\\\User\\\\sitioSanti\\\\assets\\\\js\\\\cart.js' -Encoding UTF8)",
       "Bash(git -C \"c:/Users/User/sitioSanti\" status)",
-      "Bash(git -C \"c:/Users/User/sitioSanti\" diff --stat)"
+      "Bash(git -C \"c:/Users/User/sitioSanti\" diff --stat)",
+      "Bash(ls \"c:/Users/User/\" | grep -i lattafa)",
+      "Read(//c/Users/User/**)",
+      "Bash(cp \"/c/Users/User/Downloads/ChatGPT Image 16 jun 2026, 03_52_42 a.m..png\" \"/c/Users/User/sitioSanti/assets/img/navbar-marmol.png\")",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx --yes playwright install chromium --with-deps)",
+      "Bash(node .tmp_screenshot.js)",
+      "Bash(npx --yes playwright screenshot --viewport-size=1280,400 http://localhost:8765/index.html .tmp_navbar.png)",
+      "Bash(cd \"/c/Users/User/sitioSanti/assets/img\" && rm -f navbar-marmol.png)",
+      "Bash(rm -f .tmp_navbar.png)",
+      "Bash(pkill -f \"http.server 8765\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\User\\Downloads",
+      "c:\\c\\Users\\User\\sitioSanti\\assets\\img"
     ]
   }
 }
