@@ -144,12 +144,21 @@
     box-shadow: none;
   }
 
-  // Navbar completo con mármol en mobile — attachment fixed evita que la imagen rescale al abrir el submenu
+  // Navbar con mármol en mobile — ::before de altura fija evita que cover rescale al crecer el navbar
   .navbar {
-    background-image: url('../img/marmol_negro.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 600px;
+      background-image: url('../img/marmol_negro.png');
+      background-size: cover;
+      background-position: center top;
+      z-index: -1;
+    }
   }
 
   // Collapse transparente — el mármol del .navbar cubre todo

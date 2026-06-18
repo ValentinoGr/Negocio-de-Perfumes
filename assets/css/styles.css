@@ -1146,10 +1146,18 @@ html {
     box-shadow: none;
   }
   .navbar {
+    position: relative;
+    overflow: hidden;
+  }
+  .navbar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 600px;
     background-image: url('../img/marmol_negro.png');
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-position: center top;
+    z-index: -1;
   }
   .navbar-collapse {
     background: transparent;
