@@ -69,7 +69,7 @@ const catalogoDecants = [
   { nombre: "Club de Nuit Sillage", sinStock: true, imagen: "Armaf Club De Nuit Sillage 105ml.png" },
   { nombre: "Club de Nuit Untold", precio: "$12.000", imagen: "Armaf Club De Nuit Untold 105ml.png" },
   { nombre: "Odyssey Aqua", precio: "$9.600", imagen: "ARMAF ODYSSEY AQUA.png" },
-  { nombre: "Odyssey Black", precio: "$9.600" },
+  { nombre: "Odyssey Black", precio: "$9.600", imagen: "ARMAF ODYSSEY HOMME BLACK EDITION 100 ML.png" },
   { nombre: "Odyssey White", precio: "$9.600", imagen: "ARMAF ODYSSEY WHITE EDP 100ML.png" },
   { nombre: "Odyssey Mega", precio: "$9.600", imagen: "ARMAF ODYSSEY MEGA EDP 100 ML.png" },
   { nombre: "Odyssey Mandarin", precio: "$9.600", imagen: "ARMAF ODYSSEY MANDARIN EDP 100ML.png" },
