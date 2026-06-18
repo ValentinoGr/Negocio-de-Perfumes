@@ -1875,12 +1875,172 @@ html {
   }
 }
 
+/* ── Sidebar precio wrap ── */
+.catalogo-sidebar__precio-wrap {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e8e8e8;
+}
+.catalogo-sidebar__precio-wrap .precio-filter {
+  flex-direction: column;
+  align-items: flex-start;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  padding: 0;
+  max-width: none;
+  margin: 0;
+  transition: none;
+}
+.catalogo-sidebar__precio-wrap .precio-filter:hover {
+  border-color: transparent;
+  box-shadow: none;
+}
+.catalogo-sidebar__precio-wrap .precio-filter__label {
+  display: none;
+}
+.catalogo-sidebar__precio-wrap .precio-filter__btn {
+  border-radius: 0;
+  border: none;
+  border-right: none;
+  border-left: 2px solid transparent;
+  width: 100%;
+  flex: none;
+  text-align: left;
+  padding: 0.5rem 1.25rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.77rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #999;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+  display: block;
+}
+.catalogo-sidebar__precio-wrap .precio-filter__btn:last-child {
+  border-right: none;
+}
+.catalogo-sidebar__precio-wrap .precio-filter__btn:hover:not(.active) {
+  color: #2c2c2c;
+  border-left-color: #2c2c2c;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.catalogo-sidebar__precio-wrap .precio-filter__btn.active {
+  color: #c9a06a;
+  border-left-color: #c9a06a;
+  background-color: rgba(201,160,106,0.07);
+}
+
+/* ── Filtro de precio – control segmentado ── */
+.precio-filter {
+  display: flex;
+  align-items: stretch;
+  background: #131313;
+  border: 1px solid rgba(201,160,106,0.15);
+  border-radius: 100px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0.6rem auto 0;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.14);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.precio-filter:hover {
+  border-color: rgba(201,160,106,0.38);
+  box-shadow: 0 0 0 1px rgba(201,160,106,0.2), 0 6px 32px rgba(0,0,0,0.2);
+}
+.precio-filter__label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(201,160,106,0.7);
+  padding: 0 0.85rem 0 1.4rem;
+  white-space: nowrap;
+  border-right: 1px solid rgba(201,160,106,0.15);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.precio-filter__btn {
+  flex: 1;
+  background: none;
+  border: none;
+  border-right: 1px solid rgba(201,160,106,0.1);
+  color: rgba(255,255,255,0.35);
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  padding: 0.95rem 0.35rem;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.precio-filter__btn:last-child {
+  border-right: none;
+}
+.precio-filter__btn:hover:not(.active) {
+  color: rgba(201,160,106,0.75);
+  background-color: rgba(201,160,106,0.05);
+}
+.precio-filter__btn.active {
+  color: #c9a06a;
+  background-color: rgba(201,160,106,0.1);
+}
+
+/* ── Animación cards al filtrar ── */
+.col.pf-saliendo {
+  opacity: 0 !important;
+  transform: scale(0.94) !important;
+  transition: opacity 0.18s ease, transform 0.18s ease !important;
+  pointer-events: none;
+}
+.col.pf-entrando {
+  animation: pfEntrar 0.22s ease;
+}
+@keyframes pfEntrar {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
 .buscador-wrap {
   padding: 2rem 1.5rem 0.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   animation: fadeInUp 0.7s ease 0.85s both;
+}
+.buscador-wrap__fila {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 900px;
+}
+.buscador-wrap__fila .buscador {
+  flex: 1;
+  max-width: none;
+}
+.buscador-wrap__fila .precio-filter {
+  max-width: none;
+  width: auto;
+  margin: 0;
+  flex-shrink: 0;
+  height: 56px;
+}
+@media (max-width: 600px) {
+  .buscador-wrap__fila {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .buscador-wrap__fila .precio-filter {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .buscador {
