@@ -513,6 +513,7 @@ html {
   height: 100%;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 .producto-card:hover {
   transform: translateY(-4px);
@@ -527,6 +528,22 @@ html {
   justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
+  position: relative;
+}
+.producto-card__lupa {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0);
+  color: rgba(255,255,255,0);
+  font-size: 1.4rem;
+  transition: background 0.22s ease, color 0.22s ease;
+}
+.producto-card:hover .producto-card__lupa {
+  background: rgba(0,0,0,0.32);
+  color: rgba(255,255,255,0.9);
 }
 .producto-card__img img {
   width: 100%;
@@ -1038,8 +1055,11 @@ html {
   to   { opacity: 1; transform: translateY(0); }
 }
 .dropdown-menu {
+  background-image: url('../img/marmol_negro.png');
+  background-size: cover;
+  background-position: center;
   background-color: #1e1e1e;
-  border: 1px solid #3a3a3a;
+  border: 1px solid rgba(201, 160, 106, 0.2);
   border-radius: 12px;
   margin-top: 0.5rem;
   overflow: hidden;
@@ -1052,8 +1072,13 @@ html {
   transition: background-color 0.15s, color 0.15s;
 }
 .dropdown-item:hover {
-  background-color: #333333;
+  background-color: rgba(255, 255, 255, 0.08);
   color: #ffffff;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: rgba(201, 160, 106, 0.18);
+  color: #c9a06a;
 }
 .dropdown-divider {
   border-color: #3a3a3a;
@@ -1105,8 +1130,43 @@ html {
   transform: translateY(-7px) rotate(-45deg);
 }
 
+@keyframes dropdownMobileFade {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
 /* ── Mobile menu stagger animation ─────────────── */
 @media (max-width: 991.98px) {
+  .navbar-nav .nav-link.active {
+    border-bottom: none;
+  }
+  .navbar-collapse {
+    background-image: url('../img/marmol_negro.png');
+    background-size: cover;
+    background-position: center;
+    margin: 0 -1.25rem -0.85rem;
+    padding: 0.5rem 1.25rem 0.85rem;
+    border-top: 1px solid rgba(201, 160, 106, 0.1);
+    border-radius: 0 0 28px 28px;
+  }
+  .navbar-collapse.collapsing {
+    transition: height 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .dropdown-menu {
+    background-image: url('../img/marmol_negro.png');
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+    border-color: rgba(201, 160, 106, 0.2);
+    animation: dropdownMobileFade 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .dropdown-item {
+    transition: background-color 0.18s ease, color 0.18s ease;
+  }
+  .dropdown-item:hover {
+    background-color: rgba(201, 160, 106, 0.18);
+    color: #ffffff;
+  }
   .navbar-collapse .nav-item {
     opacity: 0;
     transform: translateX(-8px);
@@ -1223,9 +1283,10 @@ html {
   .navbar-brand img.logo {
     height: 78px;
   }
-  .navbar-collapse.show,
-  .navbar-collapse.collapsing {
-    padding-top: 0.5rem;
+  .navbar-collapse {
+    margin: 0 -1rem -0.65rem;
+    padding: 0.5rem 1rem 0.75rem;
+    border-radius: 0 0 14px 14px;
   }
   .hero {
     padding: 2.5rem 1.25rem 2.5rem;
@@ -1990,6 +2051,143 @@ html {
 .precio-filter__btn.active {
   color: #c9a06a;
   background-color: rgba(201,160,106,0.1);
+}
+
+/* ── Modal de producto ── */
+.pmodal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.pmodal[hidden] { display: none; }
+.pmodal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: background 0.28s ease, backdrop-filter 0.28s ease, -webkit-backdrop-filter 0.28s ease;
+}
+.pmodal--visible .pmodal__backdrop {
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.pmodal__card {
+  position: relative;
+  z-index: 1;
+  background: #1a1a1a;
+  border: 1px solid rgba(201,160,106,0.2);
+  border-radius: 18px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: scale(0.92) translateY(18px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+}
+.pmodal--visible .pmodal__card {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.pmodal--cerrando .pmodal__card {
+  opacity: 0;
+  transform: scale(0.94) translateY(8px);
+}
+.pmodal__cerrar {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  z-index: 2;
+  background: rgba(255,255,255,0.07);
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.45);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.pmodal__cerrar:hover {
+  background: rgba(201,160,106,0.15);
+  color: #c9a06a;
+}
+.pmodal__img-wrap {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(145deg, #222 0%, #111 100%);
+  border-radius: 18px 18px 0 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pmodal__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 2rem;
+}
+.pmodal__img-placeholder {
+  font-size: 4rem;
+  color: rgba(201,160,106,0.18);
+}
+.pmodal__info {
+  padding: 1.4rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.pmodal__marca {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(201,160,106,0.65);
+  margin: 0;
+}
+.pmodal__nombre {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #f0f0f0;
+  margin: 0.1rem 0 0;
+  line-height: 1.2;
+}
+.pmodal__precio {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #c9a06a;
+  margin: 0.3rem 0 0.6rem;
+}
+.pmodal__precio--consultar {
+  color: rgba(201,160,106,0.5);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 400;
+}
+.pmodal__precio--sin-stock {
+  color: #777;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+.pmodal__btn-agregar {
+  margin-top: 0.4rem;
+  width: 100%;
+  justify-content: center;
 }
 
 /* ── Animación cards al filtrar ── */

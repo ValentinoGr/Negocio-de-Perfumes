@@ -65,10 +65,11 @@
     height: 78px;
   }
 
-  // Cuando el menú está abierto, sacar border-radius inferior
-  .navbar-collapse.show,
-  .navbar-collapse.collapsing {
-    padding-top: 0.5rem;
+  // Collapse: ajuste para mobile pequeño
+  .navbar-collapse {
+    margin: 0 -1rem -0.65rem;
+    padding: 0.5rem 1rem 0.75rem;
+    border-radius: 0 0 14px 14px;
   }
 
   // Hero: ajuste para pantallas chicas

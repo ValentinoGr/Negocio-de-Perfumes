@@ -203,6 +203,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/products-decants.js"></script>
     <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/modal.js"></script>
     <script>
         const contenidoEl = document.getElementById('catalogo-contenido');
 
@@ -238,9 +239,15 @@
 
                 return `
                 <div class="col">
-                    <div class="producto-card animate-on-scroll">
+                    <div class="producto-card animate-on-scroll"
+                         data-nombre="${nEsc}"
+                         data-marca="${mEsc}"
+                         data-precio="${p.precio || ''}"
+                         data-imagen="${p.imagen || ''}"
+                         data-sin-stock="${p.sinStock ? '1' : ''}">
                         <div class="producto-card__img">
                             ${imgHtml}
+                            <div class="producto-card__lupa" aria-hidden="true"><i class="bi bi-zoom-in"></i></div>
                         </div>
                         <div class="producto-card__info">
                             <p class="producto-card__nombre">${p.nombre}</p>
