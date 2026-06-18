@@ -1149,6 +1149,7 @@ html {
     background-image: url('../img/marmol_negro.png');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
   }
   .navbar-collapse {
     background: transparent;
