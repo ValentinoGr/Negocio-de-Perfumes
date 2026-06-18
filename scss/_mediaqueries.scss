@@ -184,7 +184,12 @@
     }
   }
 
-  // Buscador: mantener altura igual que desktop
+  // Buscador: altura igual que desktop, más ancho
+  .buscador-wrap {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
   .buscador {
     height: 56px;
     padding: 0 1.25rem;

@@ -138,6 +138,19 @@
     border-bottom: none;
   }
 
+  .navbar-nav .nav-link:focus,
+  .navbar-nav .nav-link:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  // Navbar completo con mármol en mobile
+  .navbar {
+    background-image: url('../img/marmol_negro.png');
+    background-size: cover;
+    background-position: center;
+  }
+
   // Collapse con fondo de mármol
   .navbar-collapse {
     background-image: url('../img/marmol_negro.png');
@@ -149,7 +162,7 @@
   }
 
   .navbar-collapse.collapsing {
-    transition: height 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: height 0.28s ease-out;
   }
 
   // Submenu con fondo de mármol y animación suave
@@ -159,32 +172,11 @@
     background-position: center;
     background-color: transparent;
     border-color: rgba(201, 160, 106, 0.2);
-    animation: dropdownMobileFade 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    animation: dropdownMobileFade 0.25s ease-out;
   }
 
   .dropdown-item {
     transition: background-color 0.18s ease, color 0.18s ease;
     &:hover { background-color: rgba(201, 160, 106, 0.18); color: $blanco; }
-  }
-
-  // Items comienzan invisibles en mobile (menú cerrado)
-  .navbar-collapse .nav-item {
-    opacity: 0;
-    transform: translateX(-8px);
-    transition: opacity 0.22s ease, transform 0.22s ease;
-    transition-delay: 0s;
-  }
-
-  // Entrada escalonada al abrir
-  .navbar-collapse.show .nav-item {
-    opacity: 1;
-    transform: translateX(0);
-
-    &:nth-child(1) { transition-delay: 0.07s; }
-    &:nth-child(2) { transition-delay: 0.13s; }
-    &:nth-child(3) { transition-delay: 0.19s; }
-    &:nth-child(4) { transition-delay: 0.25s; }
-    &:nth-child(5) { transition-delay: 0.31s; }
-    &:nth-child(6) { transition-delay: 0.37s; }
   }
 }

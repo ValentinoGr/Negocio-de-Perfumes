@@ -1135,10 +1135,20 @@ html {
   to   { opacity: 1; transform: translateY(0)    scale(1); }
 }
 
-/* ── Mobile menu stagger animation ─────────────── */
+/* ── Mobile menu ────────────────────────────────── */
 @media (max-width: 991.98px) {
   .navbar-nav .nav-link.active {
     border-bottom: none;
+  }
+  .navbar-nav .nav-link:focus,
+  .navbar-nav .nav-link:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+  .navbar {
+    background-image: url('../img/marmol_negro.png');
+    background-size: cover;
+    background-position: center;
   }
   .navbar-collapse {
     background-image: url('../img/marmol_negro.png');
@@ -1149,7 +1159,7 @@ html {
     border-radius: 0 0 28px 28px;
   }
   .navbar-collapse.collapsing {
-    transition: height 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: height 0.28s ease-out;
   }
   .dropdown-menu {
     background-image: url('../img/marmol_negro.png');
@@ -1157,7 +1167,7 @@ html {
     background-position: center;
     background-color: transparent;
     border-color: rgba(201, 160, 106, 0.2);
-    animation: dropdownMobileFade 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    animation: dropdownMobileFade 0.25s ease-out;
   }
   .dropdown-item {
     transition: background-color 0.18s ease, color 0.18s ease;
@@ -1166,19 +1176,6 @@ html {
     background-color: rgba(201, 160, 106, 0.18);
     color: #ffffff;
   }
-  .navbar-collapse .nav-item {
-    opacity: 0;
-    transform: translateX(-8px);
-    transition: opacity 0.22s ease, transform 0.22s ease;
-    transition-delay: 0s;
-  }
-  .navbar-collapse.show .nav-item { opacity: 1; transform: translateX(0); }
-  .navbar-collapse.show .nav-item:nth-child(1) { transition-delay: 0.07s; }
-  .navbar-collapse.show .nav-item:nth-child(2) { transition-delay: 0.13s; }
-  .navbar-collapse.show .nav-item:nth-child(3) { transition-delay: 0.19s; }
-  .navbar-collapse.show .nav-item:nth-child(4) { transition-delay: 0.25s; }
-  .navbar-collapse.show .nav-item:nth-child(5) { transition-delay: 0.31s; }
-  .navbar-collapse.show .nav-item:nth-child(6) { transition-delay: 0.37s; }
 }
 
 .footer {
@@ -2360,7 +2357,7 @@ html {
 
 @media (max-width: 767.98px) {
   .buscador-wrap {
-    padding: 1.5rem 1.25rem 0.5rem;
+    padding: 1.5rem 0.5rem 0.5rem;
   }
   .buscador {
     height: 56px;
