@@ -151,11 +151,9 @@
     background-position: center;
   }
 
-  // Collapse con fondo de mármol
+  // Collapse transparente — el mármol del .navbar cubre todo
   .navbar-collapse {
-    background-image: url('../img/marmol_negro.png');
-    background-size: cover;
-    background-position: center;
+    background: transparent;
     margin: 0 -1.25rem -0.85rem;
     padding: 0.5rem 1.25rem 0.85rem;
     border-radius: 0 0 28px 28px;
