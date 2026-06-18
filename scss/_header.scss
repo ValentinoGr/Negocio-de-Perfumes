@@ -163,14 +163,26 @@
     transition: height 0.28s ease-out;
   }
 
-  // Submenu con fondo de mármol y animación suave
-  .dropdown-menu {
+  // Submenu: max-height transition para evitar el golpe brusco
+  .navbar-collapse .dropdown-menu {
+    display: block !important;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.32s ease-out, opacity 0.25s ease;
+    animation: none;
     background-image: url('../img/marmol_negro.png');
     background-size: cover;
     background-position: center;
     background-color: transparent;
     border-color: rgba(201, 160, 106, 0.2);
-    animation: dropdownMobileFade 0.25s ease-out;
+
+    &.show {
+      max-height: 250px;
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
   .dropdown-item {
