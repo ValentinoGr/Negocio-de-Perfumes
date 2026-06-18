@@ -1241,3 +1241,31 @@ html { scroll-behavior: smooth; }
     &:active { transform: translateY(0); }
   }
 }
+
+// ── Scrollbar personalizado ────────────────────────
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #c9a06a $grafito-oscuro;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $grafito-oscuro;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c9a06a;
+  border-radius: 4px;
+  border: 2px solid $grafito-oscuro;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d4b07a;
+}
+
+::-webkit-scrollbar-corner {
+  background: $grafito-oscuro;
+}
