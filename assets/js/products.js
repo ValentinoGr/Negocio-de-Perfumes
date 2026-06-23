@@ -272,7 +272,7 @@ const catalogo = {
       { nombre: "KINGSMAN EDP 30 ML", precio: "$38,000", imagen: "KINGSMAN EDP 30 ML.jpg" },
       { nombre: "KINGSMAN EDP 100 ML", precio: "$70,900", imagen: "KINGSMAN EDP 100 ML.jpg" },
       { nombre: "JEAN LOWE INMORTEL EDP 100 ML", precio: "$70,900", imagen: "JEAN LOWE INMORTEL EDP 100 ML.jpg" },
-      { nombre: "JEAN LOWE FRAICHE EDP 100 ML", precio: null },
+      { nombre: "JEAN LOWE FRAICHE EDP 100 ML", precio: null, imagen: "JEAN LOWE FRAICHE EDP 100 ML.png" },
       { nombre: "JEAN LOWE MATIERE EDP 100 ML", precio: "$68,400", imagen: "JEAN LOWE MATIERE EDP 100 ML.jpeg" },
       { nombre: "JEAN LOWE NOIR EDP 100 ML", precio: "$73,500", imagen: "JEAN LOWE NOIR EDP 100 ML.jpeg" },
       { nombre: "JEAN LOWE NOUVEAU EDP 100 ML", precio: null, imagen: "JEAN LOWE NOUVEAU EDP 100 ML.jpeg" },
