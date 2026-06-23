@@ -92,5 +92,5 @@ const catalogoDecants = [
   { nombre: "Fayora - Paris Corner", precio: "$12.000" },
   { nombre: "Khadlaj Island", precio: "$12.000" },
   { nombre: "Momento Riffs", precio: "$12.000" },
-  { nombre: "Bharara King EDP", precio: "$12.000" },
+  { nombre: "Bharara King EDP", precio: "$12.000", imagen: "BHARARA KING EDP 100 ML.png" },
 ];
