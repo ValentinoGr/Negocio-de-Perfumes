@@ -2260,6 +2260,14 @@ html {
     height: auto;
     min-width: unset;
   }
+  .buscador-wrap__fila .precio-filter__label {
+    padding: 0 0.6rem 0 0.9rem;
+    font-size: 0.62rem;
+  }
+  .buscador-wrap__fila .precio-filter__btn {
+    padding: 0.85rem 0.35rem;
+    font-size: 0.7rem;
+  }
 }
 
 .buscador {
