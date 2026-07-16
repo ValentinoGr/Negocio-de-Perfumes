@@ -306,11 +306,16 @@ const catalogo = {
       { nombre: "PHILOS ROSSO", precio: "$58,300", imagen: "PHILOS ROSSO.jpeg" },
     ]
   },
-  hawas: {
-    nombre: "Hawas / Otoori",
+  emper: {
+    nombre: "Emper",
     productos: [
       { nombre: "PHANTON MY HERO EDP", precio: "$93,700" },
       { nombre: "STALLION 53 EDP 100 ML", precio: "$98,800" },
+    ]
+  },
+  rasasi: {
+    nombre: "Rasasi",
+    productos: [
       { nombre: "LA YAQAWAM POUR HOMME", precio: null },
       { nombre: "HAWAS DIVA", precio: "$126,700" },
       { nombre: "HAWAS KOBRA", precio: "$131,800" },
