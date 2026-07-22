@@ -309,27 +309,27 @@ const catalogo = {
   emper: {
     nombre: "Emper",
     productos: [
-      { nombre: "PHANTON MY HERO EDP", precio: "$93,700" },
-      { nombre: "STALLION 53 EDP 100 ML", precio: "$98,800" },
+      { nombre: "PHANTON MY HERO EDP", precio: "$93,700", imagen: "Phantom My Hero Edp.png" },
+      { nombre: "STALLION 53 EDP 100 ML", precio: "$98,800", imagen: "Stallion 53 1EDP 00 ML.png" },
     ]
   },
   rasasi: {
     nombre: "Rasasi",
     productos: [
-      { nombre: "LA YAQAWAM POUR HOMME", precio: null },
-      { nombre: "HAWAS DIVA", precio: "$126,700" },
-      { nombre: "HAWAS KOBRA", precio: "$131,800" },
-      { nombre: "HAWAS PINK", precio: "$114,000" },
-      { nombre: "HAWAS FOR HER ÉCLAT", precio: "$114,000" },
-      { nombre: "HAWAS ELIXIR", precio: "$98,800" },
-      { nombre: "HAWAS HIM", precio: "$76,000" },
-      { nombre: "HAWAS HER", precio: "$76,000" },
-      { nombre: "HAWAS ICE EDP 100 ML", precio: "$119,100" },
-      { nombre: "HAWAS VERDE", precio: "$111,500" },
-      { nombre: "HAWAS MALIBU", precio: "$126,700" },
-      { nombre: "HAWAS TROPICAL", precio: "$114,000" },
-      { nombre: "HAWAS BLACK", precio: "$91,200" },
-      { nombre: "HAWAS FIRE", precio: null },
+      { nombre: "LA YAQAWAM POUR HOMME", precio: null, imagen: "La Yaqawam Pour Homme.png" },
+      { nombre: "HAWAS DIVA", precio: "$126,700", imagen: "Hawas Diva.png" },
+      { nombre: "HAWAS KOBRA", precio: "$131,800", imagen: "Hawas Kobra.png" },
+      { nombre: "HAWAS PINK", precio: "$114,000", imagen: "Hawas Pink.png" },
+      { nombre: "HAWAS FOR HER ÉCLAT", precio: "$114,000", imagen: "Hawas For Her ÈCLAT.png" },
+      { nombre: "HAWAS ELIXIR", precio: "$98,800", imagen: "Hawas Elixir.png" },
+      { nombre: "HAWAS HIM", precio: "$76,000", imagen: "Hawas Him.png" },
+      { nombre: "HAWAS HER", precio: "$76,000", imagen: "Hawas Her.png" },
+      { nombre: "HAWAS ICE EDP 100 ML", precio: "$119,100", imagen: "Hawas Ice edp 100 ml.png" },
+      { nombre: "HAWAS VERDE", precio: "$111,500", imagen: "Hawas Verde.png" },
+      { nombre: "HAWAS MALIBU", precio: "$126,700", imagen: "Hawas Malibu.png" },
+      { nombre: "HAWAS TROPICAL", precio: "$114,000", imagen: "Hawas Tropical.png" },
+      { nombre: "HAWAS BLACK", precio: "$91,200", imagen: "Hawas Black.png" },
+      { nombre: "HAWAS FIRE", precio: null, imagen: "Hawas Fire.png" },
     ]
   },
   frenchavenue: {
