@@ -21,6 +21,10 @@
           <i class="bi bi-bag-plus"></i>
           <span>Agregar al carrito</span>
         </button>
+        <a class="pmodal__btn-wa" href="#" target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i>
+          <span>Consultar por WhatsApp</span>
+        </a>
       </div>
     </div>`;
   document.body.appendChild(modal);
@@ -33,6 +37,7 @@
   const nombreEl  = modal.querySelector('.pmodal__nombre');
   const precioEl  = modal.querySelector('.pmodal__precio');
   const agregarBtn= modal.querySelector('.pmodal__btn-agregar');
+  const waBtn     = modal.querySelector('.pmodal__btn-wa');
 
   function abrir(data) {
     const nombre   = data.nombre   || '';
@@ -73,6 +78,11 @@
     agregarBtn.disabled = sinStock;
     agregarBtn.hidden   = sinStock;
 
+    const precioTexto = sinStock ? 'Sin stock' : (precio || 'Consultar precio');
+    const marcaTexto  = marca ? `${marca} — ` : '';
+    const msg = encodeURIComponent(`Hola! Me interesa este perfume:\n\n${marcaTexto}${nombre}\nPrecio: ${precioTexto}\n\n¿Podrían confirmarme disponibilidad?`);
+    waBtn.href = `https://wa.me/543491411302?text=${msg}`;
+
     const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -102,6 +112,7 @@
     const card = e.target.closest('.producto-card');
     if (!card) return;
     if (e.target.closest('.btn-agregar')) return;
+    if (e.target.closest('.btn-fav')) return;
     abrir({
       nombre:   card.dataset.nombre,
       marca:    card.dataset.marca,

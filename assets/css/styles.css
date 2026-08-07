@@ -285,6 +285,10 @@ main {
   transform: translateY(0);
   pointer-events: auto;
 }
+.cart-open .back-to-top {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
 .back-to-top:hover {
   background-color: #1e1e1e;
   transform: translateY(-3px);
@@ -558,6 +562,37 @@ html {
 .producto-card:hover .producto-card__lupa {
   background: rgba(0,0,0,0.32);
   color: rgba(255,255,255,0.9);
+}
+.btn-fav {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  background: rgba(0,0,0,0.45);
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s, color 0.2s, background 0.2s;
+}
+.producto-card:hover .btn-fav,
+.btn-fav--active {
+  opacity: 1;
+}
+.btn-fav--active {
+  color: #c9a06a;
+  background: rgba(0,0,0,0.55);
+}
+.btn-fav:hover {
+  color: #c9a06a;
+  background: rgba(0,0,0,0.65);
 }
 .producto-card__img img {
   width: 100%;
@@ -1020,6 +1055,248 @@ html {
 }
 .cart-checkout-btn i {
   font-size: 1.2rem;
+}
+
+/* ── Favoritos ── */
+.fav-btn {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 1.35rem;
+  color: #d6d6d6;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+.fav-btn:hover {
+  color: #c9a06a;
+}
+.fav-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: #c9a06a;
+  color: #111;
+  font-size: 0.58rem;
+  font-weight: 700;
+  min-width: 15px;
+  height: 15px;
+  border-radius: 8px;
+  padding: 0 3px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.fav-badge--visible {
+  display: flex;
+}
+.fav-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1040;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.fav-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.fav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  max-width: 100vw;
+  height: 100dvh;
+  background-color: #ffffff;
+  z-index: 1050;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -6px 0 30px rgba(0,0,0,0.15);
+}
+.fav-drawer.open {
+  transform: translateX(0);
+}
+.fav-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-bottom: 1px solid #efefef;
+  flex-shrink: 0;
+}
+.fav-drawer__titulo {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2c2c2c;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.fav-drawer__titulo i {
+  color: #c9a06a;
+  font-size: 1rem;
+}
+.fav-drawer__cerrar {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #aaa;
+  cursor: pointer;
+  padding: 0.2rem;
+  line-height: 1;
+  transition: color 0.2s, transform 0.2s;
+}
+.fav-drawer__cerrar:hover {
+  color: #2c2c2c;
+  transform: rotate(90deg);
+}
+.fav-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 1.5rem;
+}
+.fav-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  gap: 0.75rem;
+  color: #ccc;
+}
+.fav-empty i {
+  font-size: 2.8rem;
+}
+.fav-empty p {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.fav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #f5f5f5;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+.fav-item.removing {
+  opacity: 0;
+  transform: translateX(30px);
+}
+.fav-item:last-child {
+  border-bottom: none;
+}
+.fav-item__img {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  background: linear-gradient(145deg, #2c2c2c 0%, #1e1e1e 100%);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fav-item__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+.fav-item__img i {
+  color: rgba(201,160,106,0.3);
+  font-size: 1.4rem;
+}
+.fav-item__info {
+  flex: 1;
+  min-width: 0;
+}
+.fav-item__marca {
+  font-size: 0.62rem;
+  color: #c9a06a;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.1rem;
+}
+.fav-item__nombre {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  margin: 0 0 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fav-item__precio {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0;
+}
+.fav-item__precio--consultar {
+  font-size: 0.68rem;
+  color: #888;
+  font-style: italic;
+}
+.fav-item__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+.fav-item__agregar {
+  background: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.fav-item__agregar:hover {
+  border-color: #c9a06a;
+  color: #c9a06a;
+}
+.fav-item__remove {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+.fav-item__remove:hover {
+  color: #e74c3c;
 }
 
 .navbar {
@@ -2217,6 +2494,28 @@ html {
   margin-top: 0.4rem;
   width: 100%;
   justify-content: center;
+}
+.pmodal__btn-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(37,211,102,0.3);
+  background: rgba(37,211,102,0.07);
+  color: #4dcb78;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.pmodal__btn-wa:hover {
+  background: rgba(37,211,102,0.15);
+  border-color: rgba(37,211,102,0.6);
+  color: #6ddb94;
 }
 
 @media (min-width: 768px) {

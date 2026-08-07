@@ -97,6 +97,12 @@
                             </ul>
                         </li>
                         <li class="nav-item">
+                            <button class="fav-btn" onclick="Favs.open()" aria-label="Ver favoritos">
+                                <i class="bi bi-heart"></i>
+                                <span class="fav-badge">0</span>
+                            </button>
+                        </li>
+                        <li class="nav-item">
                             <button class="cart-btn" onclick="Cart.open()" aria-label="Abrir carrito">
                                 <i class="bi bi-bag"></i>
                                 <span class="cart-badge">0</span>
@@ -159,6 +165,17 @@
     </main>
 
     <!-- Cart overlay + drawer -->
+    <div class="fav-overlay" id="fav-overlay"></div>
+    <div class="fav-drawer" id="fav-drawer" role="dialog" aria-label="Favoritos">
+        <div class="fav-drawer__header">
+            <h2 class="fav-drawer__titulo"><i class="bi bi-heart"></i> Favoritos</h2>
+            <button class="fav-drawer__cerrar" onclick="Favs.close()" aria-label="Cerrar favoritos">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        <div class="fav-drawer__body" id="fav-items"></div>
+    </div>
+
     <div class="cart-overlay" id="cart-overlay"></div>
     <div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Carrito de compras">
         <div class="cart-drawer__header">
@@ -212,6 +229,7 @@
     <script src="../assets/js/products.js"></script>
     <script src="../assets/js/cart.js"></script>
     <script src="../assets/js/modal.js"></script>
+    <script src="../assets/js/favorites.js"></script>
     <script>
         const navMobileEl = document.getElementById('nav-marcas-mobile');
         const navDesktopEl = document.getElementById('nav-marcas-desktop');
@@ -270,6 +288,7 @@
                         <div class="producto-card__img">
                             ${imgHtml}
                             <div class="producto-card__lupa" aria-hidden="true"><i class="bi bi-zoom-in"></i></div>
+                            <button class="btn-fav" data-nombre="${nEsc}" data-marca="${mEsc}" data-precio="${p.precio || ''}" data-imagen="${p.imagen || ''}" aria-label="Agregar a favoritos"><i class="bi bi-heart"></i></button>
                         </div>
                         <div class="producto-card__info">
                             <p class="producto-card__nombre">${p.nombre}</p>
