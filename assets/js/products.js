@@ -382,22 +382,22 @@ const catalogo = {
   tubbees: {
     nombre: "Tubbees",
     productos: [
-      { nombre: "COOKIES & CREAM 50ML", precio: "$43,000" },
-      { nombre: "BUBBLE GUM", precio: "$45,600" },
-      { nombre: "PISTACHIO KUNAFA", precio: null },
-      { nombre: "TROPICAL ISLAND", precio: "$45,600" },
-      { nombre: "PINK SUGAR 50ML", precio: "$45,600" },
-      { nombre: "DREAMY TREATS 50 ML", precio: "$45,600" },
-      { nombre: "BERRY BLAST 50 ML", precio: "$45,600" },
-      { nombre: "CHERRY LUXE", precio: "$45,600" },
+      { nombre: "COOKIES & CREAM 50ML", precio: "$43,000", imagen: "TUBBEES COOKIES & CREAM 50ML.png" },
+      { nombre: "BUBBLE GUM", precio: "$45,600", imagen: "TUBBEES BUBBLE GUM.png" },
+      { nombre: "PISTACHIO KUNAFA", precio: null, imagen: "TUBBEES PISTACHIO KUNAFA.png" },
+      { nombre: "TROPICAL ISLAND", precio: "$45,600", imagen: "TUBBEES TROPICAL ISLAND.png" },
+      { nombre: "PINK SUGAR 50ML", precio: "$45,600", imagen: "TUBBEES PINK SUGAR 50ML.png" },
+      { nombre: "DREAMY TREATS 50 ML", precio: "$45,600", imagen: "TUBBEES DREAMY TREATS 50 ML.png" },
+      { nombre: "BERRY BLAST 50 ML", precio: "$45,600", imagen: "TUBBEES BERRY BLAST 50 ML.png" },
+      { nombre: "CHERRY LUXE", precio: "$45,600", imagen: "TUBBEES CHERRY LUXE.png" },
     ]
   },
   mp: {
     nombre: "MP",
     productos: [
-      { nombre: "ROME POUR FEMME", precio: "$124,200" },
-      { nombre: "ROME POUR HOMME", precio: "$124,200" },
-      { nombre: "ROME IMAGINE", precio: "$124,200" },
+      { nombre: "ROME POUR FEMME", precio: "$124,200", imagen: "ROME POUR FEMME.png" },
+      { nombre: "ROME POUR HOMME", precio: "$124,200", imagen: "ROME POUR HOMME.png" },
+      { nombre: "ROME IMAGINE", precio: "$124,200", imagen: "ROME IMAGINE.png" },
     ]
   },
   pariscorner: {
