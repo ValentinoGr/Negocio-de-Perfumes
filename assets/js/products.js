@@ -438,15 +438,15 @@ const catalogo = {
   alwataniah: {
     nombre: "Al Wataniah",
     productos: [
-      { nombre: "AL LAYL", precio: "$60,800" },
-      { nombre: "ABYAT EDP", precio: "$60,800" },
-      { nombre: "DURRAT FEM", precio: "$58,300" },
-      { nombre: "TYBIAN WOMAN", precio: "$55,700" },
-      { nombre: "SELENA", precio: "$53,200" },
-      { nombre: "WATANI PURPLE", precio: "$53,200" },
-      { nombre: "ATTAR AL WESAL", precio: "$60,800" },
-      { nombre: "SUSTAN AL LAIL MASCULINO", precio: "$55,700" },
-      { nombre: "SABAH WARD EDP FEM 100 ML", precio: "$60,800" },
+      { nombre: "AL LAYL", precio: "$60,800", imagen: "Al Wataniah Al Layl.png" },
+      { nombre: "ABYAT EDP", precio: "$60,800", imagen: "Al Wataniah Abyat Edp.png" },
+      { nombre: "DURRAT FEM", precio: "$58,300", imagen: "DURRAT al Wataniah FEM.png" },
+      { nombre: "TYBIAN WOMAN", precio: "$55,700", imagen: "TYBIAN WOMAN.png" },
+      { nombre: "SELENA", precio: "$53,200", imagen: "Al Wataniah Selena.png" },
+      { nombre: "WATANI PURPLE", precio: "$53,200", imagen: "Al Wataniah Watani Purple.png" },
+      { nombre: "ATTAR AL WESAL", precio: "$60,800", imagen: "Al Wataniah Attar al wesal.png" },
+      { nombre: "SUSTAN AL LAIL MASCULINO", precio: "$55,700", imagen: "SUSTAN AL LAIL MASCULINO.png" },
+      { nombre: "SABAH WARD EDP FEM 100 ML", precio: "$60,800", imagen: "SABAH WARD EDP FEM 100 ML.png" },
     ]
   },
   zimaya: {
