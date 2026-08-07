@@ -30,6 +30,8 @@
     });
   }
 
+  const imgBase = window.location.pathname.includes('/pages/') ? '../assets/img/' : 'assets/img/';
+
   function renderDrawer() {
     const list = document.getElementById('fav-items');
     if (!list) return;
@@ -47,7 +49,7 @@
       <div class="fav-item">
         <div class="fav-item__img">
           ${item.imagen
-            ? `<img src="../assets/img/${encodeURIComponent(item.imagen)}" alt="${item.nombre}">`
+            ? `<img src="${imgBase}${encodeURIComponent(item.imagen)}" alt="${item.nombre}">`
             : `<i class="bi bi-bag"></i>`}
         </div>
         <div class="fav-item__info">

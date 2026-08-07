@@ -490,3 +490,4 @@ const catalogo = {
     ]
   },
 };
+window.SEARCH_ARABES = catalogo;

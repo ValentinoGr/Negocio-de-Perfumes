@@ -94,3 +94,4 @@ const catalogoDecants = [
   { nombre: "Momento Riffs", precio: "$12.000" },
   { nombre: "Bharara King EDP", precio: "$12.000", imagen: "BHARARA KING EDP 100 ML.png" },
 ];
+window.SEARCH_DECANTS = catalogoDecants;

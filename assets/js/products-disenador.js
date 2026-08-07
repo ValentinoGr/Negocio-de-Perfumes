@@ -202,3 +202,4 @@ const catalogoDisenador = {
     ]
   },
 };
+window.SEARCH_DISENADOR = catalogoDisenador;

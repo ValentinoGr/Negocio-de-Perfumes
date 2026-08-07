@@ -125,6 +125,17 @@
               </ul>
             </li>
             <li class="nav-item">
+              <button class="search-btn" onclick="Search.open()" aria-label="Buscar">
+                <i class="bi bi-search"></i>
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="fav-btn" onclick="Favs.open()" aria-label="Abrir favoritos">
+                <i class="bi bi-heart"></i>
+                <span class="fav-badge">0</span>
+              </button>
+            </li>
+            <li class="nav-item">
               <button class="cart-btn" onclick="Cart.open()" aria-label="Abrir carrito">
                 <i class="bi bi-bag"></i>
                 <span class="cart-badge">0</span>
@@ -213,6 +224,18 @@
 
   </main>
 
+  <!-- Fav overlay + drawer -->
+  <div class="fav-overlay" id="fav-overlay"></div>
+  <div class="fav-drawer" id="fav-drawer" role="dialog" aria-label="Favoritos">
+    <div class="fav-drawer__header">
+      <h2 class="fav-drawer__titulo">Favoritos</h2>
+      <button class="fav-drawer__cerrar" onclick="Favs.close()" aria-label="Cerrar favoritos">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="fav-drawer__body" id="fav-items"></div>
+  </div>
+
   <!-- Cart overlay + drawer -->
   <div class="cart-overlay" id="cart-overlay"></div>
   <div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Carrito de compras">
@@ -260,6 +283,11 @@
   </a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/products-disenador.js"></script>
+  <script src="assets/js/products-decants.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/favorites.js"></script>
   <script src="assets/js/cart.js"></script>
   <script>
     const observer = new IntersectionObserver((entries) => {
