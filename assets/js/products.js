@@ -371,12 +371,12 @@ const catalogo = {
     ]
   },
   adyan: {
-    nombre: "Adyan",
+    nombre: "Afnar",
     productos: [
-      { nombre: "THAMNIYAT FLORA", precio: "$101,400" },
-      { nombre: "THE JEWEL OF PARADISE", precio: "$101,400" },
-      { nombre: "DUBAI CHOCOLATE", precio: "$96,300" },
-      { nombre: "ROYAL IMPERIAL", precio: "$136,800" },
+      { nombre: "THAMNIYAT FLORA", precio: "$101,400", imagen: "ADYAN THAMNIYAT FLORA.png" },
+      { nombre: "THE JEWEL OF PARADISE", precio: "$101,400", imagen: "THE JEWEL OF PARADISE.png" },
+      { nombre: "DUBAI CHOCOLATE", precio: "$96,300", imagen: "DUBAI CHOCOLATE afnar.png" },
+      { nombre: "ROYAL IMPERIAL", precio: "$136,800", imagen: "ROYAL IMPERIAL.png" },
     ]
   },
   tubbees: {

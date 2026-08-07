@@ -2219,6 +2219,13 @@ html {
   justify-content: center;
 }
 
+@media (min-width: 768px) {
+  .pmodal__card {
+    max-width: 620px;
+    max-height: 92vh;
+  }
+}
+
 /* ── Animación cards al filtrar ── */
 .col.pf-saliendo {
   opacity: 0 !important;
