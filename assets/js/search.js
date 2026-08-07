@@ -72,7 +72,7 @@
         ? `<span class="gsearch__item-precio">${p.precio}</span>`
         : `<span class="gsearch__item-precio gsearch__item-precio--consultar">A consultar</span>`;
       return `
-        <a class="gsearch__item" href="${pageBase}${p.seccion}.html">
+        <a class="gsearch__item" href="${pageBase}${p.seccion}.html#${encodeURIComponent(p.nombre)}">
           <div class="gsearch__item-img">${imgHtml}</div>
           <div class="gsearch__item-info">
             <span class="gsearch__item-marca">${p.marca}</span>
@@ -111,6 +111,21 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && !overlay.hidden) close();
     if (e.key === 'k' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); open(); }
+  });
+
+  window.addEventListener('load', function () {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const nombre = decodeURIComponent(hash.slice(1));
+    const card = [...document.querySelectorAll('.producto-card[data-nombre]')]
+      .find(el => el.dataset.nombre === nombre);
+    if (!card) return;
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+    setTimeout(() => {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('producto-highlight');
+      setTimeout(() => card.classList.remove('producto-highlight'), 2000);
+    }, 150);
   });
 
   window.Search = { open, close };

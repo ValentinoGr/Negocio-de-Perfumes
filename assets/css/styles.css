@@ -2975,4 +2975,16 @@ html {
   opacity: 1;
 }
 
+/* Highlight de card al llegar desde búsqueda global */
+@keyframes producto-highlight-fade {
+  0%   { outline-color: #c9a06a; box-shadow: 0 0 0 3px rgba(201,160,106,0.45); }
+  70%  { outline-color: #c9a06a; box-shadow: 0 0 0 3px rgba(201,160,106,0.45); }
+  100% { outline-color: transparent; box-shadow: none; }
+}
+.producto-highlight {
+  outline: 2px solid #c9a06a;
+  outline-offset: 3px;
+  animation: producto-highlight-fade 2s ease forwards;
+}
+
 /*# sourceMappingURL=styles.css.map */
