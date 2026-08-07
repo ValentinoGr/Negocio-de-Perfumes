@@ -452,41 +452,41 @@ const catalogo = {
   zimaya: {
     nombre: "Zimaya",
     productos: [
-      { nombre: "FATIMA", precio: "$70,900" },
-      { nombre: "FATIMA VELVET LOVE", precio: "$76,000" },
-      { nombre: "ZUKHRUF CHERRY", precio: "$65,900" },
-      { nombre: "HAWWA RED", precio: "$70,900" },
-      { nombre: "TIRAMISU CARAMEL", precio: "$81,100" },
-      { nombre: "TIRAMISU COCO", precio: "$81,100" },
+      { nombre: "FATIMA", precio: "$70,900", imagen: "FATIMA BY ZIMAYA.png" },
+      { nombre: "FATIMA VELVET LOVE", precio: "$76,000", imagen: "FATIMA VELVET LOVE.png" },
+      { nombre: "ZUKHRUF CHERRY", precio: "$65,900", imagen: "Zukhruf Cherry ZIMAYA.png" },
+      { nombre: "HAWWA RED", precio: "$70,900", imagen: "ZIMAYA HAWWA RED.png" },
+      { nombre: "TIRAMISU CARAMEL", precio: "$81,100", imagen: "ZIMAYA TIRAMISU CARAMEL.png" },
+      { nombre: "TIRAMISU COCO", precio: "$81,100", imagen: "ZIMAYA TIRAMISU COCO.png" },
     ]
   },
   rayhaan: {
     nombre: "Rayhaan",
     productos: [
-      { nombre: "EDP ROYAL WOOD", precio: null },
-      { nombre: "ITALIA", precio: null },
-      { nombre: "TROPICAL VIBE", precio: null },
-      { nombre: "NOCTURNO POUR HOMME", precio: "$93,700" },
-      { nombre: "LION", precio: "$93,700" },
-      { nombre: "DIVINE", precio: null },
-      { nombre: "ELIXIR", precio: "$98,800" },
+      { nombre: "EDP ROYAL WOOD", precio: null, imagen: "RAYHAAN EDP ROYAL WOOD.png" },
+      { nombre: "ITALIA", precio: null, imagen: "RAYHAAN ITALIA.png" },
+      { nombre: "TROPICAL VIBE", precio: null, imagen: "RAYHAAN TROPICAL VIBE.png" },
+      { nombre: "NOCTURNO POUR HOMME", precio: "$93,700", imagen: "RAYHAAN NOCTURNO Pour Homme.png" },
+      { nombre: "LION", precio: "$93,700", imagen: "RAYHAAN LION.png" },
+      { nombre: "DIVINE", precio: null, imagen: "RAYHAAN DIVINE.png" },
+      { nombre: "ELIXIR", precio: "$98,800", imagen: "RAYHAAN ELIXIR.png" },
     ]
   },
   amber: {
     nombre: "Amber Collection",
     productos: [
-      { nombre: "ROYAL AMBER 80 ML", precio: "$164,700" },
-      { nombre: "AMBER ROUGE 80 ML", precio: "$169,800" },
-      { nombre: "AMBER ROUGE 150 ML", precio: "$207,800" },
+      { nombre: "ROYAL AMBER 80 ML", precio: "$164,700", imagen: "ROYAL AMBER 80 ML.png" },
+      { nombre: "AMBER ROUGE 80 ML", precio: "$169,800", imagen: "AMBER ROUGE 80 ML.png" },
+      { nombre: "AMBER ROUGE 150 ML", precio: "$207,800", imagen: "AMBER ROUGE 150 ML.png" },
     ]
   },
   gameofspades: {
     nombre: "Game of Spades",
     productos: [
-      { nombre: "BOSTON", precio: "$207,800" },
-      { nombre: "DIAMOND", precio: "$220,500" },
-      { nombre: "ROUGE", precio: "$207,800" },
-      { nombre: "ROYAL", precio: "$207,800" },
+      { nombre: "BOSTON", precio: "$207,800", imagen: "GAME OF SPADES BOSTON.png" },
+      { nombre: "DIAMOND", precio: "$220,500", imagen: "GAME OF SPADES DIAMOND.png" },
+      { nombre: "ROUGE", precio: "$207,800", imagen: "GAME OF SPADES ROUGE.png" },
+      { nombre: "ROYAL", precio: "$207,800", imagen: "GAME OF SPADES ROYAL.png" },
     ]
   },
 };
