@@ -107,10 +107,10 @@ const catalogoDisenador = {
   armani: {
     nombre: "Armani",
     productos: [
-      { nombre: "AQUA DI GIOIA EDP 100 ML", precio: "$228,100" },
+      { nombre: "ACQUA DI GIOIA EDP 100 ML", precio: "$228,100", imagen: "AQUA DI GIOIA EDP 100 ml - Armani.png" },
       { nombre: "ACQUA DI GIO EDP 125 ML", precio: "$301,600", imagen: "ACQUA DI GIO EDP 125 ML - GIORGI ARMANI.png" },
       { nombre: "ACQUA DI GIO PARFUM 100 ML", precio: "$327,000", imagen: "ACQUA DI GIO PARFUM 100 ml - GIORGIO ARMANI.png" },
-      { nombre: "ACQUA DI GIO PROFONDO EDP 100 ML", precio: "$301,600", imagen: "AQUA DI GIOIA EDP 100 ml - Armani.png" },
+      { nombre: "ACQUA DI GIO PROFONDO EDP 100 ML", precio: "$301,600", imagen: "ACQUA DI GIO PROFONDO EDP 100 ml - GIORGIO ARMANI.png" },
       { nombre: "STRONGER WITH YOU INTENSELY EDP 100 ML", precio: "$291,500", imagen: "STRONGER WITH YOU INTENSELY EDP 100 ml - GIORGIO ARMANI.png" },
       { nombre: "STRONGER WITH YOU INTENSELY EDP 150 ML", precio: "$380,200", imagen: "STRONGER WITH YOU INTENSELY EDP 150 ml - GIORGIO ARMANI.png" },
       { nombre: "STRONGER WITH YOU EDT 100 ML", precio: "$271,200", imagen: "STRONGER WITH YOU EDT 100 ml - GIORIGIO ARMANI.png" },

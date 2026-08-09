@@ -1532,6 +1532,10 @@ html {
   background-color: #c9a06a11;
   color: #d4b07f;
 }
+.footer__contenido::after {
+  content: '';
+  flex: 0 0 220px;
+}
 .footer__principal {
   flex: 1;
   text-align: center;
@@ -1732,6 +1736,9 @@ html {
     padding-bottom: 1.5rem;
     border-right: none;
     border-bottom: 1px solid #3a3a3a;
+  }
+  .footer__contenido::after {
+    display: none;
   }
   .footer__social-link {
     padding: 0.6rem 1.25rem;

@@ -39,7 +39,7 @@ const catalogoDecants = [
   { nombre: "Lattafa Confidential Private Gold", precio: "$8.400", imagen: "Lattafa Confidential Gold 100ml.png" },
   { nombre: "Erba Pura", precio: "$62.400", imagen: "ERBA PURA.png" },
   { nombre: "JPG Le Male Elixir", precio: "$43.200", imagen: "JPG LE MALE ELIXIR.png" },
-  { nombre: "World Cup", precio: "$16.800" },
+  { nombre: "World Cup", precio: "$16.800", imagen: "World Cup.png" },
   { nombre: "Yeah! Man", precio: "$8.400", imagen: "YEAH! 100 ML.jpg" },
   { nombre: "Jean Lowe Inmortel", precio: "$8.400", imagen: "JEAN LOWE INMORTEL EDP 100 ML.jpg" },
   { nombre: "So Candid Pour Homme", precio: "$8.400", imagen: "SO CANDID POUR HOMME 100 ML.jpg" },
