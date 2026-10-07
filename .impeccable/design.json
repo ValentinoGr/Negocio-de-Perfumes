@@ -1,0 +1,474 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T07:56:10Z",
+  "title": "Design System: Essenza",
+  "extensions": {
+    "colorMeta": {
+      "oro-viejo": {
+        "role": "primary",
+        "displayName": "Oro viejo",
+        "canonical": "#c9a06a",
+        "tonalRamp": [
+          "oklch(15.0% 0.086 73)",
+          "oklch(26.4% 0.086 73)",
+          "oklch(37.9% 0.086 73)",
+          "oklch(49.3% 0.086 73)",
+          "oklch(60.7% 0.086 73)",
+          "oklch(72.1% 0.086 73)",
+          "oklch(83.6% 0.086 73)",
+          "oklch(95.0% 0.052 73)"
+        ]
+      },
+      "oro-viejo-claro": {
+        "role": "primary",
+        "displayName": "Oro viejo claro",
+        "canonical": "#d4b07a",
+        "tonalRamp": [
+          "oklch(15.0% 0.082 77)",
+          "oklch(26.4% 0.082 77)",
+          "oklch(37.9% 0.082 77)",
+          "oklch(49.3% 0.082 77)",
+          "oklch(60.7% 0.082 77)",
+          "oklch(72.1% 0.082 77)",
+          "oklch(83.6% 0.082 77)",
+          "oklch(95.0% 0.049 77)"
+        ]
+      },
+      "grafito": {
+        "role": "neutral",
+        "displayName": "Grafito",
+        "canonical": "#2c2c2c",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 90)",
+          "oklch(26.4% 0.000 90)",
+          "oklch(37.9% 0.000 90)",
+          "oklch(49.3% 0.000 90)",
+          "oklch(60.7% 0.000 90)",
+          "oklch(72.1% 0.000 90)",
+          "oklch(83.6% 0.000 90)",
+          "oklch(95.0% 0.000 90)"
+        ]
+      },
+      "grafito-oscuro": {
+        "role": "neutral",
+        "displayName": "Grafito oscuro",
+        "canonical": "#1e1e1e",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 90)",
+          "oklch(26.4% 0.000 90)",
+          "oklch(37.9% 0.000 90)",
+          "oklch(49.3% 0.000 90)",
+          "oklch(60.7% 0.000 90)",
+          "oklch(72.1% 0.000 90)",
+          "oklch(83.6% 0.000 90)",
+          "oklch(95.0% 0.000 90)"
+        ]
+      },
+      "grafito-borde": {
+        "role": "neutral",
+        "displayName": "Grafito borde",
+        "canonical": "#3a3a3a",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 90)",
+          "oklch(26.4% 0.000 90)",
+          "oklch(37.9% 0.000 90)",
+          "oklch(49.3% 0.000 90)",
+          "oklch(60.7% 0.000 90)",
+          "oklch(72.1% 0.000 90)",
+          "oklch(83.6% 0.000 90)",
+          "oklch(95.0% 0.000 90)"
+        ]
+      },
+      "tinta": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "#1a1a1a",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 90)",
+          "oklch(26.4% 0.000 90)",
+          "oklch(37.9% 0.000 90)",
+          "oklch(49.3% 0.000 90)",
+          "oklch(60.7% 0.000 90)",
+          "oklch(72.1% 0.000 90)",
+          "oklch(83.6% 0.000 90)",
+          "oklch(95.0% 0.000 90)"
+        ]
+      },
+      "noche": {
+        "role": "neutral",
+        "displayName": "Noche",
+        "canonical": "#131313",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 90)",
+          "oklch(26.4% 0.000 90)",
+          "oklch(37.9% 0.000 90)",
+          "oklch(49.3% 0.000 90)",
+          "oklch(60.7% 0.000 90)",
+          "oklch(72.1% 0.000 90)",
+          "oklch(83.6% 0.000 90)",
+          "oklch(95.0% 0.000 90)"
+        ]
+      },
+      "barra-anuncio": {
+        "role": "neutral",
+        "displayName": "Barra de anuncio",
+        "canonical": "#111111",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 90)",
+          "oklch(26.4% 0.000 90)",
+          "oklch(37.9% 0.000 90)",
+          "oklch(49.3% 0.000 90)",
+          "oklch(60.7% 0.000 90)",
+          "oklch(72.1% 0.000 90)",
+          "oklch(83.6% 0.000 90)",
+          "oklch(95.0% 0.000 90)"
+        ]
+      },
+      "niebla": {
+        "role": "neutral",
+        "displayName": "Niebla",
+        "canonical": "#ededec",
+        "tonalRamp": [
+          "oklch(15.0% 0.001 106)",
+          "oklch(26.4% 0.001 106)",
+          "oklch(37.9% 0.001 106)",
+          "oklch(49.3% 0.001 106)",
+          "oklch(60.7% 0.001 106)",
+          "oklch(72.1% 0.001 106)",
+          "oklch(83.6% 0.001 106)",
+          "oklch(95.0% 0.001 106)"
+        ]
+      },
+      "blanco": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 90)",
+          "oklch(26.4% 0.000 90)",
+          "oklch(37.9% 0.000 90)",
+          "oklch(49.3% 0.000 90)",
+          "oklch(60.7% 0.000 90)",
+          "oklch(72.1% 0.000 90)",
+          "oklch(83.6% 0.000 90)",
+          "oklch(95.0% 0.000 90)"
+        ]
+      },
+      "marfil": {
+        "role": "neutral",
+        "displayName": "Marfil",
+        "canonical": "#f0ece6",
+        "tonalRamp": [
+          "oklch(15.0% 0.009 78)",
+          "oklch(26.4% 0.009 78)",
+          "oklch(37.9% 0.009 78)",
+          "oklch(49.3% 0.009 78)",
+          "oklch(60.7% 0.009 78)",
+          "oklch(72.1% 0.009 78)",
+          "oklch(83.6% 0.009 78)",
+          "oklch(95.0% 0.005 78)"
+        ]
+      },
+      "gris-claro": {
+        "role": "neutral",
+        "displayName": "Gris claro",
+        "canonical": "#d6d6d6",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 90)",
+          "oklch(26.4% 0.000 90)",
+          "oklch(37.9% 0.000 90)",
+          "oklch(49.3% 0.000 90)",
+          "oklch(60.7% 0.000 90)",
+          "oklch(72.1% 0.000 90)",
+          "oklch(83.6% 0.000 90)",
+          "oklch(95.0% 0.000 90)"
+        ]
+      },
+      "gris-medio": {
+        "role": "neutral",
+        "displayName": "Gris medio",
+        "canonical": "#888888",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 90)",
+          "oklch(26.4% 0.000 90)",
+          "oklch(37.9% 0.000 90)",
+          "oklch(49.3% 0.000 90)",
+          "oklch(60.7% 0.000 90)",
+          "oklch(72.1% 0.000 90)",
+          "oklch(83.6% 0.000 90)",
+          "oklch(95.0% 0.000 90)"
+        ]
+      },
+      "whatsapp": {
+        "role": "secondary",
+        "displayName": "Verde WhatsApp",
+        "canonical": "#25d366",
+        "tonalRamp": [
+          "oklch(15.0% 0.201 150)",
+          "oklch(26.4% 0.201 150)",
+          "oklch(37.9% 0.201 150)",
+          "oklch(49.3% 0.201 150)",
+          "oklch(60.7% 0.201 150)",
+          "oklch(72.1% 0.201 150)",
+          "oklch(83.6% 0.201 150)",
+          "oklch(95.0% 0.121 150)"
+        ]
+      },
+      "whatsapp-hover": {
+        "role": "secondary",
+        "displayName": "Verde WhatsApp hover",
+        "canonical": "#1ebe5d",
+        "tonalRamp": [
+          "oklch(15.0% 0.185 150)",
+          "oklch(26.4% 0.185 150)",
+          "oklch(37.9% 0.185 150)",
+          "oklch(49.3% 0.185 150)",
+          "oklch(60.7% 0.185 150)",
+          "oklch(72.1% 0.185 150)",
+          "oklch(83.6% 0.185 150)",
+          "oklch(95.0% 0.111 150)"
+        ]
+      },
+      "alerta": {
+        "role": "tertiary",
+        "displayName": "Alerta",
+        "canonical": "#e74c3c",
+        "tonalRamp": [
+          "oklch(15.0% 0.194 29)",
+          "oklch(26.4% 0.194 29)",
+          "oklch(37.9% 0.194 29)",
+          "oklch(49.3% 0.194 29)",
+          "oklch(60.7% 0.194 29)",
+          "oklch(72.1% 0.194 29)",
+          "oklch(83.6% 0.194 29)",
+          "oklch(95.0% 0.116 29)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "El \"¡Bienvenidos!\" del inicio y héroes de página (clamp 3–9rem)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Título de cada marca dentro del catálogo."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Títulos de bloques, tarjetas de información y cabeceras de drawers y modal."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido en fuente del sistema, 0.88–0.95rem."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nombres de producto, eyebrows, botones pequeños y enlaces en mayúsculas."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Precios de producto y total del carrito en Oswald."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-rest",
+        "value": "0 2px 8px rgba(0,0,0,0.08)",
+        "purpose": "Tarjeta de producto en reposo."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 12px 28px rgba(0,0,0,0.14)",
+        "purpose": "Tarjeta de producto elevada en hover."
+      },
+      {
+        "name": "navbar",
+        "value": "0 4px 6px rgba(0,0,0,0.5)",
+        "purpose": "Navbar flotante."
+      },
+      {
+        "name": "floating-dark",
+        "value": "0 24px 80px rgba(0,0,0,0.6)",
+        "purpose": "Modal de producto y popup."
+      },
+      {
+        "name": "gold-pulse",
+        "value": "0 0 0 1.5px rgba(201,160,106,0.65), 0 0 22px rgba(201,160,106,0.28)",
+        "purpose": "Aro del buscador al enfocar."
+      },
+      {
+        "name": "whatsapp-glow",
+        "value": "0 4px 14px rgba(37,211,102,0.35)",
+        "purpose": "Botón de checkout verde."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Entrada de drawers (0.35s)."
+      },
+      {
+        "name": "ease-overshoot",
+        "value": "cubic-bezier(0.34, 1.25, 0.64, 1)",
+        "purpose": "Aparición del popup de bienvenida (0.4s)."
+      },
+      {
+        "name": "reveal",
+        "value": "0.75s ease",
+        "purpose": "Aparición de secciones al hacer scroll (opacity y translateY 40px)."
+      },
+      {
+        "name": "hover-lift",
+        "value": "0.3s ease",
+        "purpose": "Elevación de tarjetas en hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "400px"
+      },
+      {
+        "name": "sm",
+        "value": "600px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "992px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón Agregar",
+      "kind": "button",
+      "refersTo": "button-agregar",
+      "description": "Acción principal de cada tarjeta de producto; se vuelve verde 1.3 s al confirmar.",
+      "html": "<button class=\"ds-btn-agregar\">Agregar</button>",
+      "css": ".ds-btn-agregar{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#2c2c2c;color:#fff;border:none;border-radius:8px;padding:.45rem .75rem;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;width:100%;transition:background-color .2s ease,transform .15s ease}.ds-btn-agregar:hover{background:#1e1e1e;transform:translateY(-1px)}.ds-btn-agregar:active{transform:translateY(0)}.ds-btn-agregar:focus-visible{outline:2px solid #c9a06a;outline-offset:2px}"
+    },
+    {
+      "name": "Botón WhatsApp",
+      "kind": "button",
+      "refersTo": "button-whatsapp",
+      "description": "Cierre del pedido: arma el mensaje y abre WhatsApp.",
+      "html": "<button class=\"ds-btn-wa\">Consultar por WhatsApp</button>",
+      "css": ".ds-btn-wa{font-family:'Oswald',sans-serif;background:#25d366;color:#fff;border:none;border-radius:10px;padding:.9rem 1.2rem;font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;box-shadow:0 4px 14px rgba(37,211,102,.35);transition:background-color .2s ease,transform .15s ease,box-shadow .2s ease}.ds-btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.45)}.ds-btn-wa:focus-visible{outline:2px solid #c9a06a;outline-offset:2px}"
+    },
+    {
+      "name": "Tarjeta de producto",
+      "kind": "card",
+      "refersTo": "product-card",
+      "description": "Unidad del catálogo: foto sobre degradé grafito, nombre, precio y Agregar.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-img\"></div><div class=\"ds-card-info\"><p class=\"ds-card-name\">Khamrah 100 ml</p><p class=\"ds-card-price\">$63,300</p><button class=\"ds-card-btn\">Agregar</button></div></div>",
+      "css": ".ds-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);width:180px;transition:transform .3s ease,box-shadow .3s ease}.ds-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.14)}.ds-card-img{aspect-ratio:1;background:linear-gradient(145deg,#2c2c2c 0%,#1e1e1e 100%)}.ds-card-info{padding:.9rem}.ds-card-name{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:.72rem;font-weight:700;color:#2c2c2c;text-transform:uppercase;letter-spacing:.03em;line-height:1.45;margin:0 0 .5rem}.ds-card-price{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;color:#2c2c2c;margin:0 0 .5rem}.ds-card-btn{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;width:100%;background:#2c2c2c;color:#fff;border:none;border-radius:8px;padding:.45rem .75rem;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}"
+    },
+    {
+      "name": "Buscador",
+      "kind": "input",
+      "refersTo": "search-pill",
+      "description": "Píldora oscura de 56px con aro dorado que pulsa al enfocar.",
+      "html": "<div class=\"ds-search\"><input class=\"ds-search-input\" type=\"search\" placeholder=\"Buscá por perfume o marca...\"></div>",
+      "css": ".ds-search{display:flex;align-items:center;width:320px;max-width:100%;background:#131313;border:1px solid rgba(201,160,106,.15);border-radius:100px;padding:0 1.4rem;height:56px;box-shadow:0 4px 28px rgba(0,0,0,.14);transition:box-shadow .3s ease,border-color .3s ease}.ds-search:hover{border-color:rgba(201,160,106,.38);box-shadow:0 0 0 1px rgba(201,160,106,.2),0 6px 32px rgba(0,0,0,.2)}.ds-search:focus-within{border-color:rgba(201,160,106,.8);box-shadow:0 0 0 1.5px rgba(201,160,106,.65),0 0 22px rgba(201,160,106,.28)}.ds-search-input{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;flex:1;min-width:0;background:none;border:none;outline:none;color:#f0f0f0;font-size:.92rem;letter-spacing:.02em}.ds-search-input::placeholder{color:rgba(201,160,106,.3);font-style:italic}"
+    },
+    {
+      "name": "Filtro de precio",
+      "kind": "chip",
+      "refersTo": "price-filter-button-active",
+      "description": "Control segmentado en píldora noche; el segmento activo se tiñe de oro viejo.",
+      "html": "<div class=\"ds-pf\"><button class=\"ds-pf-btn ds-active\">Todos</button><button class=\"ds-pf-btn\">Hasta $65k</button><button class=\"ds-pf-btn\">+$90k</button></div>",
+      "css": ".ds-pf{display:inline-flex;background:#131313;border:1px solid rgba(201,160,106,.15);border-radius:100px;overflow:hidden;box-shadow:0 4px 28px rgba(0,0,0,.14)}.ds-pf-btn{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:none;border:none;border-right:1px solid rgba(201,160,106,.1);color:rgba(255,255,255,.35);font-size:.76rem;letter-spacing:.03em;padding:.95rem .9rem;cursor:pointer;white-space:nowrap;transition:color .2s ease,background-color .2s ease}.ds-pf-btn:last-child{border-right:none}.ds-pf-btn:hover:not(.ds-active){color:rgba(201,160,106,.75);background:rgba(201,160,106,.05)}.ds-pf-btn.ds-active{color:#c9a06a;background:rgba(201,160,106,.1)}.ds-pf-btn:focus-visible{outline:2px solid #c9a06a;outline-offset:-2px}"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "refersTo": "navbar",
+      "description": "Píldora grafito flotante con enlaces claros; el activo en blanco con subrayado.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link ds-on\" href=\"#\">Inicio</a><a class=\"ds-nav-link\" href=\"#\">Nosotros</a><a class=\"ds-nav-link\" href=\"#\">Productos</a></nav>",
+      "css": ".ds-nav{display:flex;gap:.25rem;background:#2c2c2c;border-bottom:2px solid #444;border-radius:30px;padding:1rem 1.5rem;box-shadow:0 4px 6px rgba(0,0,0,.5)}.ds-nav-link{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#d6d6d6;font-size:.95rem;letter-spacing:.04em;padding:.5rem 1rem;text-decoration:none;transition:color .2s}.ds-nav-link:hover,.ds-nav-link:focus-visible{color:#fff;outline:none}.ds-nav-link.ds-on{color:#fff;font-weight:600;border-bottom:2px solid #888}"
+    },
+    {
+      "name": "Tarjeta de categoría",
+      "kind": "card",
+      "refersTo": "category-card",
+      "description": "Placa de grafito sin radio con número grande; sube 6px en hover.",
+      "html": "<a class=\"ds-cat\" href=\"#\"><span class=\"ds-cat-n\">01</span><h3 class=\"ds-cat-t\">Árabes</h3><p class=\"ds-cat-p\">Fragancias intensas y duraderas, con notas profundas de oud, ámbar y especias.</p><span class=\"ds-cat-l\">Ver colección →</span></a>",
+      "css": ".ds-cat{display:block;width:260px;background:#2c2c2c;padding:2.5rem 2rem;text-decoration:none;transition:transform .3s ease,background-color .3s ease,box-shadow .3s ease}.ds-cat:hover{transform:translateY(-6px);background:#353535;box-shadow:0 12px 30px rgba(0,0,0,.25)}.ds-cat-n{font-family:'Oswald',sans-serif;display:block;font-size:2.5rem;font-weight:700;color:#444;line-height:1;margin-bottom:1.25rem}.ds-cat-t{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:1.6rem;font-weight:600;color:#fff;margin:0 0 1rem;letter-spacing:.02em}.ds-cat-p{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:.88rem;color:#aaa;line-height:1.75;margin:0 0 2rem}.ds-cat-l{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#d6d6d6;border-bottom:1px solid #555;padding-bottom:3px}"
+    },
+    {
+      "name": "Modal de producto",
+      "kind": "custom",
+      "refersTo": "modal-card",
+      "description": "Pieza oscura con foto grande, precio en oro viejo y dos acciones apiladas.",
+      "html": "<div class=\"ds-modal\"><div class=\"ds-modal-img\"></div><div class=\"ds-modal-info\"><p class=\"ds-modal-brand\">Lattafa</p><h3 class=\"ds-modal-name\">Khamrah 100 ml</h3><p class=\"ds-modal-price\">$63,300</p><button class=\"ds-modal-add\">Agregar al carrito</button><a class=\"ds-modal-wa\" href=\"#\">Consultar por WhatsApp</a></div></div>",
+      "css": ".ds-modal{width:300px;background:#1a1a1a;border:1px solid rgba(201,160,106,.2);border-radius:18px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.6)}.ds-modal-img{aspect-ratio:1;background:linear-gradient(145deg,#222 0%,#111 100%)}.ds-modal-info{padding:1.4rem 1.5rem 1.75rem;display:flex;flex-direction:column;gap:.35rem}.ds-modal-brand{font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,160,106,.65);margin:0}.ds-modal-name{font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:700;color:#f0f0f0;margin:.1rem 0 0;line-height:1.2}.ds-modal-price{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:1.1rem;font-weight:700;color:#c9a06a;margin:.3rem 0 .6rem}.ds-modal-add{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#2c2c2c;color:#fff;border:none;border-radius:8px;padding:.6rem;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}.ds-modal-add:hover{background:#1e1e1e}.ds-modal-wa{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;display:block;text-align:center;margin-top:.4rem;padding:.6rem 1rem;border-radius:10px;border:1px solid rgba(37,211,102,.3);background:rgba(37,211,102,.07);color:#4dcb78;font-size:.85rem;font-weight:500;text-decoration:none;transition:background .2s,border-color .2s,color .2s}.ds-modal-wa:hover{background:rgba(37,211,102,.15);border-color:rgba(37,211,102,.6);color:#6ddb94}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La vitrina de mármol",
+    "overview": "**Creative North Star: \"La vitrina de mármol\"**\n\nEssenza se ve como la vitrina de una perfumería: superficies de grafito y mármol negro, un único dorado viejo que aparece como filo de luz y no como relleno, y el frasco como protagonista. La interfaz se retira lo suficiente para que el producto brille, pero no se vuelve distante: los botones son claros, el camino hacia WhatsApp siempre está a la vista y el tono es cercano.\n\nEl sistema alterna dos mundos. Las páginas viven sobre un fondo niebla (#ededec) con tarjetas blancas y mucho aire; las piezas de marca (navbar, tarjetas de categoría, footer, modal, buscador, popup) son oscuras, con bordes dorados casi invisibles. Los titulares son Oswald en mayúsculas con tracking amplio; el texto corrido usa la fuente del sistema. El movimiento es suave y acompaña: aparición al hacer scroll, tarjetas que suben unos píxeles, un halo dorado que sigue al cursor en escritorio.\n\nRechaza dos cosas: parecer un marketplace de ofertas (banners, etiquetas chillonas, colores saturados) y parecer una plantilla genérica de tienda intercambiable con cualquier otra. Su carácter sale del contraste grafito/oro, de la tipografía de impacto y de los detalles de vitrina (mármol, filos dorados, luz).",
+    "keyCharacteristics": [
+      "Oscuro y sobrio en las piezas de marca; claro y aireado en el catálogo.",
+      "Un solo acento, el oro viejo, usado con intención y en poca superficie.",
+      "Titulares Oswald en mayúsculas con tracking; cuerpo en fuente del sistema.",
+      "Formas suaves: píldoras para campos y filtros, esquinas amables en tarjetas y modales.",
+      "Planas en reposo, se elevan al interactuar.",
+      "El verde de WhatsApp es el único color \"de acción\" fuera de la paleta de marca."
+    ],
+    "rules": [
+      {
+        "name": "The One Gold Rule",
+        "body": "El oro viejo aparece como filo, estado activo o luz; nunca como relleno grande ni como fondo de botón. Su rareza es lo que lo hace parecer joyería.",
+        "section": "colors"
+      },
+      {
+        "name": "The WhatsApp Is a Verb Rule",
+        "body": "El verde #25d366 solo marca acciones que llevan a la conversación o confirman un paso. No se usa como decoración ni como segundo acento de marca.",
+        "section": "colors"
+      },
+      {
+        "name": "The Warm Neutrals Rule",
+        "body": "Los fondos claros son niebla y blanco, y el texto claro sobre oscuro es marfil: nada de blanco puro frío sobre negro puro. Los negros son grafitos, no #000.",
+        "section": "colors"
+      },
+      {
+        "name": "The Uppercase Voice Rule",
+        "body": "Todo lo que sea titular, etiqueta de marca o nombre de producto va en mayúsculas con tracking; el texto corrido nunca.",
+        "section": "typography"
+      },
+      {
+        "name": "The Italic Whisper Rule",
+        "body": "\"Consultar precio\" y \"A consultar\" van en cursiva, gris medio y sin peso: lo que no tiene precio se dice bajito, sin disfrazarlo de dato.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-Until-Touched Rule",
+        "body": "Las superficies están quietas hasta que se responde a ellas: la elevación y el brillo dorado son consecuencia de hover o foco, no decoración permanente.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** usar oro viejo (#c9a06a) solo para estados activos, filos, iconos pequeños y luz; en rgba cuando vaya en bordes y fondos.",
+      "**Do** reservar el verde #25d366 para acciones que llevan a WhatsApp o confirman un paso.",
+      "**Do** poner titulares, etiquetas y nombres de producto en mayúsculas con tracking; Oswald solo en peso 700.",
+      "**Do** dejar las superficies planas en reposo y mostrar elevación y brillo dorado como respuesta a hover o foco.",
+      "**Do** usar píldoras (100px) para campos y filtros, y círculos para botones flotantes y de cierre.",
+      "**Do** mostrar \"Consultar precio\" y \"Sin stock\" tal cual, en gris medio y sin peso.",
+      "**Do** mantener fondos oscuros en grafitos (#2c2c2c, #1e1e1e, #1a1a1a, #131313) y texto claro en marfil o blanco; fondo de página niebla (#ededec)."
+    ],
+    "donts": [
+      "**Don't** convertir el oro viejo en un botón sólido ni en un fondo grande; pierde el aire de joyería y se acerca al \"lujo ostentoso\".",
+      "**Don't** agregar colores chillones, etiquetas de descuento ni banners saturados: el sitio no es un marketplace de ofertas.",
+      "**Don't** usar negro puro (#000) para superficies ni blanco frío sobre negro; los neutros son cálidos.",
+      "**Don't** meter un segundo acento de marca ni usar el verde de WhatsApp como decoración.",
+      "**Don't** reemplazar la combinación Oswald + fuente del sistema por una plantilla genérica de tienda; el carácter sale de esa tipografía y del contraste grafito/oro.",
+      "**Don't** poner sombras fuertes permanentes sobre tarjetas en reposo."
+    ]
+  }
+}
