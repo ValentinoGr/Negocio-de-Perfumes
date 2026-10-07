@@ -7,6 +7,9 @@
   overlay.id = 'gsearch-overlay';
   overlay.className = 'gsearch';
   overlay.hidden = true;
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Buscar perfumes');
   overlay.innerHTML = `
     <div class="gsearch__backdrop"></div>
     <div class="gsearch__panel">
@@ -25,6 +28,10 @@
   const results  = document.getElementById('gsearch-results');
 
   let index = [];
+
+  function esc(str) {
+    return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
 
   function buildIndex() {
     index = [];
@@ -60,23 +67,23 @@
     ).slice(0, 24);
 
     if (matches.length === 0) {
-      results.innerHTML = `<div class="gsearch__empty"><i class="bi bi-search"></i><p>Sin resultados para "<strong>${query}</strong>"</p></div>`;
+      results.innerHTML = `<div class="gsearch__empty"><i class="bi bi-search"></i><p>Sin resultados para "<strong>${esc(query)}</strong>"</p></div>`;
       return;
     }
 
     results.innerHTML = matches.map(p => {
       const imgHtml = p.imagen
-        ? `<img src="${imgBase}${encodeURIComponent(p.imagen)}" alt="${p.nombre}" loading="lazy">`
+        ? `<img src="${imgBase}${encodeURIComponent(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy">`
         : `<i class="bi bi-bag"></i>`;
       const precioHtml = p.precio
-        ? `<span class="gsearch__item-precio">${p.precio}</span>`
+        ? `<span class="gsearch__item-precio">${esc(p.precio)}</span>`
         : `<span class="gsearch__item-precio gsearch__item-precio--consultar">A consultar</span>`;
       return `
         <a class="gsearch__item" href="${pageBase}${p.seccion}.html#${encodeURIComponent(p.nombre)}">
           <div class="gsearch__item-img">${imgHtml}</div>
           <div class="gsearch__item-info">
-            <span class="gsearch__item-marca">${p.marca}</span>
-            <span class="gsearch__item-nombre">${p.nombre}</span>
+            <span class="gsearch__item-marca">${esc(p.marca)}</span>
+            <span class="gsearch__item-nombre">${esc(p.nombre)}</span>
             ${precioHtml}
           </div>
           <span class="gsearch__badge gsearch__badge--${p.seccion}">${p.label}</span>
@@ -88,6 +95,7 @@
     buildIndex();
     overlay.hidden = false;
     document.body.style.overflow = 'hidden';
+    window.FocusScope?.open(overlay.querySelector('.gsearch__panel'), input);
     requestAnimationFrame(() => {
       overlay.classList.add('gsearch--visible');
       input.focus();
@@ -96,6 +104,7 @@
   }
 
   function close() {
+    window.FocusScope?.close(overlay.querySelector('.gsearch__panel'));
     overlay.classList.remove('gsearch--visible');
     setTimeout(() => {
       overlay.hidden = true;

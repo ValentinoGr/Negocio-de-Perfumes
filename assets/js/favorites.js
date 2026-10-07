@@ -5,10 +5,17 @@
   function load() {
     try { items = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
     catch { items = []; }
+    if (!Array.isArray(items)) items = [];
   }
 
+  // localStorage puede lanzar error (cookies bloqueadas, modo privado, cuota llena): los favoritos siguen en memoria.
   function save() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); }
+    catch { /* sin persistencia */ }
+  }
+
+  function esc(str) {
+    return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
   function isFav(nombre, marca) {
@@ -49,21 +56,21 @@
       <div class="fav-item">
         <div class="fav-item__img">
           ${item.imagen
-            ? `<img src="${imgBase}${encodeURIComponent(item.imagen)}" alt="${item.nombre}">`
+            ? `<img src="${imgBase}${encodeURIComponent(item.imagen)}" alt="${esc(item.nombre)}">`
             : `<i class="bi bi-bag"></i>`}
         </div>
         <div class="fav-item__info">
-          <p class="fav-item__marca">${item.marca}</p>
-          <p class="fav-item__nombre">${item.nombre}</p>
+          <p class="fav-item__marca">${esc(item.marca)}</p>
+          <p class="fav-item__nombre">${esc(item.nombre)}</p>
           ${item.precio
-            ? `<p class="fav-item__precio">${item.precio}</p>`
+            ? `<p class="fav-item__precio">${esc(item.precio)}</p>`
             : `<p class="fav-item__precio fav-item__precio--consultar">A consultar</p>`}
         </div>
         <div class="fav-item__actions">
           <button class="fav-item__agregar btn-agregar"
-            data-nombre="${item.nombre.replace(/"/g, '&quot;')}"
-            data-marca="${item.marca.replace(/"/g, '&quot;')}"
-            data-precio="${item.precio || ''}"
+            data-nombre="${esc(item.nombre)}"
+            data-marca="${esc(item.marca)}"
+            data-precio="${esc(item.precio || '')}"
             aria-label="Agregar al carrito">
             <i class="bi bi-bag-plus"></i>
           </button>
@@ -83,6 +90,7 @@
     if (overlay) overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     document.body.classList.add('cart-open');
+    window.FocusScope?.open(drawer, '.fav-drawer__cerrar');
   }
 
   function closeDrawer() {
@@ -93,6 +101,7 @@
     if (overlay) overlay.classList.remove('open');
     document.body.style.overflow = '';
     document.body.classList.remove('cart-open');
+    window.FocusScope?.close(drawer);
   }
 
   window.Favs = {
@@ -113,6 +122,7 @@
       const list = document.getElementById('fav-items');
       const el = list ? list.children[index] : null;
       if (el) {
+        if (el.classList.contains('removing')) return;
         el.classList.add('removing');
         setTimeout(() => {
           items.splice(index, 1);

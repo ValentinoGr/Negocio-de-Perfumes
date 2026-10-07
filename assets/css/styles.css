@@ -559,7 +559,8 @@ html {
   font-size: 1.4rem;
   transition: background 0.22s ease, color 0.22s ease;
 }
-.producto-card:hover .producto-card__lupa {
+.producto-card:hover .producto-card__lupa,
+.producto-card:focus-visible .producto-card__lupa {
   background: rgba(0,0,0,0.32);
   color: rgba(255,255,255,0.9);
 }
@@ -583,8 +584,16 @@ html {
   transition: opacity 0.2s, color 0.2s, background 0.2s;
 }
 .producto-card:hover .btn-fav,
+.producto-card:focus-within .btn-fav,
+.btn-fav:focus-visible,
 .btn-fav--active {
   opacity: 1;
+}
+/* En pantallas táctiles no existe el hover: el corazón tiene que estar siempre visible. */
+@media (hover: none) {
+  .btn-fav {
+    opacity: 1;
+  }
 }
 .btn-fav--active {
   color: #c9a06a;
@@ -862,13 +871,16 @@ html {
   background-color: #ffffff;
   z-index: 1050;
   transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.35s;
   display: flex;
   flex-direction: column;
   box-shadow: -6px 0 30px rgba(0, 0, 0, 0.15);
 }
 .cart-drawer.open {
   transform: translateX(0);
+  visibility: visible;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0s;
 }
 .cart-drawer__header {
   display: flex;
@@ -1116,13 +1128,16 @@ html {
   background-color: #ffffff;
   z-index: 1050;
   transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  visibility: hidden;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.35s;
   display: flex;
   flex-direction: column;
   box-shadow: -6px 0 30px rgba(0,0,0,0.15);
 }
 .fav-drawer.open {
   transform: translateX(0);
+  visibility: visible;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0s;
 }
 .fav-drawer__header {
   display: flex;
@@ -1430,11 +1445,6 @@ html {
 @media (max-width: 991.98px) {
   .navbar-nav .nav-link.active {
     border-bottom: none;
-  }
-  .navbar-nav .nav-link:focus,
-  .navbar-nav .nav-link:focus-visible {
-    outline: none;
-    box-shadow: none;
   }
   .navbar {
     position: relative;
@@ -2106,7 +2116,7 @@ html {
   overflow: hidden;
   transition: border-color 0.2s ease;
 }
-.nl-input-wrap:focus-within { border-color: rgba(255, 255, 255, 0.28); }
+.nl-input-wrap:focus-within { border-color: rgba(201, 160, 106, 0.8); }
 .nl-input {
   flex: 1;
   min-width: 0;
@@ -3043,6 +3053,39 @@ html {
   outline: 2px solid #c9a06a;
   outline-offset: 3px;
   animation: producto-highlight-fade 2s ease forwards;
+}
+
+/* ── Foco de teclado ───────────────────────────────── */
+/* Fondos claros: anillo grafito (10:1 sobre #ededec). Fondos oscuros: anillo oro viejo. */
+:focus-visible {
+  outline: 2px solid #2c2c2c;
+  outline-offset: 2px;
+}
+.navbar :focus-visible,
+.anuncio-bar :focus-visible,
+.footer :focus-visible,
+.catalogo-nav :focus-visible,
+.categoria-card:focus-visible,
+.info-cta :focus-visible,
+.precio-filter :focus-visible,
+.pmodal :focus-visible,
+.nl-popup :focus-visible,
+.gsearch :focus-visible {
+  outline: 2px solid #c9a06a;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+.navbar-toggler:focus-visible {
+  outline-offset: 0;
+}
+/* Los campos de texto muestran el foco en su contenedor (píldora o encabezado): sin anillo doble. */
+.buscador__input:focus-visible,
+.nl-input:focus-visible,
+.gsearch__input:focus-visible {
+  outline: none;
+}
+.gsearch__header:focus-within {
+  border-bottom-color: rgba(201, 160, 106, 0.8);
 }
 
 /*# sourceMappingURL=styles.css.map */

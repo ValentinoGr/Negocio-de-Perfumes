@@ -265,6 +265,7 @@ La scrollbar es fina, con pulgar oro viejo sobre pista grafito oscuro. En dispos
 - **Do** dejar las superficies planas en reposo y mostrar elevación y brillo dorado como respuesta a hover o foco.
 - **Do** usar píldoras (100px) para campos y filtros, y círculos para botones flotantes y de cierre.
 - **Do** mostrar "Consultar precio" y "Sin stock" tal cual, en gris medio y sin peso.
+- **Do** marcar el foco de teclado con un anillo de 2px y 2px de separación: oro viejo (#c9a06a) sobre superficies oscuras y grafito (#2c2c2c) sobre fondos claros. Los campos de texto lo muestran en su contenedor, sin anillo doble.
 - **Do** mantener fondos oscuros en grafitos (#2c2c2c, #1e1e1e, #1a1a1a, #131313) y texto claro en marfil o blanco; fondo de página niebla (#ededec).
 
 ### Don't:

@@ -30,6 +30,7 @@
   document.body.appendChild(modal);
 
   const backdrop  = modal.querySelector('.pmodal__backdrop');
+  const cardEl    = modal.querySelector('.pmodal__card');
   const cerrarBtn = modal.querySelector('.pmodal__cerrar');
   const imgEl     = modal.querySelector('.pmodal__img');
   const phEl      = modal.querySelector('.pmodal__img-placeholder');
@@ -46,6 +47,7 @@
     const imagen   = data.imagen   || '';
     const sinStock = data.sinStock === '1';
 
+    modal.setAttribute('aria-label', nombre || 'Detalle del producto');
     marcaEl.textContent = marca;
     marcaEl.hidden = !marca;
     nombreEl.textContent = nombre;
@@ -87,10 +89,12 @@
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
     document.body.style.paddingRight = scrollbarW + 'px';
+    window.FocusScope?.open(cardEl, cerrarBtn);
     requestAnimationFrame(() => modal.classList.add('pmodal--visible'));
   }
 
   function cerrar() {
+    window.FocusScope?.close(cardEl);
     modal.classList.remove('pmodal--visible');
     modal.classList.add('pmodal--cerrando');
     setTimeout(() => {
@@ -108,11 +112,7 @@
     if (e.key === 'Escape' && !modal.hidden) cerrar();
   });
 
-  document.addEventListener('click', e => {
-    const card = e.target.closest('.producto-card');
-    if (!card) return;
-    if (e.target.closest('.btn-agregar')) return;
-    if (e.target.closest('.btn-fav')) return;
+  function abrirDesde(card) {
     abrir({
       nombre:   card.dataset.nombre,
       marca:    card.dataset.marca,
@@ -120,5 +120,21 @@
       imagen:   card.dataset.imagen,
       sinStock: card.dataset.sinStock,
     });
+  }
+
+  document.addEventListener('click', e => {
+    const card = e.target.closest('.producto-card');
+    if (!card) return;
+    if (e.target.closest('.btn-agregar')) return;
+    if (e.target.closest('.btn-fav')) return;
+    abrirDesde(card);
+  });
+
+  // Las tarjetas son enfocables (tabindex="0"): Enter o Espacio abre el detalle, igual que el clic.
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    if (!e.target.classList?.contains('producto-card')) return;
+    e.preventDefault();
+    abrirDesde(e.target);
   });
 })();

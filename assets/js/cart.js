@@ -7,10 +7,17 @@
   function load() {
     try { items = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
     catch { items = []; }
+    if (!Array.isArray(items)) items = [];
   }
 
+  // localStorage puede lanzar error (cookies bloqueadas, modo privado, cuota llena): el carrito sigue andando en memoria.
   function save() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); }
+    catch { /* sin persistencia */ }
+  }
+
+  function esc(str) {
+    return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
   function updateBadge() {
@@ -51,12 +58,12 @@
     list.innerHTML = items.map((item, i) => `
       <div class="cart-item">
         <div class="cart-item__info">
-          <p class="cart-item__nombre">${item.nombre}</p>
-          <p class="cart-item__marca">${item.marca}</p>
+          <p class="cart-item__nombre">${esc(item.nombre)}</p>
+          <p class="cart-item__marca">${esc(item.marca)}</p>
         </div>
         <div class="cart-item__right">
           ${item.precio
-            ? `<p class="cart-item__precio">${item.precio}</p>`
+            ? `<p class="cart-item__precio">${esc(item.precio)}</p>`
             : `<p class="cart-item__precio--consultar">A consultar</p>`}
           <button class="cart-item__remove" onclick="Cart.remove(${i})" aria-label="Eliminar">
             <i class="bi bi-x"></i>
@@ -113,6 +120,7 @@
     if (overlay) overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     document.body.classList.add('cart-open');
+    window.FocusScope?.open(drawer, '.cart-drawer__cerrar');
     setTimeout(() => {
       const lastItem = document.getElementById('cart-items')?.lastElementChild;
       if (lastItem?.classList.contains('cart-item')) {
@@ -130,6 +138,7 @@
     if (overlay) overlay.classList.remove('open');
     document.body.style.overflow = '';
     document.body.classList.remove('cart-open');
+    window.FocusScope?.close(drawer);
   }
 
   window.Cart = {
@@ -144,6 +153,7 @@
       const list = document.getElementById('cart-items');
       const el = list ? list.children[index] : null;
       if (el) {
+        if (el.classList.contains('removing')) return;
         el.classList.add('removing');
         setTimeout(() => {
           items.splice(index, 1);
@@ -174,7 +184,7 @@
       const msg = encodeURIComponent(
         `Hola! Me interesan los siguientes productos:\n\n${lista}${totalStr}\n\n¿Podrían confirmarme disponibilidad?`
       );
-      window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+      window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank', 'noopener');
     }
   };
 
