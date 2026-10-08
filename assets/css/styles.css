@@ -123,6 +123,15 @@ button, [role="button"], .navbar-toggler, .navbar-nav .nav-link, .catalogo-nav__
   transition-delay: 0.3s;
 }
 
+/* Primer pantallazo: las tarjetas que ya están a la vista entran con animación, después del hero.
+   La transición de .animate-on-scroll no corre en el primer pintado (.visible se pone antes), por eso se usa una animación.
+   fill-mode backwards (no both): al terminar no retiene transform y el hover de la tarjeta sigue funcionando. */
+.categoria-card.entrada-inicial {
+  animation: fadeInUp 0.6s var(--ease-salida) 0.45s backwards;
+}
+.categoria-card.entrada-inicial.animate-delay-1 { animation-delay: 0.53s; }
+.categoria-card.entrada-inicial.animate-delay-2 { animation-delay: 0.61s; }
+
 /* ── Barra de progreso de scroll ──────────────────── */
 #scroll-progress {
   position: fixed;
@@ -166,7 +175,7 @@ main {
   color: var(--grafito-profundo);
   line-height: 1;
   margin-bottom: 1.5rem;
-  animation: fadeInUp 0.9s ease 0.35s both;
+  animation: fadeInUp 0.6s var(--ease-salida) 0.05s both;
 }
 .hero__separador {
   width: 50px;
@@ -175,13 +184,18 @@ main {
   margin: 0 auto 1.75rem;
   animation: fadeIn 0.7s ease 0.75s both;
 }
+
+/* Solo el separador del hero de inicio; los de .page-hero (páginas internas) conservan su tiempo. */
+.hero > .hero__separador {
+  animation: fadeIn 0.5s var(--ease-salida) 0.25s both;
+}
 .hero__subtitulo {
   font-size: var(--t-cuerpo);
   color: var(--texto-suave-claro);
   letter-spacing: 0.06em;
   max-width: 480px;
   margin: 0 auto;
-  animation: fadeInUp 0.7s ease 0.9s both;
+  animation: fadeInUp 0.6s var(--ease-salida) 0.3s both;
 }
 
 .categorias {
@@ -3325,6 +3339,7 @@ html {
   /* Entradas: solo aparecen, sin desplazarse */
   .animate-on-scroll { transform: none; transition: opacity 0.3s ease; }
   .animate-on-scroll.visible { transform: none; }
+  .categoria-card.entrada-inicial,
   .hero__titulo, .hero__subtitulo,
   .page-hero__eyebrow, .page-hero__titulo, .page-hero__subtitulo,
   .hero-deco-arabes, .hero-gotas, .buscador-wrap,
