@@ -234,16 +234,16 @@
     <script src="../assets/js/products-decants.js?v=2"></script>
     <script src="../assets/js/focus-scope.js?v=3"></script>
     <script src="../assets/js/search.js?v=4"></script>
-    <script src="../assets/js/cart.js?v=4"></script>
+    <script src="../assets/js/cart.js?v=5"></script>
     <script src="../assets/js/modal.js?v=3"></script>
-    <script src="../assets/js/favorites.js?v=5"></script>
+    <script src="../assets/js/favorites.js?v=6"></script>
     <script>
+        const esc = Essenza.esc;
         const contenidoEl = document.getElementById('catalogo-contenido');
 
         function precioANumero(precioStr) {
             if (!precioStr) return null;
-            const digitos = precioStr.replace(/[^\d]/g, '');
-            return digitos ? parseInt(digitos, 10) : null;
+            return Essenza.parsePrecio(precioStr) || null;
         }
 
         if (!catalogoDecants || catalogoDecants.length === 0) {
@@ -251,8 +251,8 @@
         } else {
             const productosLd = [];
             const cards = catalogoDecants.map(p => {
-                const nEsc = p.nombre.replace(/"/g, '&quot;');
-                const mEsc = (p.marca || '').replace(/"/g, '&quot;');
+                const nEsc = esc(p.nombre);
+                const mEsc = esc(p.marca);
                 const imgHtml = p.imagen
                     ? `<img src="../assets/img/${encodeURIComponent(p.imagen)}" alt="${nEsc}" class="producto-card__img-foto img-cargando" loading="lazy" onload="this.classList.remove('img-cargando')" onerror="this.classList.remove('img-cargando')">`
                     : `<i class="bi bi-bag producto-card__img-placeholder"></i>`;
@@ -275,28 +275,28 @@
                     <div class="producto-card animate-on-scroll" tabindex="0" role="group" aria-label="${nEsc}"
                          data-nombre="${nEsc}"
                          data-marca="${mEsc}"
-                         data-precio="${p.precio || ''}"
-                         data-imagen="${p.imagen || ''}"
+                         data-precio="${esc(p.precio)}"
+                         data-imagen="${esc(p.imagen)}"
                          data-sin-stock="${p.sinStock ? '1' : ''}">
                         <div class="producto-card__img">
                             ${imgHtml}
                             <div class="producto-card__lupa" aria-hidden="true"><i class="bi bi-zoom-in"></i></div>
-                            <button class="btn-fav" data-nombre="${nEsc}" data-marca="${mEsc}" data-precio="${p.precio || ''}" data-imagen="${p.imagen || ''}" aria-label="Agregar a favoritos"><i class="bi bi-heart"></i></button>
+                            <button class="btn-fav" data-nombre="${nEsc}" data-marca="${mEsc}" data-precio="${esc(p.precio)}" data-imagen="${esc(p.imagen)}" aria-label="Agregar a favoritos"><i class="bi bi-heart"></i></button>
                         </div>
                         <div class="producto-card__info">
-                            <p class="producto-card__nombre">${p.nombre}</p>
-                            ${p.marca ? `<p class="producto-card__marca">${p.marca}</p>` : ''}
+                            <p class="producto-card__nombre">${nEsc}</p>
+                            ${p.marca ? `<p class="producto-card__marca">${mEsc}</p>` : ''}
                             <div class="producto-card__footer">
                                 ${p.sinStock
                                     ? `<p class="producto-card__precio producto-card__precio--sin-stock">Sin stock</p>`
                                     : p.precio
-                                        ? `<p class="producto-card__precio">${p.precio}</p>`
+                                        ? `<p class="producto-card__precio">${esc(p.precio)}</p>`
                                         : `<p class="producto-card__precio producto-card__precio--consultar">Consultar precio</p>`
                                 }
                                 <button class="btn-agregar"
                                     data-nombre="${nEsc}"
                                     data-marca="${mEsc}"
-                                    data-precio="${p.precio || ''}"
+                                    data-precio="${esc(p.precio)}"
                                     ${p.sinStock ? 'disabled' : ''}>
                                     <i class="bi bi-bag-plus"></i>
                                     <span>Agregar</span>
@@ -362,8 +362,7 @@
 
             function precioANum(str) {
                 if (!str) return null;
-                const d = str.replace(/[^\d]/g, '');
-                return d ? parseInt(d, 10) : null;
+                return Essenza.parsePrecio(str) || null;
             }
 
             function pasaPrecio(col) {

@@ -34,10 +34,16 @@
     });
   }
 
+  // Precio -> pesos enteros. Acepta "$65,900", "$8.400", "$1.250.000" y "$ 1.250.000,00".
+  // Un último grupo de 1-2 dígitos tras "," o "." son centavos y se descartan (los miles siempre tienen 3).
   function parsePrice(str) {
     if (!str) return 0;
-    return parseInt(str.replace(/\D/g, ''), 10) || 0;
+    const limpio = String(str).replace(/[^\d.,]/g, '').replace(/[.,]\d{1,2}$/, '');
+    return parseInt(limpio.replace(/\D/g, ''), 10) || 0;
   }
+
+  // Ayudas compartidas con las páginas de catálogo (cart.js carga antes que sus scripts).
+  window.Essenza = { esc, parsePrecio: parsePrice };
 
   function renderDrawer() {
     const list = document.getElementById('cart-items');

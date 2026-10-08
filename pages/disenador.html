@@ -251,10 +251,11 @@
     <script src="../assets/js/products-decants.js?v=2"></script>
     <script src="../assets/js/focus-scope.js?v=3"></script>
     <script src="../assets/js/search.js?v=4"></script>
-    <script src="../assets/js/cart.js?v=4"></script>
+    <script src="../assets/js/cart.js?v=5"></script>
     <script src="../assets/js/modal.js?v=3"></script>
-    <script src="../assets/js/favorites.js?v=5"></script>
+    <script src="../assets/js/favorites.js?v=6"></script>
     <script>
+        const esc = Essenza.esc;
         const navMobileEl = document.getElementById('nav-marcas-mobile');
         const navDesktopEl = document.getElementById('nav-marcas-desktop');
         const contenidoEl = document.getElementById('catalogo-contenido');
@@ -262,19 +263,18 @@
 
         function precioANumero(precioStr) {
             if (!precioStr) return null;
-            const digitos = precioStr.replace(/[^\d]/g, '');
-            return digitos ? parseInt(digitos, 10) : null;
+            return Essenza.parsePrecio(precioStr) || null;
         }
 
         Object.entries(catalogoDisenador).forEach(([id, marca]) => {
             // Mobile nav pill
             const liM = document.createElement('li');
-            liM.innerHTML = `<a href="#${id}" class="catalogo-nav__item">${marca.nombre}</a>`;
+            liM.innerHTML = `<a href="#${id}" class="catalogo-nav__item">${esc(marca.nombre)}</a>`;
             navMobileEl.appendChild(liM);
 
             // Desktop sidebar link
             const liD = document.createElement('li');
-            liD.innerHTML = `<a href="#${id}" class="catalogo-sidebar__item" data-marca="${id}">${marca.nombre}</a>`;
+            liD.innerHTML = `<a href="#${id}" class="catalogo-sidebar__item" data-marca="${id}">${esc(marca.nombre)}</a>`;
             navDesktopEl.appendChild(liD);
 
             // Sección de marca
@@ -283,8 +283,8 @@
             section.className = 'catalogo-seccion animate-on-scroll';
 
             const cards = marca.productos.map(p => {
-                const nEsc = p.nombre.replace(/"/g, '&quot;');
-                const mEsc = marca.nombre.replace(/"/g, '&quot;');
+                const nEsc = esc(p.nombre);
+                const mEsc = esc(marca.nombre);
                 const imgHtml = p.imagen
                     ? `<img src="../assets/img/${encodeURIComponent(p.imagen)}" alt="${nEsc}" class="producto-card__img-foto img-cargando" loading="lazy" onload="this.classList.remove('img-cargando')" onerror="this.classList.remove('img-cargando')">`
                     : `<i class="bi bi-bag producto-card__img-placeholder"></i>`;
@@ -307,24 +307,24 @@
                     <div class="producto-card" tabindex="0" role="group" aria-label="${nEsc}"
                          data-nombre="${nEsc}"
                          data-marca="${mEsc}"
-                         data-precio="${p.precio || ''}"
-                         data-imagen="${p.imagen || ''}">
+                         data-precio="${esc(p.precio)}"
+                         data-imagen="${esc(p.imagen)}">
                         <div class="producto-card__img">
                             ${imgHtml}
                             <div class="producto-card__lupa" aria-hidden="true"><i class="bi bi-zoom-in"></i></div>
-                            <button class="btn-fav" data-nombre="${nEsc}" data-marca="${mEsc}" data-precio="${p.precio || ''}" data-imagen="${p.imagen || ''}" aria-label="Agregar a favoritos"><i class="bi bi-heart"></i></button>
+                            <button class="btn-fav" data-nombre="${nEsc}" data-marca="${mEsc}" data-precio="${esc(p.precio)}" data-imagen="${esc(p.imagen)}" aria-label="Agregar a favoritos"><i class="bi bi-heart"></i></button>
                         </div>
                         <div class="producto-card__info">
-                            <p class="producto-card__nombre">${p.nombre}</p>
+                            <p class="producto-card__nombre">${nEsc}</p>
                             <div class="producto-card__footer">
                                 ${p.precio
-                                    ? `<p class="producto-card__precio">${p.precio}</p>`
+                                    ? `<p class="producto-card__precio">${esc(p.precio)}</p>`
                                     : `<p class="producto-card__precio producto-card__precio--consultar">Consultar precio</p>`
                                 }
                                 <button class="btn-agregar"
                                     data-nombre="${nEsc}"
                                     data-marca="${mEsc}"
-                                    data-precio="${p.precio || ''}">
+                                    data-precio="${esc(p.precio)}">
                                     <i class="bi bi-bag-plus"></i>
                                     <span>Agregar</span>
                                 </button>
@@ -337,7 +337,7 @@
             section.innerHTML = `
                 <div class="container-fluid px-4">
                     <div class="catalogo-seccion__encabezado">
-                        <h2 class="catalogo-seccion__titulo">${marca.nombre}</h2>
+                        <h2 class="catalogo-seccion__titulo">${esc(marca.nombre)}</h2>
                         <div class="catalogo-seccion__linea"></div>
                     </div>
                     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
@@ -416,8 +416,7 @@
 
             function precioANum(str) {
                 if (!str) return null;
-                const d = str.replace(/[^\d]/g, '');
-                return d ? parseInt(d, 10) : null;
+                return Essenza.parsePrecio(str) || null;
             }
 
             function pasaPrecio(col) {

@@ -18,8 +18,23 @@
     return String(str ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
 
-  function isFav(nombre, marca) {
-    return items.some(i => i.nombre === nombre && i.marca === marca);
+  // Mismo producto = nombre + marca + precio: hay fichas con igual nombre y distinto precio (p. ej. 100 ml y 50 ml).
+  // Compatibilidad: un favorito guardado antes con otro precio sigue valiendo si el producto es el único
+  // con ese nombre y marca en la página (si el precio cambió en el catálogo, el corazón no se pierde).
+  const precioDe = v => v || '';
+
+  function buscar(nombre, marca, precio, unico) {
+    const idx = items.findIndex(i => i.nombre === nombre && i.marca === marca && precioDe(i.precio) === precioDe(precio));
+    if (idx >= 0 || !unico) return idx;
+    return items.findIndex(i => i.nombre === nombre && i.marca === marca);
+  }
+
+  function repeticiones(nombre, marca) {
+    let n = 0;
+    document.querySelectorAll('.btn-fav').forEach(b => {
+      if (b.dataset.nombre === nombre && b.dataset.marca === marca) n++;
+    });
+    return n;
   }
 
   function updateBadge() {
@@ -30,8 +45,15 @@
   }
 
   function updateHearts() {
-    document.querySelectorAll('.btn-fav').forEach(btn => {
-      const active = isFav(btn.dataset.nombre, btn.dataset.marca);
+    const botones = document.querySelectorAll('.btn-fav');
+    const repetidos = new Map();
+    botones.forEach(btn => {
+      const k = btn.dataset.nombre + '\u0000' + btn.dataset.marca;
+      repetidos.set(k, (repetidos.get(k) || 0) + 1);
+    });
+    botones.forEach(btn => {
+      const unico = repetidos.get(btn.dataset.nombre + '\u0000' + btn.dataset.marca) === 1;
+      const active = buscar(btn.dataset.nombre, btn.dataset.marca, btn.dataset.precio, unico) >= 0;
       btn.classList.toggle('btn-fav--active', active);
       btn.querySelector('i').className = active ? 'bi bi-heart-fill' : 'bi bi-heart';
     });
@@ -106,7 +128,7 @@
 
   window.Favs = {
     toggle(nombre, marca, precio, imagen) {
-      const idx = items.findIndex(i => i.nombre === nombre && i.marca === marca);
+      const idx = buscar(nombre, marca, precio, repeticiones(nombre, marca) <= 1);
       if (idx >= 0) {
         items.splice(idx, 1);
       } else {
