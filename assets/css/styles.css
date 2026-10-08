@@ -42,8 +42,8 @@
 }
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transform: translateY(28px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .animate-on-scroll.visible {
   opacity: 1;
@@ -220,13 +220,13 @@ main {
 
 @keyframes waPulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(37, 211, 102, 0.55);
   }
   70% {
-    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 0 16px rgba(37, 211, 102, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(37, 211, 102, 0);
   }
 }
 .whatsapp-float {
@@ -245,7 +245,8 @@ main {
   font-size: 1.8rem;
   z-index: 9999;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  animation: waPulse 2.2s infinite;
+  /* Tres pulsos para llamar la atención después de la entrada y luego descansa. */
+  animation: waPulse 2.2s ease-out 1.5s 3;
   transition: opacity 0.25s ease, transform 0.2s ease, background-color 0.2s ease;
 }
 .cart-open .whatsapp-float {
@@ -2235,7 +2236,8 @@ html {
   animation: marquee 34s linear infinite;
   will-change: transform;
 }
-.anuncio-bar:hover .anuncio-bar__track {
+/* Pausa al pasar el mouse por el texto; el botón de pausa queda fuera del track para que "reanudar" funcione. */
+.anuncio-bar__track:hover {
   animation-play-state: paused;
 }
 .anuncio-bar__item {
@@ -2563,6 +2565,10 @@ html {
   margin-top: 0.4rem;
   width: 100%;
   justify-content: center;
+}
+/* En el modal hay lugar: el texto se muestra también en celular (la regla de .btn-agregar lo oculta en las tarjetas). */
+.pmodal__btn-agregar span {
+  display: inline;
 }
 .pmodal__btn-wa {
   display: flex;
@@ -3086,6 +3092,101 @@ html {
 }
 .gsearch__header:focus-within {
   border-bottom-color: rgba(201, 160, 106, 0.8);
+}
+
+/* ── Movimiento: control de la cinta y feedback del corazón ───────────── */
+.anuncio-bar__pausa {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: linear-gradient(90deg, rgba(17, 17, 17, 0), #111111 45%);
+  color: rgba(201, 160, 106, 0.8);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.anuncio-bar__pausa:hover {
+  color: #c9a06a;
+}
+/* La cinta se detiene si la pausan o si sale de pantalla (loop no esencial). */
+.anuncio-bar--pausada .anuncio-bar__track,
+.anuncio-bar--pausada .anuncio-bar__item--highlight,
+.anuncio-bar--fuera .anuncio-bar__track,
+.anuncio-bar--fuera .anuncio-bar__item--highlight {
+  animation-play-state: paused;
+}
+
+@keyframes favPop {
+  0%   { transform: scale(0.6); }
+  55%  { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+.btn-fav--pop i {
+  animation: favPop 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Movimiento reducido ──────────────────────────────────────────────────
+   Se quitan los desplazamientos y los loops; se conservan los cambios de
+   opacidad, color y sombra, que son los que informan el estado. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  /* Entradas: solo aparecen, sin desplazarse */
+  .animate-on-scroll { transform: none; transition: opacity 0.3s ease; }
+  .animate-on-scroll.visible { transform: none; }
+  .hero__eyebrow, .hero__titulo, .hero__subtitulo,
+  .page-hero__eyebrow, .page-hero__titulo, .page-hero__subtitulo,
+  .hero-deco-arabes, .hero-gotas, .buscador-wrap,
+  .dropdown-menu, .col.pf-entrando { animation-name: fadeIn; }
+  .col.pf-saliendo { transform: none !important; }
+
+  /* Hover: el cambio de color y sombra alcanza, sin levantar la pieza */
+  .categoria-card:hover, .producto-card:hover, .info-card:hover,
+  .btn-agregar:hover, .cart-checkout-btn:hover, .info-cta__btn:hover,
+  .not-found__btn:hover, .footer__social-link:hover,
+  .whatsapp-float:hover, .back-to-top:hover { transform: none; }
+  .back-to-top, .back-to-top.visible { transform: none; }
+
+  /* Loops fuera */
+  .cursor-glow { display: none; }
+  .whatsapp-float, .cart-badge--bounce, .btn-fav--pop i,
+  .producto-card__img:has(img.img-cargando) { animation: none; }
+  .buscador:focus-within {
+    animation: none;
+    box-shadow: 0 0 0 1.5px rgba(201, 160, 106, 0.9), 0 0 22px rgba(201, 160, 106, 0.4);
+  }
+
+  /* Cinta de anuncio: queda fija con la oferta principal */
+  .anuncio-bar__track { animation: none; transform: none; width: 100%; justify-content: center; }
+  .anuncio-bar__track > :not(:first-child) { display: none; }
+  .anuncio-bar__item--highlight { animation: none; }
+  .anuncio-bar__pausa { display: none; }
+
+  /* Drawers, modal y popup: aparecen con fundido en vez de deslizarse */
+  .cart-drawer, .fav-drawer {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .cart-drawer.open, .fav-drawer.open {
+    transform: none;
+    opacity: 1;
+    transition: opacity 0.2s ease, visibility 0s linear 0s;
+  }
+  .cart-item.removing, .fav-item.removing { transform: none; }
+  .pmodal__card,
+  .pmodal--visible .pmodal__card,
+  .pmodal--cerrando .pmodal__card { transform: none; }
+  .nl-popup, .nl-popup.nl-show { transform: translateX(-50%); }
+  .gsearch__panel { transform: none; }
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -147,6 +147,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     load();
     updateBadge();
+    updateHearts(); // marca los corazones de favoritos guardados (antes quedaban vacíos tras recargar)
 
     const catalog = document.getElementById('catalogo-contenido');
     if (catalog) {
@@ -157,7 +158,14 @@
       const btn = e.target.closest('.btn-fav');
       if (!btn) return;
       e.stopPropagation();
+      const eraFavorito = btn.classList.contains('btn-fav--active');
       Favs.toggle(btn.dataset.nombre, btn.dataset.marca, btn.dataset.precio, btn.dataset.imagen);
+      // Pop solo al marcar (no al desmarcar ni al cargar la página con favoritos guardados).
+      if (!eraFavorito) {
+        btn.classList.remove('btn-fav--pop');
+        void btn.offsetWidth;
+        btn.classList.add('btn-fav--pop');
+      }
     });
 
     const overlay = document.getElementById('fav-overlay');

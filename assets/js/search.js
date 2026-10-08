@@ -131,7 +131,7 @@
     if (!card) return;
     history.replaceState(null, '', window.location.pathname + window.location.search);
     setTimeout(() => {
-      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.scrollIntoView({ block: 'center' }); // el suavizado lo decide el CSS (scroll-behavior) y respeta movimiento reducido
       card.classList.add('producto-highlight');
       setTimeout(() => card.classList.remove('producto-highlight'), 2000);
     }, 150);
