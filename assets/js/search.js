@@ -15,7 +15,7 @@
     <div class="gsearch__panel">
       <div class="gsearch__header">
         <i class="bi bi-search gsearch__icon"></i>
-        <input class="gsearch__input" type="text" placeholder="Buscar perfumes..." autocomplete="off" spellcheck="false">
+        <input class="gsearch__input" type="text" placeholder="Buscar perfumes..." autocomplete="off" autocapitalize="none" autocorrect="off" enterkeyhint="search" spellcheck="false">
         <button class="gsearch__cerrar" aria-label="Cerrar búsqueda"><i class="bi bi-x-lg"></i></button>
       </div>
       <div class="gsearch__body" id="gsearch-results"></div>
