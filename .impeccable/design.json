@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-08T20:54:21Z",
+  "generatedAt": "2026-10-08T21:18:48Z",
   "title": "Design System: Essenza",
   "extensions": {
     "colorMeta": {
@@ -315,6 +315,16 @@
         "purpose": "Entrada de drawers (0.35s)."
       },
       {
+        "name": "intro-persiana",
+        "value": "translateY(0 → -100%) 0.8s var(--ease-estandar) 1s",
+        "purpose": "Intro del inicio, una vez por sesión: mármol, logo y filo dorado (0.7s var(--ease-salida)); la persiana sube con una arista dorada. Saltable; con movimiento reducido solo fundido."
+      },
+      {
+        "name": "intro-offset",
+        "value": "--intro-offset: 1.15s (0.6s reducido, 0s sin intro)",
+        "purpose": "Retraso que suman el hero y las tarjetas para entrar cuando la persiana empieza a subir."
+      },
+      {
         "name": "entrada-inicio",
         "value": "fadeInUp 0.6s var(--ease-salida)",
         "purpose": "Titular, subtítulo y tarjetas del inicio, en ese orden; tarjetas con 80ms de escalonado."
@@ -422,7 +432,7 @@
   ],
   "narrative": {
     "northStar": "La vitrina de mármol",
-    "overview": "**Creative North Star: \"La vitrina de mármol\"**\n\nEssenza se ve como la vitrina de una perfumería: superficies de grafito y mármol negro, un único dorado viejo que aparece como filo de luz y no como relleno, y el frasco como protagonista. La interfaz se retira lo suficiente para que el producto brille, pero no se vuelve distante: los botones son claros, el camino hacia WhatsApp siempre está a la vista y el tono es cercano.\n\nEl sistema alterna dos mundos. Las páginas viven sobre un fondo niebla (#ededec) con tarjetas blancas y mucho aire; las piezas de marca (navbar, tarjetas de categoría, footer, modal, buscador, popup) son oscuras, con bordes dorados casi invisibles. Los titulares son Oswald en mayúsculas con tracking amplio; el texto corrido usa la fuente del sistema. El movimiento es suave y acompaña: una entrada ordenada en el inicio (primero el titular, después las tarjetas), aparición al hacer scroll, tarjetas que suben unos píxeles, un halo dorado que sigue al cursor en escritorio.\n\nRechaza dos cosas: parecer un marketplace de ofertas (banners, etiquetas chillonas, colores saturados) y parecer una plantilla genérica de tienda intercambiable con cualquier otra. Su carácter sale del contraste grafito/oro, de la tipografía de impacto y de los detalles de vitrina (mármol, filos dorados, luz).",
+    "overview": "**Creative North Star: \"La vitrina de mármol\"**\n\nEssenza se ve como la vitrina de una perfumería: superficies de grafito y mármol negro, un único dorado viejo que aparece como filo de luz y no como relleno, y el frasco como protagonista. La interfaz se retira lo suficiente para que el producto brille, pero no se vuelve distante: los botones son claros, el camino hacia WhatsApp siempre está a la vista y el tono es cercano.\n\nEl sistema alterna dos mundos. Las páginas viven sobre un fondo niebla (#ededec) con tarjetas blancas y mucho aire; las piezas de marca (navbar, tarjetas de categoría, footer, modal, buscador, popup) son oscuras, con bordes dorados casi invisibles. Los titulares son Oswald en mayúsculas con tracking amplio; el texto corrido usa la fuente del sistema. El movimiento es suave y acompaña: una intro breve de persiana de vitrina la primera vez que se llega en una sesión, una entrada ordenada en el inicio (primero el titular, después las tarjetas), aparición al hacer scroll, tarjetas que suben unos píxeles, un halo dorado que sigue al cursor en escritorio.\n\nRechaza dos cosas: parecer un marketplace de ofertas (banners, etiquetas chillonas, colores saturados) y parecer una plantilla genérica de tienda intercambiable con cualquier otra. Su carácter sale del contraste grafito/oro, de la tipografía de impacto y de los detalles de vitrina (mármol, filos dorados, luz).",
     "keyCharacteristics": [
       "Oscuro y sobrio en las piezas de marca; claro y aireado en el catálogo.",
       "Un solo acento, el oro viejo, usado con intención y en poca superficie.",
@@ -488,6 +498,7 @@
       "**Do** mantener `overscroll-behavior: contain` en los paneles con scroll propio (carrito, favoritos, ficha, buscador, sidebar) sin bloquear el jalar-para-actualizar de la página.",
       "**Do** aislar el pintado de cada tarjeta del catálogo (`contain: paint`) y no dejar una animación infinita por tarjeta: el brillo de carga (`img-shimmer`) solo corre en las tarjetas cercanas a la pantalla (clase `.shimmer` que pone un IntersectionObserver). Con cientos de tarjetas, lo contrario traba el menú y el scroll.",
       "**Do** ordenar la entrada del inicio: titular, separador y subtítulo (`fadeInUp` 0.6s con `--ease-salida`), y recién después las tarjetas de categoría con 80ms de escalonado. Las tarjetas entran con animación y no con transición, con `fill-mode: backwards` (nunca `both`: retendría el `transform` y anularía el hover).",
+      "**Do** mantener la intro del inicio (\"la persiana de la vitrina\": mármol negro, logo, filo dorado y una persiana que sube con una arista dorada, ~1,9 s) como un momento raro: una vez por sesión y solo al llegar desde afuera (la decide el script del `<head>`; `?intro` la fuerza para verla), siempre saltable con un toque, una tecla o scroll, solo con `transform` y `opacity`, y con `prefers-reduced-motion` reducida a un fundido corto. El hero y las tarjetas suman `--intro-offset` a sus retrasos para entrar cuando la persiana empieza a subir; sin intro vale 0.",
       "**Do** marcar el foco de teclado con un anillo de 2px y 2px de separación: oro viejo (#c9a06a) sobre superficies oscuras y grafito (#2c2c2c) sobre fondos claros. Los campos de texto lo muestran en su contenedor, sin anillo doble.",
       "**Do** mantener fondos oscuros en grafitos (#2c2c2c, #1e1e1e, #1a1a1a, #131313) y texto claro en marfil o blanco; fondo de página niebla (#ededec)."
     ],
@@ -500,7 +511,8 @@
       "**Don't** poner sombras fuertes permanentes sobre tarjetas en reposo.",
       "**Don't** agregar animaciones que corran para siempre sin pausa ni fin, ni desplazamientos que ignoren el movimiento reducido.",
       "**Don't** dejar un `:hover` sin condicionar, ni poner `user-select: none` en texto de contenido (nombres, precios): solo en controles.",
-      "**Don't** reutilizar el `transition` de una clase genérica sobre un componente que declara el suyo: `.categoria-card` pisaba a `.animate-on-scroll` y el reveal dejó de funcionar sin que nadie lo notara."
+      "**Don't** reutilizar el `transition` de una clase genérica sobre un componente que declara el suyo: `.categoria-card` pisaba a `.animate-on-scroll` y el reveal dejó de funcionar sin que nadie lo notara.",
+      "**Don't** repetir la intro en cada carga, volverla obligatoria (sin poder saltarla) ni sumarle piezas decorativas: es un solo gesto de marca. Tampoco dejar que la vea Lighthouse o una prueba automatizada (`navigator.webdriver`), para no medir contra ella."
     ]
   }
 }
