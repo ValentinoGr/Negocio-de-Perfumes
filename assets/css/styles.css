@@ -123,14 +123,26 @@ button, [role="button"], .navbar-toggler, .navbar-nav .nav-link, .catalogo-nav__
   transition-delay: 0.3s;
 }
 
-/* Primer pantallazo: las tarjetas que ya están a la vista entran con animación, después del hero.
-   La transición de .animate-on-scroll no corre en el primer pintado (.visible se pone antes), por eso se usa una animación.
+/* Reveal de las tarjetas de categoría: animación, no transición.
+   La regla .categoria-card (más abajo) define su propio `transition` y pisa el de .animate-on-scroll:
+   la opacidad saltaba de golpe y los .animate-delay-* no se aplicaban. Además, una transición de transform
+   le gana a una animación, así que el estado oculto no desplaza: el movimiento lo hace solo el keyframe.
    fill-mode backwards (no both): al terminar no retiene transform y el hover de la tarjeta sigue funcionando. */
-.categoria-card.entrada-inicial {
-  animation: fadeInUp 0.6s var(--ease-salida) 0.45s backwards;
+.categoria-card.animate-on-scroll:not(.visible) {
+  transform: translateY(0);
 }
-.categoria-card.entrada-inicial.animate-delay-1 { animation-delay: 0.53s; }
-.categoria-card.entrada-inicial.animate-delay-2 { animation-delay: 0.61s; }
+.categoria-card.animate-on-scroll.visible {
+  animation: fadeInUp 0.6s var(--ease-salida) backwards;
+}
+@media (min-width: 768px) {
+  /* tres columnas: las tarjetas de una misma fila entran escalonadas (80 ms) */
+  .categoria-card.animate-on-scroll.visible.animate-delay-1 { animation-delay: 0.08s; }
+  .categoria-card.animate-on-scroll.visible.animate-delay-2 { animation-delay: 0.16s; }
+}
+/* Primer pantallazo (las marca el script de index.html): entran después del hero */
+.categoria-card.animate-on-scroll.visible.entrada-inicial { animation-delay: 0.45s; }
+.categoria-card.animate-on-scroll.visible.entrada-inicial.animate-delay-1 { animation-delay: 0.53s; }
+.categoria-card.animate-on-scroll.visible.entrada-inicial.animate-delay-2 { animation-delay: 0.61s; }
 
 /* ── Barra de progreso de scroll ──────────────────── */
 #scroll-progress {
@@ -3339,7 +3351,7 @@ html {
   /* Entradas: solo aparecen, sin desplazarse */
   .animate-on-scroll { transform: none; transition: opacity 0.3s ease; }
   .animate-on-scroll.visible { transform: none; }
-  .categoria-card.entrada-inicial,
+  .categoria-card.animate-on-scroll.visible,
   .hero__titulo, .hero__subtitulo,
   .page-hero__eyebrow, .page-hero__titulo, .page-hero__subtitulo,
   .hero-deco-arabes, .hero-gotas, .buscador-wrap,
