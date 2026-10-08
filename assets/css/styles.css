@@ -124,14 +124,6 @@ main {
   text-align: center;
   padding: 5rem 1.5rem 4rem;
 }
-.hero__eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--texto-suave-claro);
-  margin-bottom: 1rem;
-  animation: fadeInUp 0.7s ease 0.2s both;
-}
 .hero__titulo {
   font-family: "Oswald", sans-serif;
   font-size: clamp(4rem, 12vw, 9rem);
@@ -3171,7 +3163,7 @@ html {
   /* Entradas: solo aparecen, sin desplazarse */
   .animate-on-scroll { transform: none; transition: opacity 0.3s ease; }
   .animate-on-scroll.visible { transform: none; }
-  .hero__eyebrow, .hero__titulo, .hero__subtitulo,
+  .hero__titulo, .hero__subtitulo,
   .page-hero__eyebrow, .page-hero__titulo, .page-hero__subtitulo,
   .hero-deco-arabes, .hero-gotas, .buscador-wrap,
   .dropdown-menu, .col.pf-entrando { animation-name: fadeIn; }
