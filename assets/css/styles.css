@@ -602,6 +602,8 @@ html {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  /* Cada tarjeta se pinta aparte: con cientos de tarjetas, mover la página (menú móvil, carrito) las repintaba todas */
+  contain: paint;
 }
 @media (hover: hover) and (pointer: fine) {
   .producto-card:hover {
@@ -705,6 +707,10 @@ html {
 .producto-card__img:has(img.img-cargando) {
   background: linear-gradient(90deg, var(--panel-noche) 25%, var(--grafito) 50%, var(--panel-noche) 75%);
   background-size: 200% 100%;
+}
+/* El brillo corre solo en las tarjetas cercanas a la pantalla (la página les pone .shimmer con un IntersectionObserver):
+   cientos de animaciones de fondo a la vez saturaban el hilo principal y trababan el menú y el scroll. */
+.producto-card__img.shimmer:has(img.img-cargando) {
   animation: img-shimmer 1.4s ease-in-out infinite;
 }
 .producto-card__img-placeholder {
@@ -3343,7 +3349,7 @@ html {
   /* Loops fuera */
   .cursor-glow { display: none; }
   .whatsapp-float, .cart-badge--bounce, .btn-fav--pop i,
-  .producto-card__img:has(img.img-cargando) { animation: none; }
+  .producto-card__img.shimmer:has(img.img-cargando) { animation: none; }
   .buscador:focus-within {
     animation: none;
     box-shadow: 0 0 0 1.5px rgba(201, 160, 106, 0.9), 0 0 22px rgba(201, 160, 106, 0.4);
