@@ -779,9 +779,10 @@ html {
 .btn-agregar i {
   font-size: 0.9rem;
 }
-@media (max-width: 767px) {
-  .btn-agregar span {
-    display: none;
+@media (max-width: 359px) {
+  .btn-agregar {
+    padding-inline: 0.5rem;
+    letter-spacing: 0.03em;
   }
 }
 .btn-agregar:hover {
@@ -3190,3 +3191,70 @@ html {
 }
 
 /*# sourceMappingURL=styles.css.map */
+/* ── Pantallas táctiles: objetivos de toque de al menos 44px ── */
+@media (pointer: coarse) {
+  .navbar-toggler {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .btn-fav,
+  .back-to-top {
+    width: 44px;
+    height: 44px;
+  }
+  .btn-agregar {
+    min-height: 44px;
+  }
+  .catalogo-nav__item {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .precio-filter__btn,
+  .footer__reporte-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .buscador__input {
+    align-self: stretch;
+  }
+  .buscador__limpiar {
+    width: 44px;
+    height: 44px;
+    margin-right: -0.7rem;
+  }
+}
+
+/* ── Celular en horizontal: el modal pasa a dos columnas para que precio y botones se vean sin desplazar ── */
+@media (orientation: landscape) and (max-height: 500px) {
+  .pmodal__card {
+    flex-direction: row;
+    max-width: 760px;
+    max-height: 94vh;
+  }
+  .pmodal__img-wrap {
+    width: 46%;
+    aspect-ratio: auto;
+    align-self: stretch;
+    border-radius: 18px 0 0 18px;
+  }
+  .pmodal__img {
+    padding: 1rem;
+  }
+  .pmodal__info {
+    flex: 1;
+    min-width: 0;
+    overflow-y: auto;
+    justify-content: center;
+  }
+}
+
+/* Los botones flotantes no tapan el modal, el buscador ni el popup (el carrito ya lo hace con .cart-open) */
+body:has(.pmodal--visible, .gsearch--visible, .nl-popup.nl-show) .whatsapp-float,
+body:has(.pmodal--visible, .gsearch--visible, .nl-popup.nl-show) .back-to-top {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

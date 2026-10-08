@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T21:26:49Z",
+  "generatedAt": "2026-10-08T00:37:42Z",
   "title": "Design System: Essenza",
   "extensions": {
     "colorMeta": {
@@ -456,6 +456,11 @@
     "dos": [
       "**Do** usar oro viejo (#c9a06a) solo para estados activos, filos, iconos pequeños y luz; en rgba cuando vaya en bordes y fondos.",
       "**Do** reservar el verde #25d366 para acciones que llevan a WhatsApp o confirman un paso.",
+      "**Do** poner texto verde-oscuro (#0b2a17, 7,8:1) sobre botones de WhatsApp (#25d366); el blanco sobre ese verde da 1,98:1 y no pasa AA. El glifo del botón flotante conserva el blanco de marca.",
+      "**Do** usar oro profundo (#8a6a35, 5:1) para texto e iconos de oro sobre fondos claros (panel de favoritos, filtro del sidebar); el oro #c9a06a sobre blanco da 2,3:1 y queda para superficies oscuras.",
+      "**Do** dar a todo control táctil (`pointer: coarse`) al menos 44×44px de área; la cinta de anuncios es la excepción (pausa de 44×31, dentro del mínimo AA de 24px). El botón \"Agregar\" siempre lleva texto, también en celular.",
+      "**Do** que los botones flotantes (WhatsApp, volver arriba) se oculten cuando hay un diálogo abierto (carrito, favoritos, modal, buscador, popup), y que el modal pase a dos columnas en celular horizontal.",
+      "**Do** mantener el texto secundario sobre grafito en #a3a3a3 o más claro y en gris #666 o más oscuro sobre niebla/blanco (mínimo 4,5:1); #444, #666 sobre grafito y #888–#bbb sobre claro quedaron retirados.",
       "**Do** poner titulares, etiquetas y nombres de producto en mayúsculas con tracking; Oswald solo en peso 700.",
       "**Do** dejar las superficies planas en reposo y mostrar elevación y brillo dorado como respuesta a hover o foco.",
       "**Do** usar píldoras (100px) para campos y filtros, y círculos para botones flotantes y de cierre.",
