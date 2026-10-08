@@ -83,7 +83,7 @@
         </div>
         <div class="fav-item__info">
           <p class="fav-item__marca">${esc(item.marca)}</p>
-          <p class="fav-item__nombre">${esc(item.nombre)}</p>
+          <p class="fav-item__nombre" title="${esc(item.nombre)}">${esc(item.nombre)}</p>
           ${item.precio
             ? `<p class="fav-item__precio">${esc(item.precio)}</p>`
             : `<p class="fav-item__precio fav-item__precio--consultar">A consultar</p>`}
@@ -101,6 +101,15 @@
           </button>
         </div>
       </div>`).join('');
+
+    // Imagen que no existe: se reemplaza por el ícono de bolsa en vez del ícono de imagen rota.
+    list.querySelectorAll('.fav-item__img img').forEach(img => {
+      img.addEventListener('error', () => {
+        const icono = document.createElement('i');
+        icono.className = 'bi bi-bag';
+        img.replaceWith(icono);
+      }, { once: true });
+    });
   }
 
   function openDrawer() {

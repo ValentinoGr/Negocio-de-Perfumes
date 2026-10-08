@@ -33,7 +33,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/styles.css?v=23">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=24">
 </head>
 
 <body>
@@ -251,9 +251,9 @@
     <script src="../assets/js/products-decants.js?v=2"></script>
     <script src="../assets/js/focus-scope.js?v=3"></script>
     <script src="../assets/js/search.js?v=4"></script>
-    <script src="../assets/js/cart.js?v=5"></script>
+    <script src="../assets/js/cart.js?v=6"></script>
     <script src="../assets/js/modal.js?v=3"></script>
-    <script src="../assets/js/favorites.js?v=6"></script>
+    <script src="../assets/js/favorites.js?v=7"></script>
     <script>
         const esc = Essenza.esc;
         const navMobileEl = document.getElementById('nav-marcas-mobile');
@@ -267,6 +267,9 @@
         }
 
         Object.entries(catalogoDisenador).forEach(([id, marca]) => {
+            // Una marca sin productos cargados todavía no se dibuja (ni título ni enlace huérfano)
+            if (!Array.isArray(marca.productos) || marca.productos.length === 0) return;
+
             // Mobile nav pill
             const liM = document.createElement('li');
             liM.innerHTML = `<a href="#${id}" class="catalogo-nav__item">${esc(marca.nombre)}</a>`;
@@ -347,6 +350,10 @@
 
             contenidoEl.appendChild(section);
         });
+
+        if (!contenidoEl.querySelector('.catalogo-seccion')) {
+            contenidoEl.innerHTML = '<p class="decants-proximamente">Próximamente...</p>';
+        }
 
         const ldScript = document.createElement('script');
         ldScript.type = 'application/ld+json';

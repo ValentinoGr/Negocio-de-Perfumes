@@ -81,9 +81,27 @@
     if (totalWrap) {
       totalWrap.style.display = 'flex';
       const el = document.getElementById('cart-total');
-      if (el) el.textContent = total > 0 ? `$${total.toLocaleString('es-AR')}` : '';
+      if (el) {
+        const consultar = contarSinPrecio();
+        el.textContent = total > 0 ? `$${total.toLocaleString('es-AR')}` : '';
+        if (consultar > 0) {
+          const nota = document.createElement('small');
+          nota.className = 'cart-total-wrap__consultar';
+          nota.textContent = `${total > 0 ? '+ ' : ''}${textoConsultar(consultar)}`;
+          el.appendChild(nota);
+        }
+      }
     }
     renderShipping();
+  }
+
+  // Productos "Consultar precio" valen $0 en la suma: se avisa para que el total no parezca completo.
+  function contarSinPrecio() {
+    return items.filter(item => parsePrice(item.precio) === 0).length;
+  }
+
+  function textoConsultar(n) {
+    return `${n} ${n === 1 ? 'producto' : 'productos'} a consultar`;
   }
 
   function renderShipping() {
@@ -109,8 +127,9 @@
     } else {
       const faltan = (ENVIO_GRATIS - total).toLocaleString('es-AR');
       el.className = 'cart-shipping';
+      const aparte = contarSinPrecio() > 0 ? ' (sin contar los productos a consultar)' : '';
       el.innerHTML = `
-        <p class="cart-shipping__msg">Te faltan <strong>$${faltan}</strong> para envío gratis</p>
+        <p class="cart-shipping__msg">Te faltan <strong>$${faltan}</strong> para envío gratis${aparte}</p>
         <div class="cart-shipping__bar-wrap">
           <div class="cart-shipping__bar" style="transform:scaleX(${(pct / 100).toFixed(3)})"></div>
         </div>`;
@@ -184,8 +203,9 @@
         `• ${i.nombre} (${i.marca})${i.precio ? ' — ' + i.precio : ''}`
       ).join('\n');
       const total = items.reduce((acc, i) => acc + parsePrice(i.precio), 0);
+      const consultar = contarSinPrecio();
       const totalStr = total > 0
-        ? `\n\nTotal estimado: $${total.toLocaleString('es-AR')}`
+        ? `\n\nTotal estimado: $${total.toLocaleString('es-AR')}${consultar > 0 ? ' + ' + textoConsultar(consultar) : ''}`
         : '';
       const msg = encodeURIComponent(
         `Hola! Me interesan los siguientes productos:\n\n${lista}${totalStr}\n\n¿Podrían confirmarme disponibilidad?`
