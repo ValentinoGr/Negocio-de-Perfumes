@@ -53,12 +53,43 @@
     window.FocusScope?.close(popup);
   }
 
+  // Cambia el formulario por el cupón: el formulario se desvanece, el popup acompaña el cambio de
+  // alto y el cupón entra en cascada (la cascada vive en el CSS, con la clase .nl-cupon--entra).
   function mostrarCupon() {
+    const popup = document.getElementById('nl-popup');
     const form = document.getElementById('nl-form');
     const cupon = document.getElementById('nl-cupon');
-    if (form) form.style.display = 'none';
-    if (cupon) cupon.hidden = false;
     guardarTs((Date.now() + 365 * 86400000).toString());
+    if (!form || !cupon) return;
+
+    const reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cambiar = () => {
+      const alto0 = popup ? popup.offsetHeight : 0;
+      form.style.display = 'none';
+      cupon.hidden = false;
+      cupon.classList.add('nl-cupon--entra');
+      // El foco estaba en el botón que acaba de desaparecer: pasa al botón de copiar.
+      document.getElementById('nl-copiar')?.focus({ preventScroll: true });
+      const alto1 = popup ? popup.offsetHeight : 0;
+      if (reducido || !popup?.animate || !alto0 || alto0 === alto1) return;
+      // El popup está anclado abajo: animar el alto lo hace crecer o achicarse hacia arriba sin saltos.
+      popup.style.overflow = 'hidden';
+      const crece = popup.animate(
+        [{ height: alto0 + 'px' }, { height: alto1 + 'px' }],
+        { duration: 340, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' }
+      );
+      const listo = () => { popup.style.overflow = ''; };
+      crece.addEventListener('finish', listo);
+      crece.addEventListener('cancel', listo);
+    };
+
+    if (reducido || !form.animate) { cambiar(); return; }
+    const sale = form.animate(
+      [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-4px)' }],
+      { duration: 150, easing: 'cubic-bezier(0.4, 0, 0.2, 1)', fill: 'forwards' }
+    );
+    sale.addEventListener('finish', cambiar);
+    sale.addEventListener('cancel', cambiar);
   }
 
   // Si Brevo no responde en 8 s se sigue igual: el cupón se muestra y el usuario no queda esperando.

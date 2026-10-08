@@ -2425,6 +2425,37 @@ html {
   margin-top: 0.75rem;
   margin-bottom: 0;
 }
+
+/* Entrada del cupón (se agrega .nl-cupon--entra al mostrarlo): rótulo, código, botón y nota
+   entran en cascada; el código se descubre de izquierda a derecha y un filo dorado lo marca una vez. */
+@keyframes nlCuponEntra {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes nlCuponCodigo {
+  from { opacity: 0; clip-path: inset(0 100% 0 0); }
+  to   { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+@keyframes nlCuponFilo {
+  0%   { opacity: 0; }
+  25%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+.nl-cupon__codigo { position: relative; }
+.nl-cupon__codigo::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 2px dashed var(--oro);
+  border-radius: 14px;
+  opacity: 0;
+  pointer-events: none;
+}
+.nl-cupon--entra .nl-cupon__label { animation: nlCuponEntra 0.4s var(--ease-salida) backwards; }
+.nl-cupon--entra .nl-cupon__codigo { animation: nlCuponCodigo 0.6s var(--ease-salida) 0.08s backwards; }
+.nl-cupon--entra .nl-cupon__codigo::after { animation: nlCuponFilo 1.3s var(--ease-estandar) 0.45s backwards; }
+.nl-cupon--entra .nl-cupon__btn { animation: nlCuponEntra 0.45s var(--ease-salida) 0.3s backwards; }
+.nl-cupon--entra .nl-cupon__nota { animation: nlCuponEntra 0.45s var(--ease-salida) 0.38s backwards; }
 @media (max-width: 479.98px) {
   .nl-popup {
     bottom: 0;
@@ -3463,6 +3494,11 @@ html {
   .pmodal--cerrando .pmodal__card { transform: none; }
   .nl-popup, .nl-popup.nl-show { transform: translateX(-50%); }
   .gsearch__panel { transform: none; }
+  .nl-cupon--entra .nl-cupon__label,
+  .nl-cupon--entra .nl-cupon__codigo,
+  .nl-cupon--entra .nl-cupon__btn,
+  .nl-cupon--entra .nl-cupon__nota { animation: fadeIn 0.3s var(--ease-estandar) backwards; }
+  .nl-cupon--entra .nl-cupon__codigo::after { animation: none; }
 }
 
 /*# sourceMappingURL=styles.css.map */
@@ -3565,4 +3601,14 @@ body:has(.pmodal--visible, .gsearch--visible, .nl-popup.nl-show) .back-to-top {
 }
 .cart-drawer, .fav-drawer {
   padding-right: var(--sa-r);
+}
+
+/* ── Transición entre páginas ──────────────────────────
+   Fundido corto entre documentos del mismo sitio (Chrome, Edge y Safari recientes; el resto
+   navega como siempre). Solo opacidad: la entrada de cada página ya trae su propio movimiento.
+   El navegador mantiene la página vieja a la vista hasta que la nueva pinta, sin parpadeo. */
+@view-transition { navigation: auto; }
+::view-transition-group(root) {
+  animation-duration: 0.22s;
+  animation-timing-function: var(--ease-estandar);
 }
