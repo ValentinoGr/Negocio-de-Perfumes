@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-08T06:54:30Z",
+  "generatedAt": "2026-10-08T20:54:21Z",
   "title": "Design System: Essenza",
   "extensions": {
     "colorMeta": {
@@ -232,16 +232,16 @@
       "alerta": {
         "role": "tertiary",
         "displayName": "Alerta",
-        "canonical": "#e74c3c",
+        "canonical": "#c0392b",
         "tonalRamp": [
-          "oklch(15.0% 0.194 29)",
-          "oklch(26.4% 0.194 29)",
-          "oklch(37.9% 0.194 29)",
-          "oklch(49.3% 0.194 29)",
-          "oklch(60.7% 0.194 29)",
-          "oklch(72.1% 0.194 29)",
-          "oklch(83.6% 0.194 29)",
-          "oklch(95.0% 0.116 29)"
+          "oklch(15.0% 0.174 30)",
+          "oklch(26.4% 0.174 30)",
+          "oklch(37.9% 0.174 30)",
+          "oklch(49.3% 0.174 30)",
+          "oklch(60.7% 0.174 30)",
+          "oklch(72.1% 0.174 30)",
+          "oklch(83.6% 0.174 30)",
+          "oklch(95.0% 0.104 30)"
         ]
       }
     },
@@ -305,24 +305,34 @@
     ],
     "motion": [
       {
-        "name": "ease-standard",
+        "name": "ease-salida",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Frenado fuerte y sin rebote para toda entrada: hero, tarjetas, popup, barras de progreso."
+      },
+      {
+        "name": "ease-estandar",
         "value": "cubic-bezier(0.4, 0, 0.2, 1)",
         "purpose": "Entrada de drawers (0.35s)."
       },
       {
-        "name": "ease-overshoot",
-        "value": "cubic-bezier(0.34, 1.25, 0.64, 1)",
-        "purpose": "Aparición del popup de bienvenida (0.4s)."
+        "name": "entrada-inicio",
+        "value": "fadeInUp 0.6s var(--ease-salida)",
+        "purpose": "Titular, subtítulo y tarjetas del inicio, en ese orden; tarjetas con 80ms de escalonado."
       },
       {
-        "name": "reveal",
-        "value": "0.75s ease",
-        "purpose": "Aparición de secciones al hacer scroll (opacity y translateY 40px)."
+        "name": "reveal-scroll",
+        "value": "fadeInUp 0.6s var(--ease-salida) backwards",
+        "purpose": "Tarjetas de categoría al aparecer por scroll (animación, no transición)."
       },
       {
         "name": "hover-lift",
         "value": "0.3s ease",
-        "purpose": "Elevación de tarjetas en hover."
+        "purpose": "Elevación de tarjetas, solo con mouse (hover: hover)."
+      },
+      {
+        "name": "press",
+        "value": "scale 0.94 / 0.985",
+        "purpose": "Respuesta al toque en botones y chips (0.94) y tarjetas (0.985)."
       }
     ],
     "breakpoints": [
@@ -412,7 +422,7 @@
   ],
   "narrative": {
     "northStar": "La vitrina de mármol",
-    "overview": "**Creative North Star: \"La vitrina de mármol\"**\n\nEssenza se ve como la vitrina de una perfumería: superficies de grafito y mármol negro, un único dorado viejo que aparece como filo de luz y no como relleno, y el frasco como protagonista. La interfaz se retira lo suficiente para que el producto brille, pero no se vuelve distante: los botones son claros, el camino hacia WhatsApp siempre está a la vista y el tono es cercano.\n\nEl sistema alterna dos mundos. Las páginas viven sobre un fondo niebla (#ededec) con tarjetas blancas y mucho aire; las piezas de marca (navbar, tarjetas de categoría, footer, modal, buscador, popup) son oscuras, con bordes dorados casi invisibles. Los titulares son Oswald en mayúsculas con tracking amplio; el texto corrido usa la fuente del sistema. El movimiento es suave y acompaña: aparición al hacer scroll, tarjetas que suben unos píxeles, un halo dorado que sigue al cursor en escritorio.\n\nRechaza dos cosas: parecer un marketplace de ofertas (banners, etiquetas chillonas, colores saturados) y parecer una plantilla genérica de tienda intercambiable con cualquier otra. Su carácter sale del contraste grafito/oro, de la tipografía de impacto y de los detalles de vitrina (mármol, filos dorados, luz).",
+    "overview": "**Creative North Star: \"La vitrina de mármol\"**\n\nEssenza se ve como la vitrina de una perfumería: superficies de grafito y mármol negro, un único dorado viejo que aparece como filo de luz y no como relleno, y el frasco como protagonista. La interfaz se retira lo suficiente para que el producto brille, pero no se vuelve distante: los botones son claros, el camino hacia WhatsApp siempre está a la vista y el tono es cercano.\n\nEl sistema alterna dos mundos. Las páginas viven sobre un fondo niebla (#ededec) con tarjetas blancas y mucho aire; las piezas de marca (navbar, tarjetas de categoría, footer, modal, buscador, popup) son oscuras, con bordes dorados casi invisibles. Los titulares son Oswald en mayúsculas con tracking amplio; el texto corrido usa la fuente del sistema. El movimiento es suave y acompaña: una entrada ordenada en el inicio (primero el titular, después las tarjetas), aparición al hacer scroll, tarjetas que suben unos píxeles, un halo dorado que sigue al cursor en escritorio.\n\nRechaza dos cosas: parecer un marketplace de ofertas (banners, etiquetas chillonas, colores saturados) y parecer una plantilla genérica de tienda intercambiable con cualquier otra. Su carácter sale del contraste grafito/oro, de la tipografía de impacto y de los detalles de vitrina (mármol, filos dorados, luz).",
     "keyCharacteristics": [
       "Oscuro y sobrio en las piezas de marca; claro y aireado en el catálogo.",
       "Un solo acento, el oro viejo, usado con intención y en poca superficie.",
@@ -472,6 +482,12 @@
       "**Do** mostrar \"Consultar precio\" y \"Sin stock\" tal cual, en gris medio y sin peso.",
       "**Do** darle un control o un final a todo loop: la cinta de anuncio se puede pausar y se detiene fuera de pantalla; el pulso de WhatsApp hace 3 repeticiones y descansa.",
       "**Do** ofrecer siempre la alternativa de `prefers-reduced-motion`: sin desplazamientos ni loops, conservando los cambios de opacidad, color y sombra que informan el estado.",
+      "**Do** poner todo `:hover` dentro de `@media (hover: hover) and (pointer: fine)`: en celular el hover queda pegado después del toque. El toque tiene su propio estado `:active` con la propiedad `scale` (0.94 en botones y chips, 0.985 en tarjetas), y el destello gris del navegador está apagado (`-webkit-tap-highlight-color: transparent`).",
+      "**Do** dejar los campos de texto en 16px en pantallas táctiles (`pointer: coarse`) para que iOS no haga zoom al enfocar, y usar `dvh` (con `vh` de respaldo) en las alturas de `body` y diálogos para seguir la barra del navegador.",
+      "**Do** respetar las zonas seguras con `--sa-b` y `--sa-r` (muesca y barra de inicio) en los botones flotantes, el popup y el pie del carrito; el viewport lleva `viewport-fit=cover` y nunca `user-scalable=no`.",
+      "**Do** mantener `overscroll-behavior: contain` en los paneles con scroll propio (carrito, favoritos, ficha, buscador, sidebar) sin bloquear el jalar-para-actualizar de la página.",
+      "**Do** aislar el pintado de cada tarjeta del catálogo (`contain: paint`) y no dejar una animación infinita por tarjeta: el brillo de carga (`img-shimmer`) solo corre en las tarjetas cercanas a la pantalla (clase `.shimmer` que pone un IntersectionObserver). Con cientos de tarjetas, lo contrario traba el menú y el scroll.",
+      "**Do** ordenar la entrada del inicio: titular, separador y subtítulo (`fadeInUp` 0.6s con `--ease-salida`), y recién después las tarjetas de categoría con 80ms de escalonado. Las tarjetas entran con animación y no con transición, con `fill-mode: backwards` (nunca `both`: retendría el `transform` y anularía el hover).",
       "**Do** marcar el foco de teclado con un anillo de 2px y 2px de separación: oro viejo (#c9a06a) sobre superficies oscuras y grafito (#2c2c2c) sobre fondos claros. Los campos de texto lo muestran en su contenedor, sin anillo doble.",
       "**Do** mantener fondos oscuros en grafitos (#2c2c2c, #1e1e1e, #1a1a1a, #131313) y texto claro en marfil o blanco; fondo de página niebla (#ededec)."
     ],
@@ -482,7 +498,9 @@
       "**Don't** meter un segundo acento de marca ni usar el verde de WhatsApp como decoración.",
       "**Don't** reemplazar la combinación Oswald + fuente del sistema por una plantilla genérica de tienda; el carácter sale de esa tipografía y del contraste grafito/oro.",
       "**Don't** poner sombras fuertes permanentes sobre tarjetas en reposo.",
-      "**Don't** agregar animaciones que corran para siempre sin pausa ni fin, ni desplazamientos que ignoren el movimiento reducido."
+      "**Don't** agregar animaciones que corran para siempre sin pausa ni fin, ni desplazamientos que ignoren el movimiento reducido.",
+      "**Don't** dejar un `:hover` sin condicionar, ni poner `user-select: none` en texto de contenido (nombres, precios): solo en controles.",
+      "**Don't** reutilizar el `transition` de una clase genérica sobre un componente que declara el suyo: `.categoria-card` pisaba a `.animate-on-scroll` y el reveal dejó de funcionar sin que nadie lo notara."
     ]
   }
 }
