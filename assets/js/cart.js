@@ -98,7 +98,7 @@
       el.innerHTML = `
         <p class="cart-shipping__msg"><i class="bi bi-truck"></i> <strong>¡Envío gratis en tu pedido!</strong></p>
         <div class="cart-shipping__bar-wrap">
-          <div class="cart-shipping__bar" style="width:100%"></div>
+          <div class="cart-shipping__bar" style="transform:scaleX(1)"></div>
         </div>`;
     } else {
       const faltan = (ENVIO_GRATIS - total).toLocaleString('es-AR');
@@ -106,7 +106,7 @@
       el.innerHTML = `
         <p class="cart-shipping__msg">Te faltan <strong>$${faltan}</strong> para envío gratis</p>
         <div class="cart-shipping__bar-wrap">
-          <div class="cart-shipping__bar" style="width:${pct.toFixed(1)}%"></div>
+          <div class="cart-shipping__bar" style="transform:scaleX(${(pct / 100).toFixed(3)})"></div>
         </div>`;
     }
   }

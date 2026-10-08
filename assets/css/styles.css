@@ -95,10 +95,12 @@
   top: 0;
   left: 0;
   height: 2px;
-  width: 0%;
+  width: 100%;
   background: var(--oro);
   z-index: 9999;
-  transition: width 0.08s linear;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.08s linear;
 }
 
 body {
@@ -859,19 +861,16 @@ html {
   display: flex;
 }
 
-@keyframes cartBounce {
+@keyframes cartPulso {
   0%, 100% {
     transform: scale(1);
   }
-  40% {
-    transform: scale(1.35);
-  }
-  70% {
-    transform: scale(0.9);
+  35% {
+    transform: scale(1.3);
   }
 }
 .cart-badge--bounce {
-  animation: cartBounce 0.4s ease;
+  animation: cartPulso 0.45s var(--ease-salida);
 }
 
 .cart-overlay {
@@ -2090,7 +2089,7 @@ html {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease,
-              transform 0.4s cubic-bezier(0.34, 1.25, 0.64, 1),
+              transform 0.4s var(--ease-salida),
               visibility 0.4s ease;
 }
 .nl-popup.nl-show {
@@ -2313,11 +2312,12 @@ html {
   overflow: hidden;
 }
 .cart-shipping__bar {
+  width: 100%;
   height: 100%;
   border-radius: 99px;
   background: linear-gradient(90deg, var(--oro), #e8c88a);
-  transition: width 0.6s var(--ease-estandar);
-  min-width: 4px;
+  transform-origin: left center;
+  transition: transform 0.6s var(--ease-salida);
 }
 .cart-shipping--free .cart-shipping__msg { color: #1a7a3a; font-weight: 500; }
 .cart-shipping--free .cart-shipping__bar {
