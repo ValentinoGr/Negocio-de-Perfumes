@@ -261,6 +261,9 @@ La scrollbar es fina, con pulgar oro viejo sobre pista grafito oscuro. En dispos
 ### Do:
 - **Do** usar oro viejo (#c9a06a) solo para estados activos, filos, iconos pequeños y luz; en rgba cuando vaya en bordes y fondos.
 - **Do** reservar el verde #25d366 para acciones que llevan a WhatsApp o confirman un paso.
+- **Do** poner texto verde-oscuro (#0b2a17, 7,8:1) sobre botones de WhatsApp (#25d366); el blanco sobre ese verde da 1,98:1 y no pasa AA. El glifo del botón flotante conserva el blanco de marca.
+- **Do** usar oro profundo (#8a6a35, 5:1) para texto e iconos de oro sobre fondos claros (panel de favoritos, filtro del sidebar); el oro #c9a06a sobre blanco da 2,3:1 y queda para superficies oscuras.
+- **Do** mantener el texto secundario sobre grafito en #a3a3a3 o más claro y en gris #666 o más oscuro sobre niebla/blanco (mínimo 4,5:1); #444, #666 sobre grafito y #888–#bbb sobre claro quedaron retirados.
 - **Do** poner titulares, etiquetas y nombres de producto en mayúsculas con tracking; Oswald solo en peso 700.
 - **Do** dejar las superficies planas en reposo y mostrar elevación y brillo dorado como respuesta a hover o foco.
 - **Do** usar píldoras (100px) para campos y filtros, y círculos para botones flotantes y de cierre.
