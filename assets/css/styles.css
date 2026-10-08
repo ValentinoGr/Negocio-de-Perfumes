@@ -21,6 +21,12 @@
   /* Aviso: contador del carrito */
   --alerta: #c0392b;               /* blanco sobre este rojo, 5,4:1 */
 
+  /* Tipografía: piso de 12px para etiquetas, 16px para texto corrido */
+  --t-etiqueta: 0.75rem;          /* etiquetas, metadatos, notas */
+  --t-nombre: 0.82rem;            /* nombre de producto en tarjetas, carrito y favoritos */
+  --t-cuerpo-chico: 0.95rem;      /* texto corrido en celular y paneles angostos */
+  --t-cuerpo: 1rem;               /* texto corrido */
+
   /* Movimiento */
   --ease-salida: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-estandar: cubic-bezier(0.4, 0, 0.2, 1);
@@ -143,7 +149,7 @@ main {
   animation: fadeIn 0.7s ease 0.75s both;
 }
 .hero__subtitulo {
-  font-size: 0.95rem;
+  font-size: var(--t-cuerpo);
   color: var(--texto-suave-claro);
   letter-spacing: 0.06em;
   max-width: 480px;
@@ -189,7 +195,7 @@ main {
   letter-spacing: 0.02em;
 }
 .categoria-card__texto {
-  font-size: 0.88rem;
+  font-size: var(--t-cuerpo);
   color: #aaa;
   line-height: 1.75;
   margin-bottom: 2rem;
@@ -345,7 +351,7 @@ main {
   animation: fadeInUp 0.9s ease 0.35s both;
 }
 .page-hero__subtitulo {
-  font-size: 0.95rem;
+  font-size: var(--t-cuerpo);
   color: var(--texto-suave-claro);
   letter-spacing: 0.04em;
   max-width: 560px;
@@ -469,7 +475,7 @@ main {
   margin-bottom: 0.75rem;
 }
 .nosotros-bloque__texto {
-  font-size: 0.92rem;
+  font-size: var(--t-cuerpo);
   color: #555;
   line-height: 1.85;
   margin: 0;
@@ -506,7 +512,7 @@ html {
 }
 .catalogo-nav__item {
   font-family: "Oswald", sans-serif;
-  font-size: 0.73rem;
+  font-size: var(--t-etiqueta);
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--plata);
@@ -659,7 +665,7 @@ html {
   justify-content: space-between;
 }
 .producto-card__nombre {
-  font-size: 0.72rem;
+  font-size: var(--t-nombre);
   font-weight: 700;
   color: var(--grafito);
   text-transform: uppercase;
@@ -684,7 +690,7 @@ html {
 }
 .producto-card__precio--sin-stock {
   font-family: inherit;
-  font-size: 0.72rem;
+  font-size: var(--t-etiqueta);
   font-weight: 500;
   color: #707070;
   text-transform: uppercase;
@@ -727,7 +733,7 @@ html {
   border-radius: 2px;
 }
 .catalogo-sidebar__titulo {
-  font-size: 0.62rem;
+  font-size: var(--t-etiqueta);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -790,7 +796,7 @@ html {
   color: var(--blanco);
   border: none;
   border-radius: 8px;
-  font-size: 0.68rem;
+  font-size: var(--t-etiqueta);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -841,11 +847,11 @@ html {
   right: 2px;
   background-color: var(--alerta);
   color: var(--blanco);
-  font-size: 0.58rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  min-width: 15px;
-  height: 15px;
-  border-radius: 8px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
   padding: 0 3px;
   display: none;
   align-items: center;
@@ -989,7 +995,7 @@ html {
   flex: 1;
 }
 .cart-item__nombre {
-  font-size: 0.72rem;
+  font-size: var(--t-nombre);
   font-weight: 700;
   color: var(--grafito);
   text-transform: uppercase;
@@ -998,7 +1004,7 @@ html {
   margin: 0 0 0.2rem;
 }
 .cart-item__marca {
-  font-size: 0.67rem;
+  font-size: var(--t-etiqueta);
   color: #888888;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -1019,7 +1025,7 @@ html {
   margin: 0;
 }
 .cart-item__precio--consultar {
-  font-size: 0.68rem;
+  font-size: var(--t-etiqueta);
   color: #888888;
   font-style: italic;
   margin: 0;
@@ -1045,7 +1051,7 @@ html {
   margin-bottom: 1rem;
 }
 .cart-total-wrap__label {
-  font-size: 0.72rem;
+  font-size: var(--t-etiqueta);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1112,11 +1118,11 @@ html {
   right: 2px;
   background-color: var(--oro);
   color: #111;
-  font-size: 0.58rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  min-width: 15px;
-  height: 15px;
-  border-radius: 8px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
   padding: 0 3px;
   display: none;
   align-items: center;
@@ -1262,14 +1268,14 @@ html {
   min-width: 0;
 }
 .fav-item__marca {
-  font-size: 0.62rem;
+  font-size: var(--t-etiqueta);
   color: var(--oro-profundo);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0 0 0.1rem;
 }
 .fav-item__nombre {
-  font-size: 0.72rem;
+  font-size: var(--t-nombre);
   font-weight: 700;
   color: var(--grafito);
   text-transform: uppercase;
@@ -1288,7 +1294,7 @@ html {
   margin: 0;
 }
 .fav-item__precio--consultar {
-  font-size: 0.68rem;
+  font-size: var(--t-etiqueta);
   color: #888;
   font-style: italic;
 }
@@ -1620,7 +1626,7 @@ html {
   color: #e1306c;
 }
 .footer__copy {
-  font-size: 0.72rem;
+  font-size: var(--t-etiqueta);
   color: var(--texto-suave-oscuro);
   letter-spacing: 0.05em;
   margin: 0;
@@ -1674,7 +1680,7 @@ html {
     font-size: clamp(2rem, 11vw, 3.5rem);
   }
   .hero__subtitulo {
-    font-size: 0.88rem;
+    font-size: var(--t-cuerpo-chico);
   }
   .page-hero {
     padding: 2.5rem 1.25rem 2rem;
@@ -1684,7 +1690,7 @@ html {
     line-height: 1.1;
   }
   .page-hero__subtitulo {
-    font-size: 0.88rem;
+    font-size: var(--t-cuerpo-chico);
     letter-spacing: 0.02em;
   }
   .categorias {
@@ -1701,7 +1707,7 @@ html {
     font-size: 1.35rem;
   }
   .categoria-card__texto {
-    font-size: 0.84rem;
+    font-size: var(--t-cuerpo-chico);
     margin-bottom: 1.5rem;
   }
   .brand-quote {
@@ -1712,7 +1718,7 @@ html {
     margin: 1.5rem 0;
   }
   .stats-band__label {
-    font-size: 0.65rem;
+    font-size: var(--t-etiqueta);
     letter-spacing: 0.1em;
   }
   .nosotros-secciones {
@@ -1730,7 +1736,7 @@ html {
     font-size: 1.25rem;
   }
   .nosotros-bloque__texto {
-    font-size: 0.88rem;
+    font-size: var(--t-cuerpo-chico);
   }
   .catalogo-seccion {
     padding: 2.5rem 0 1.5rem;
@@ -1942,7 +1948,7 @@ html {
   opacity: 0.6;
 }
 .info-card__item span {
-  font-size: 0.9rem;
+  font-size: var(--t-cuerpo-chico);
   color: #555;
   line-height: 1.75;
 }
@@ -2049,7 +2055,7 @@ html {
 
 /* ── Marca debajo del nombre en card ──────────────── */
 .producto-card__marca {
-  font-size: 0.72rem;
+  font-size: var(--t-etiqueta);
   color: #888;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -2108,7 +2114,7 @@ html {
 }
 .nl-cerrar:hover { color: var(--blanco); background-color: rgba(255, 255, 255, 0.08); }
 .nl-eyebrow {
-  font-size: 0.68rem;
+  font-size: var(--t-etiqueta);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--whatsapp);
@@ -2125,7 +2131,7 @@ html {
   line-height: 1.15;
 }
 .nl-texto {
-  font-size: 0.875rem;
+  font-size: var(--t-cuerpo-chico);
   color: rgba(255, 255, 255, 0.68);
   margin-bottom: 1.2rem;
 }
@@ -2170,7 +2176,7 @@ html {
 .nl-btn:hover { background: #e5e5e5; }
 .nl-btn:disabled { opacity: 0.55; cursor: not-allowed; }
 .nl-nota {
-  font-size: 0.69rem;
+  font-size: var(--t-etiqueta);
   color: rgba(255, 255, 255, 0.58);
   text-align: center;
   margin-top: 0.55rem;
@@ -2211,7 +2217,7 @@ html {
 }
 .nl-cupon__btn:hover { background: var(--whatsapp-hover); transform: translateY(-2px); }
 .nl-cupon__nota {
-  font-size: 0.73rem;
+  font-size: var(--t-etiqueta);
   color: rgba(255, 255, 255, 0.58);
   margin-top: 0.75rem;
   margin-bottom: 0;
@@ -2264,7 +2270,7 @@ html {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.67rem;
+  font-size: var(--t-etiqueta);
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: rgba(201, 160, 106, 0.85);
@@ -2413,7 +2419,7 @@ html {
 }
 .precio-filter__label {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.68rem;
+  font-size: var(--t-etiqueta);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(201,160,106,0.9);
@@ -2551,7 +2557,7 @@ html {
 }
 .pmodal__marca {
   font-family: 'Oswald', sans-serif;
-  font-size: 0.7rem;
+  font-size: var(--t-etiqueta);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(201,160,106,0.65);
@@ -2677,11 +2683,11 @@ html {
   }
   .buscador-wrap__fila .precio-filter__label {
     padding: 0 0.6rem 0 0.9rem;
-    font-size: 0.62rem;
+    font-size: var(--t-etiqueta);
   }
   .buscador-wrap__fila .precio-filter__btn {
     padding: 0.85rem 0.35rem;
-    font-size: 0.7rem;
+    font-size: var(--t-etiqueta);
   }
 }
 
@@ -3004,7 +3010,7 @@ html {
 }
 
 .gsearch__item-marca {
-  font-size: 0.72rem;
+  font-size: var(--t-etiqueta);
   color: var(--oro);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -3029,7 +3035,7 @@ html {
 }
 
 .gsearch__badge {
-  font-size: 0.65rem;
+  font-size: var(--t-etiqueta);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;

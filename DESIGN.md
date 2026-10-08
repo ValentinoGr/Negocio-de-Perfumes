@@ -184,8 +184,8 @@ Una paleta casi monocroma de grafitos y blancos cálidos, con un solo acento met
 - **Display** (Oswald 700, clamp(4rem, 12vw, 9rem), 1, tracking 0.04em): el "¡Bienvenidos!" del inicio. Los hero de página usan clamp(3rem, 10vw, 7rem).
 - **Headline** (Oswald 700, clamp(2rem, 5vw, 3.5rem), 1, tracking 0.08em): títulos de marca dentro del catálogo.
 - **Title** (Oswald 700, 1.2–1.5rem, 1.2, tracking 0.05–0.1em): títulos de bloques, tarjetas de información, cabeceras de drawers y modal.
-- **Body** (sistema 400, 0.88–0.95rem, 1.75–1.85): descripciones y textos de página, ancho máximo de 480–560px en subtítulos.
-- **Label** (sistema 700, 0.65–0.78rem, tracking 0.03–0.25em, mayúsculas): nombres de producto, eyebrows, botones pequeños, enlaces "Ver colección".
+- **Body** (sistema 400, `--t-cuerpo` 1rem en escritorio y `--t-cuerpo-chico` 0.95rem en celular y paneles angostos, 1.75–1.85): descripciones y textos de página, ancho máximo de 480–560px en subtítulos.
+- **Label** (sistema 700, `--t-etiqueta` 0.75rem como piso, tracking 0.03–0.25em, mayúsculas): eyebrows, marcas, notas, botones pequeños, enlaces "Ver colección". El nombre de producto en tarjetas, carrito y favoritos usa `--t-nombre` 0.82rem.
 - **Price** (Oswald 700, 1rem): precios de producto, total del carrito.
 
 ### Named Rules
@@ -268,6 +268,7 @@ La scrollbar es fina, con pulgar oro viejo sobre pista grafito oscuro. En dispos
 - **Do** usar las variables de `:root` en `assets/css/styles.css` (`--oro`, `--oro-profundo`, `--grafito`, `--grafito-profundo`, `--panel-noche`, `--niebla`, `--blanco`, `--plata`, `--texto-suave-claro`, `--texto-suave-oscuro`, `--whatsapp`, `--whatsapp-hover`, `--whatsapp-tinta`, `--ease-salida`, `--ease-estandar`) en lugar de escribir el color o la curva a mano. Un color nuevo se agrega primero como variable. Los degradados y bordes con transparencia (`rgba(201,160,106,…)`) siguen escritos a mano.
 - **Do** usar `--alerta` (#c0392b, 5,4:1 con blanco) para el contador del carrito; el rojo anterior (#e74c3c) daba 3,8:1. Todo campo de formulario lleva nombre accesible (`aria-label` o `<label>`) y los `aria-label` van en español.
 - **Do** dejar el título del inicio sin etiqueta encima (el logo del menú ya dice Essenza); las páginas internas conservan la etiqueta "Essenza" sobre el título.
+- **Do** respetar el piso tipográfico: ningún texto legible por debajo de 0.75rem (12px) y texto corrido en 0.95–1rem; usar `--t-etiqueta`, `--t-nombre`, `--t-cuerpo-chico` y `--t-cuerpo`. Excepciones: los números del contador del carrito y favoritos (0.7rem en círculos de 18px) y los glifos decorativos (✦ ◆).
 - **Do** frenar todo movimiento con `--ease-salida` (sin rebote ni sobrepaso) y animar progreso con `transform: scaleX()`, nunca con `width`: la barra de scroll y la barra de envío gratis del carrito.
 - **Do** mantener el texto secundario sobre grafito en #a3a3a3 o más claro y en gris #666 o más oscuro sobre niebla/blanco (mínimo 4,5:1); #444, #666 sobre grafito y #888–#bbb sobre claro quedaron retirados.
 - **Do** poner titulares, etiquetas y nombres de producto en mayúsculas con tracking; Oswald solo en peso 700.
