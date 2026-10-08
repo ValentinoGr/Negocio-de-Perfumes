@@ -18,6 +18,9 @@
   --whatsapp-hover: #1ebe5d;
   --whatsapp-tinta: #0b2a17;      /* texto sobre el verde, 7,8:1 */
 
+  /* Aviso: contador del carrito */
+  --alerta: #c0392b;               /* blanco sobre este rojo, 5,4:1 */
+
   /* Movimiento */
   --ease-salida: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-estandar: cubic-bezier(0.4, 0, 0.2, 1);
@@ -844,7 +847,7 @@ html {
   position: absolute;
   top: 2px;
   right: 2px;
-  background-color: #e74c3c;
+  background-color: var(--alerta);
   color: var(--blanco);
   font-size: 0.58rem;
   font-weight: 700;
