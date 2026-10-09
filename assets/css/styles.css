@@ -2472,7 +2472,7 @@ html {
 /* ── Barra de anuncio marquee ─────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(var(--anuncio-ciclo, -50%)); }
 }
 @keyframes anuncio-pulse {
   0%, 100% { opacity: 0.78; }
